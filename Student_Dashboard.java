@@ -86,7 +86,7 @@ public class Student_Dashboard extends Template implements ActionListener {
             mainFrame.dispose();
         }
         else if(e.getSource() == profile){
-            new Profile();
+            new Student_Profile();
             mainFrame.dispose();
         }
     }

@@ -46,6 +46,9 @@ public class Identify extends Template implements ActionListener {
         if(e.getSource() == teacherButton){
             isTeacher = true;
         }
+        else if(e.getSource() == studentButton){
+            isTeacher = false;
+        }
         new LoginOrSignup();
         mainFrame.dispose();
     }

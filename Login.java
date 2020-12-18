@@ -54,9 +54,9 @@ public class Login extends Template implements ActionListener {
     }
 
     private Student getAccountS(){
-        ArrayList<Student> list = Student.readStudentRecord();
-        System.out.println(list.size());
-        for (Student curr: list){
+        ArrayList<Student> list1 = Student.readStudentRecord();
+        System.out.println("Student");
+        for (Student curr: list1){
             if(curr.getUsername().equals(userField.getText()) && curr.getPassword().equals(passField.getText())){
                 return curr;
             }
@@ -65,9 +65,9 @@ public class Login extends Template implements ActionListener {
     }
 
     private Teacher getAccountT(){
-        ArrayList<Teacher> list = Teacher.readTeacherRecord();
-        System.out.println(list.size());
-        for (Teacher curr: list){
+        ArrayList<Teacher> list2 = Teacher.readTeacherRecord();
+        System.out.println("Teacher");
+        for (Teacher curr: list2){
             if(curr.getUsername().equals(userField.getText()) && curr.getPassword().equals(passField.getText())){
                 return curr;
             }
@@ -78,24 +78,22 @@ public class Login extends Template implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == loginButton) {
-            Person curr;
-            if(Identify.isTeacher){
-                curr = getAccountT();
-            }
-            else {
-                curr = getAccountS();
-            }
-            if (curr != null){
-                Identify.account = curr;
-                if(Identify.isTeacher){
+            if(e.getSource() == loginButton && Identify.isTeacher) {
+                Teacher curr = getAccountT();
+                if (curr != null) {
+                    Identify.account = curr;
                     new Teacher_Dashboard();
+                    mainFrame.dispose();
                 }
-                else {
-                    new Student_Dashboard();
-                }
-                mainFrame.dispose();
             }
+            else if(e.getSource() == loginButton && !Identify.isTeacher) {
+                    Student curr = getAccountS();
+                    if(curr != null){
+                        Identify.account = curr;
+                        new Student_Dashboard();
+                        mainFrame.dispose();
+                    }
+
             else {
                 success.setText("Invalid Login Credentials");
                 success.setForeground(new Color(255, 0, 0));

@@ -4,33 +4,38 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Teacher extends Person implements Serializable {
-    private String Field;
-    private String Experience;
+    private String field;
+    private String experience;
     private String qualification;
 
     public Teacher(){}
-
+    public Teacher(Teacher obj){
+        super(obj.getUsername(), obj.getPassword(), obj.getName(), obj.getAge(), obj.getEmail());
+        this.field = obj.field;
+        this.experience = obj.experience;
+        this.qualification = obj.qualification;
+    }
     public Teacher(String username, String password, String name, String age, String email, String field, String experience, String qualification) {
         super(username, password, name, age, email);
-        Field = field;
-        Experience = experience;
+        this.field = field;
+        this.experience = experience;
         this.qualification = qualification;
     }
 
     public String getField() {
-        return Field;
+        return field;
     }
 
     public void setField(String field) {
-        Field = field;
+        this.field = field;
     }
 
     public String getExperience() {
-        return Experience;
+        return experience;
     }
 
     public void setExperience(String experience) {
-        Experience = experience;
+        this.experience = experience;
     }
 
     public String getQualification() {
@@ -55,19 +60,19 @@ public class Teacher extends Person implements Serializable {
     }
 
     public static ArrayList<Teacher> readTeacherRecord() {
-        ArrayList<Teacher> list = new ArrayList<Teacher>();
+        ArrayList<Teacher> list2 = new ArrayList<Teacher>();
 
         try {
             ObjectInputStream input = new ObjectInputStream(new FileInputStream("Teacher Record"));
-            list = (ArrayList<Teacher>) input.readObject();
+            list2 = (ArrayList<Teacher>) input.readObject();
         }
         catch(FileNotFoundException e){
             System.out.println("File Not Found");
         }
         catch(Exception e){
-            System.out.println("File Error");
+            e.printStackTrace();
         }
-        return list;
+        return list2;
     }
     public static void display(){
         ArrayList<Teacher> list = readTeacherRecord();
