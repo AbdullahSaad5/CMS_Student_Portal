@@ -10,7 +10,6 @@ public class SignUp_Details extends Template implements ActionListener {
     JButton submit;
     JTextField nameField, regNoField, semesterField, ageField, gpaField, cityField, busField;
     JLabel nameLabel, regNoLabel, semesterLabel, ageLabel, gpaLabel, cityLabel, busLabel, mainLabel, success;
-    static Student curr = new Student("a", "a", "a", "a", "a", "a", "a");
     public SignUp_Details(){
         backButton.setEnabled(true);
         backButton.addActionListener(this);
@@ -112,10 +111,14 @@ public class SignUp_Details extends Template implements ActionListener {
                 success.setText("Details Registered.");
                 success.setForeground(new Color(0, 255, 0));
                 success.setBounds(618, 440, 130, 20);
-
-                curr = new Student(nameField.getText(), regNoField.getText(), semesterField.getText(), ageField.getText(),
-                        gpaField.getText(), cityField.getText(), busField.getText());
-                Student.writeStudentRecord(curr);
+                Identify.student.setName(nameField.getText());
+                Identify.student.setRegNo(regNoField.getText());
+                Identify.student.setSemester(semesterField.getText());
+                Identify.student.setAge(ageField.getText());
+                Identify.student.setCGPA(gpaField.getText());
+                Identify.student.setHomeCity(cityField.getText());
+                Identify.student.setBusFacility(busField.getText());
+                Student.writeStudentRecord(Identify.student);
                 new Main_Interface();
                 mainFrame.dispose();
             }

@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Login extends Template implements ActionListener {
     JPanel mainPanel;
@@ -10,7 +11,6 @@ public class Login extends Template implements ActionListener {
     JPasswordField passField;
     JLabel userLabel, passLabel, loginLabel, success;
     JButton loginButton;
-
     public Login(){
         mainPanel = new JPanel();
         mainPanel.setPreferredSize(new Dimension(200, 200));
@@ -51,20 +51,30 @@ public class Login extends Template implements ActionListener {
 
 
         mainFrame.setVisible(true);
-
     }
+
+    private Student getAccount(){
+        ArrayList<Student> list = Student.readStudentRecord();
+        System.out.println(list.size());
+        for (Student curr: list){
+            if(curr.getUsername().equals(userField.getText()) && curr.getPassword().equals(passField.getText())){
+                return curr;
+            }
+        }
+        return null;
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == loginButton) {
-            if (userField.getText().equals("Abdullah") && passField.getText().equals("12345")) {
+            Student curr =  getAccount();
+            if (curr != null){
+                Identify.student = curr;
                 new Main_Interface();
                 mainFrame.dispose();
-            } else if (userField.getText().equals("Abdullah")) {
-                success.setText("Invalid Password");
-                success.setForeground(new Color(199, 120, 2));
-                success.setBounds(628, 254, 200, 20);
-            } else {
+            }
+            else {
                 success.setText("Invalid Login Credentials");
                 success.setForeground(new Color(255, 0, 0));
                 success.setBounds(596, 254, 200, 20);

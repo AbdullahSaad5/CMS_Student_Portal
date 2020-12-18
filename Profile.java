@@ -16,8 +16,7 @@ public class Profile extends Main_Interface{
 
     public Profile(){
 
-//        curr = SignUp_Details.curr;
-        curr = new Student("Hashaam Khan", "FA19-BCS-026", "3rd", "19", "420.69", "Swabi", "No");
+        curr = new Student(Identify.student);
         interfacePanel = new JPanel();
         interfacePanel.setLayout(null);
         mainPanel.add(interfacePanel);
@@ -29,7 +28,7 @@ public class Profile extends Main_Interface{
 
         name = new JLabel();
         name.setFont(new Font("Roboto", Font.BOLD, 15));
-        name.setText(curr.getName());
+        name.setText(curr.getUsername());
         name.setBounds(718, 48, 200, 20);
 
         regLabel = new JLabel("Reg No:");
@@ -38,7 +37,7 @@ public class Profile extends Main_Interface{
 
         regNo = new JLabel();
         regNo.setFont(new Font("Roboto", Font.BOLD, 15));
-        regNo.setText(curr.getRegNo());
+        regNo.setText(curr.getPassword());
         regNo.setBounds(718, 80, 200, 20);
 
 

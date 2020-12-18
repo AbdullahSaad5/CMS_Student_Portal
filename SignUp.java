@@ -4,15 +4,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static java.lang.Thread.sleep;
-
 public class SignUp extends Template implements ActionListener {
     JPanel mainPanel;
     JTextField userField;
     JPasswordField passField;
     JLabel userLabel, passLabel, loginLabel, success;
     JButton signUpButton;
-
     public SignUp(){
         mainPanel = new JPanel();
         mainPanel.setPreferredSize(new Dimension(200, 200));
@@ -66,12 +63,14 @@ public class SignUp extends Template implements ActionListener {
 
         }
         else if (checkUsername(userField.getText()) && checkPassword(passField.getText())) {
-        success.setText("Signup Successful!");
-        success.setForeground(new Color(0, 255, 0));
-        success.setBounds(622, 250, 150, 20);
-
-        new SignUp_Details();
-        mainFrame.dispose();
+            success.setText("Signup Successful!");
+            success.setForeground(new Color(0, 255, 0));
+            success.setBounds(622, 250, 150, 20);
+            Identify.student = new Student();
+            Identify.student.setUsername(userField.getText());
+            Identify.student.setPassword(passField.getText());
+            new SignUp_Details();
+            mainFrame.dispose();
 
         }
         else if (checkUsername(userField.getText())) {

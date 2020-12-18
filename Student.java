@@ -3,33 +3,30 @@ package CMS_Student_Portal;
 import java.io.*;
 import java.util.ArrayList;
 
-public class Student implements Serializable{
-    private String name;
+public class Student extends Person implements Serializable{
     private String regNo;
     private String semester;
-    private String age;
     private String CGPA;
     private String homeCity;
     private String busFacility;
 
     public Student(){}
-    public Student(String name, String regNo, String semester, String age, String CGPA, String homeCity,
-                   String busFacility){
-        this.name = name;
+    public Student(Student obj){
+        super(obj.getUsername(), obj.getPassword(), obj.getName(), obj.getAge(), obj.getEmail());
+        this.regNo = obj.regNo;
+        this.semester = obj.semester;
+        this.CGPA = obj.CGPA;
+        this.homeCity = obj.homeCity;
+        this.busFacility = obj.busFacility;
+    }
+    public Student(String username, String password, String name, String age, String email, String regNo,
+                   String semester,String CGPA, String homeCity, String busFacility) {
+        super(username, password, name, age, email);
         this.regNo = regNo;
         this.semester = semester;
-        this.age = age;
         this.CGPA = CGPA;
         this.homeCity = homeCity;
         this.busFacility = busFacility;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getRegNo() {
@@ -46,14 +43,6 @@ public class Student implements Serializable{
 
     public void setSemester(String semester) {
         this.semester = semester;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
     }
 
     public String getCGPA() {
