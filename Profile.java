@@ -3,7 +3,7 @@ package CMS_Student_Portal;
 import javax.swing.*;
 import java.awt.*;
 
-public class Profile extends Main_Interface{
+public class Profile extends Student_Dashboard {
     JPanel interfacePanel;
     JLabel nameLabel, name;
     JLabel regLabel, regNo;
@@ -16,7 +16,7 @@ public class Profile extends Main_Interface{
 
     public Profile(){
 
-        curr = new Student(Identify.student);
+        curr = new Student((Student) Identify.account);
         interfacePanel = new JPanel();
         interfacePanel.setLayout(null);
         mainPanel.add(interfacePanel);

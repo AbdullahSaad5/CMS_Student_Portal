@@ -53,10 +53,21 @@ public class Login extends Template implements ActionListener {
         mainFrame.setVisible(true);
     }
 
-    private Student getAccount(){
+    private Student getAccountS(){
         ArrayList<Student> list = Student.readStudentRecord();
         System.out.println(list.size());
         for (Student curr: list){
+            if(curr.getUsername().equals(userField.getText()) && curr.getPassword().equals(passField.getText())){
+                return curr;
+            }
+        }
+        return null;
+    }
+
+    private Teacher getAccountT(){
+        ArrayList<Teacher> list = Teacher.readTeacherRecord();
+        System.out.println(list.size());
+        for (Teacher curr: list){
             if(curr.getUsername().equals(userField.getText()) && curr.getPassword().equals(passField.getText())){
                 return curr;
             }
@@ -68,10 +79,21 @@ public class Login extends Template implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == loginButton) {
-            Student curr =  getAccount();
+            Person curr;
+            if(Identify.isTeacher){
+                curr = getAccountT();
+            }
+            else {
+                curr = getAccountS();
+            }
             if (curr != null){
-                Identify.student = curr;
-                new Main_Interface();
+                Identify.account = curr;
+                if(Identify.isTeacher){
+                    new Teacher_Dashboard();
+                }
+                else {
+                    new Student_Dashboard();
+                }
                 mainFrame.dispose();
             }
             else {

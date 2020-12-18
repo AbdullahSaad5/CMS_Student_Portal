@@ -66,10 +66,18 @@ public class SignUp extends Template implements ActionListener {
             success.setText("Signup Successful!");
             success.setForeground(new Color(0, 255, 0));
             success.setBounds(622, 250, 150, 20);
-            Identify.student = new Student();
-            Identify.student.setUsername(userField.getText());
-            Identify.student.setPassword(passField.getText());
-            new SignUp_Details();
+            if(Identify.isTeacher){
+                Identify.account = new Teacher();
+                Identify.account.setUsername(userField.getText());
+                Identify.account.setPassword(passField.getText());
+                new Teacher_Signup();
+            }
+            else {
+                Identify.account = new Student();
+                Identify.account.setUsername(userField.getText());
+                Identify.account.setPassword(passField.getText());
+                new Student_Signup();
+            }
             mainFrame.dispose();
 
         }

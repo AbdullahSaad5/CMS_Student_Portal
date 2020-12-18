@@ -9,7 +9,8 @@ public class Identify extends Template implements ActionListener {
     JPanel mainPanel;
     JLabel identityLabel;
     JButton teacherButton, studentButton;
-    static Student student;
+    static Person account;
+    static boolean isTeacher = false;
     public Identify() {
        mainPanel = new JPanel();
        mainPanel.setPreferredSize(new Dimension(200, 200));
@@ -42,6 +43,9 @@ public class Identify extends Template implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == teacherButton){
+            isTeacher = true;
+        }
         new LoginOrSignup();
         mainFrame.dispose();
     }

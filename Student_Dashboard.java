@@ -5,10 +5,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Main_Interface extends Template implements ActionListener {
+public class Student_Dashboard extends Template implements ActionListener {
     JPanel mainPanel;
     JButton dashboard, regCard, fees, resultCard, profile, logOut;
-    public Main_Interface(){
+    public Student_Dashboard(){
         // Setting main panel
         mainPanel = new JPanel();
         mainPanel.setLayout(null);

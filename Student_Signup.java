@@ -5,12 +5,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SignUp_Details extends Template implements ActionListener {
+public class Student_Signup extends Template implements ActionListener {
     JPanel mainPanel;
     JButton submit;
     JTextField nameField, regNoField, semesterField, ageField, gpaField, cityField, busField;
     JLabel nameLabel, regNoLabel, semesterLabel, ageLabel, gpaLabel, cityLabel, busLabel, mainLabel, success;
-    public SignUp_Details(){
+    public Student_Signup(){
         backButton.setEnabled(true);
         backButton.addActionListener(this);
 
@@ -108,18 +108,19 @@ public class SignUp_Details extends Template implements ActionListener {
                 success.setForeground(new Color(255, 0, 0));
                 success.setBounds(590, 440, 190, 20);
             } else {
+                Student student = (Student) Identify.account;
                 success.setText("Details Registered.");
                 success.setForeground(new Color(0, 255, 0));
                 success.setBounds(618, 440, 130, 20);
-                Identify.student.setName(nameField.getText());
-                Identify.student.setRegNo(regNoField.getText());
-                Identify.student.setSemester(semesterField.getText());
-                Identify.student.setAge(ageField.getText());
-                Identify.student.setCGPA(gpaField.getText());
-                Identify.student.setHomeCity(cityField.getText());
-                Identify.student.setBusFacility(busField.getText());
-                Student.writeStudentRecord(Identify.student);
-                new Main_Interface();
+                student.setName(nameField.getText());
+                student.setRegNo(regNoField.getText());
+                student.setSemester(semesterField.getText());
+                student.setAge(ageField.getText());
+                student.setCGPA(gpaField.getText());
+                student.setHomeCity(cityField.getText());
+                student.setBusFacility(busField.getText());
+                Student.writeStudentRecord(student);
+                new Student_Dashboard();
                 mainFrame.dispose();
             }
         }
