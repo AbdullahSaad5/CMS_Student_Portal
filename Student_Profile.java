@@ -25,7 +25,6 @@ public class Student_Profile extends Student_Dashboard_new {
         detailsPanel.setBackground(new Color(0xD1D2D9));
         detailsPanel.setLayout(null);
         detailsPanel.setBounds(157, 157,1053, 375);
-        detailsPanel.setBorder(BorderFactory.createSoftBevelBorder() );
 
         mainLabel = new JLabel("Student Details:");
         mainLabel.setFont(new Font("Roboto", Font.BOLD, 25));
