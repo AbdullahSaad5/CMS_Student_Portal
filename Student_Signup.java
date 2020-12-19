@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 public class Student_Signup extends Template implements ActionListener {
     JPanel mainPanel;
     JButton submit;
-    JTextField nameField, regNoField, semesterField, ageField, gpaField, cityField, busField;
-    JLabel nameLabel, regNoLabel, semesterLabel, ageLabel, gpaLabel, cityLabel, busLabel, mainLabel, success;
+    JTextField nameField, regNoField, semesterField, ageField, gpaField, cityField, busField, emailField;
+    JLabel nameLabel, regNoLabel, semesterLabel, ageLabel, gpaLabel, cityLabel, busLabel, mainLabel, emailLabel, success;
     public Student_Signup(){
         backButton.setEnabled(true);
         backButton.addActionListener(this);
@@ -34,56 +34,67 @@ public class Student_Signup extends Template implements ActionListener {
         regNoLabel = new JLabel("Reg No:");
         mainPanel.add(regNoLabel);
         regNoLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
-        regNoLabel.setBounds(574, 107, 65, 20);
+        regNoLabel.setBounds(574, 99, 65, 20);
 
         regNoField = new JTextField();
         mainPanel.add(regNoField);
-        regNoField.setBounds(658, 107, 150, 20);
+        regNoField.setBounds(658, 99, 150, 20);
+
+        emailLabel = new JLabel("Email:");
+        mainPanel.add(emailLabel);
+        emailLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
+        emailLabel.setBounds(586, 139, 50, 20);
+
+        emailField = new JTextField();
+        mainPanel.add(emailField);
+        emailField.setBounds(658, 139, 150, 20);
 
         semesterLabel = new JLabel("Semester:");
         mainPanel.add(semesterLabel);
         semesterLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
-        semesterLabel.setBounds(562, 156, 75, 20);
+        semesterLabel.setBounds(564, 180, 75, 20);
 
         semesterField = new JTextField();
         mainPanel.add(semesterField);
-        semesterField.setBounds(658, 156, 150, 20);
+        semesterField.setBounds(658, 180, 150, 20);
 
         ageLabel = new JLabel("Age:");
         mainPanel.add(ageLabel);
         ageLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
-        ageLabel.setBounds(588, 207, 50, 20);
+        ageLabel.setBounds(593, 220, 50, 20);
 
         ageField = new JTextField();
         mainPanel.add(ageField);
-        ageField.setBounds(658, 207, 150, 20);
+        ageField.setBounds(658, 220, 150, 20);
 
         gpaLabel = new JLabel("CGPA:");
         mainPanel.add(gpaLabel);
         gpaLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
-        gpaLabel.setBounds(581, 255, 50, 20);
+        gpaLabel.setBounds(587, 261, 50, 20);
 
         gpaField = new JTextField();
         mainPanel.add(gpaField);
-        gpaField.setBounds(658, 255, 150, 20);
+        gpaField.setBounds(658, 261, 150, 20);
 
         cityLabel = new JLabel("Home City:");
         mainPanel.add(cityLabel);
         cityLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
-        cityLabel.setBounds(552, 303, 85, 20);
+        cityLabel.setBounds(554, 302, 85, 20);
 
         cityField = new JTextField();
         mainPanel.add(cityField);
-        cityField.setBounds(658, 303, 150, 20);
+        cityField.setBounds(658, 302, 150, 20);
 
         busLabel = new JLabel("Bus Facility:");
         mainPanel.add(busLabel);
         busLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
-        busLabel.setBounds(547, 355, 90, 20);
+        busLabel.setBounds(554, 343, 90, 20);
 
         busField = new JTextField();
         mainPanel.add(busField);
-        busField.setBounds(658, 355, 150, 20);
+        busField.setBounds(658, 343, 150, 20);
+
+
 
         mainLabel = new JLabel("Enter Your Details");
         mainPanel.add(mainLabel);
@@ -103,7 +114,8 @@ public class Student_Signup extends Template implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == submit) {
             if (nameField.getText().isBlank() || regNoField.getText().isBlank() || semesterField.getText().isBlank() ||
-                    ageField.getText().isBlank() || gpaField.getText().isBlank() || cityField.getText().isBlank() || busField.getText().isBlank()) {
+                    ageField.getText().isBlank() || gpaField.getText().isBlank() || cityField.getText().isBlank() ||
+                    busField.getText().isBlank() || emailField.getText().isBlank()) {
                 success.setText("Please Enter All the Details.");
                 success.setForeground(new Color(255, 0, 0));
                 success.setBounds(590, 440, 190, 20);
@@ -119,8 +131,9 @@ public class Student_Signup extends Template implements ActionListener {
                 student.setCGPA(gpaField.getText());
                 student.setHomeCity(cityField.getText());
                 student.setBusFacility(busField.getText());
+                student.setEmail(emailField.getText());
                 Student.writeStudentRecord(student);
-                new Student_Dashboard();
+                new Student_Dashboard_new();
                 mainFrame.dispose();
             }
         }

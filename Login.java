@@ -90,7 +90,7 @@ public class Login extends Template implements ActionListener {
                     Student curr = getAccountS();
                     if(curr != null){
                         Identify.account = curr;
-                        new Student_Dashboard();
+                        new Student_Dashboard_new();
                         mainFrame.dispose();
                     }
 
