@@ -5,12 +5,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Teacher_Dashboard_new implements ActionListener {
+public class Teacher_Dashboard implements ActionListener {
     JFrame mainFrame;
     JPanel mainPanel, logoutPanel;
     JButton home, myDocs, groups, reports, quizzes, bank, gradedDiscussion, moderateDiscussion, assignments, notifications, logout;
     JLabel homeLabel, docsLabel, groupsLabel, reportsLabel, quizzesLabel, bankLabel, gradedLabel, moderateLabel, assignmentsLabel, notificationsLabel;
-    public Teacher_Dashboard_new(){
+    public Teacher_Dashboard(){
         mainFrame = new JFrame();
         mainFrame.setSize(1366, 768);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

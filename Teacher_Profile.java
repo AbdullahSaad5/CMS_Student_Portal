@@ -3,7 +3,7 @@ package CMS_Student_Portal;
 import javax.swing.*;
 import java.awt.*;
 
-public class Teacher_Profile extends Teacher_Dashboard_new {
+public class Teacher_Profile extends Teacher_Dashboard {
     JPanel detailsPanel;
     JLabel nameLabel, name;
     JLabel fieldLabel, field;

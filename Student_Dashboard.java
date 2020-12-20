@@ -5,12 +5,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Student_Dashboard_new implements ActionListener {
+public class Student_Dashboard implements ActionListener {
     JFrame mainFrame;
     JPanel mainPanel;
     JButton dashboard, regCard, fees, resultCard, profile, logOut;
 
-    public Student_Dashboard_new(){
+    public Student_Dashboard(){
         mainFrame = new JFrame();
         mainFrame.setSize(1366, 768);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

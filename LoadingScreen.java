@@ -44,10 +44,10 @@ public class LoadingScreen implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(Identify.isTeacher){
-            new Teacher_Dashboard_new();
+            new Teacher_Dashboard();
         }
         else {
-            new Student_Dashboard_new();
+            new Student_Dashboard();
         }
         mainFrame.dispose();
     }

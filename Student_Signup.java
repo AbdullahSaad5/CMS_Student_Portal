@@ -133,7 +133,7 @@ public class Student_Signup extends Template implements ActionListener {
                 student.setBusFacility(busField.getText());
                 student.setEmail(emailField.getText());
                 Student.writeStudentRecord(student);
-                new Student_Dashboard_new();
+                new Student_Dashboard();
                 mainFrame.dispose();
             }
         }
