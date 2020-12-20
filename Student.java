@@ -146,13 +146,3 @@ public class Student extends Person implements Serializable{
         System.out.println("Not found");
     }
 }
-
-
-//    public void submitAssignment();
-//    public void submitQuiz();
-//    public void viewResultCard();
-//    public void viewProfile();
-//    public void viewFee();
-//    public void logout();
-//    public void viewDashboard();
-//    public void viewRegisteredCourses();

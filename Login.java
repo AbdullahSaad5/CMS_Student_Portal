@@ -55,7 +55,6 @@ public class Login extends Template implements ActionListener {
 
     private Student getAccountS(){
         ArrayList<Student> list1 = Student.readStudentRecord();
-        System.out.println("Student");
         for (Student curr: list1){
             if(curr.getUsername().equals(userField.getText()) && curr.getPassword().equals(passField.getText())){
                 return curr;
@@ -66,7 +65,6 @@ public class Login extends Template implements ActionListener {
 
     private Teacher getAccountT(){
         ArrayList<Teacher> list2 = Teacher.readTeacherRecord();
-        System.out.println("Teacher");
         for (Teacher curr: list2){
             if(curr.getUsername().equals(userField.getText()) && curr.getPassword().equals(passField.getText())){
                 return curr;
@@ -82,15 +80,16 @@ public class Login extends Template implements ActionListener {
                 Teacher curr = getAccountT();
                 if (curr != null) {
                     Identify.account = curr;
-                    new Teacher_Dashboard();
+                    new LoadingScreen();
                     mainFrame.dispose();
+
                 }
             }
             else if(e.getSource() == loginButton && !Identify.isTeacher) {
                     Student curr = getAccountS();
                     if(curr != null){
                         Identify.account = curr;
-                        new Student_Dashboard_new();
+                        new LoadingScreen();
                         mainFrame.dispose();
                     }
 

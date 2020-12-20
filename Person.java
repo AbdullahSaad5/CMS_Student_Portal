@@ -53,8 +53,14 @@ public class Person implements Serializable {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void displayData(){
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Email: " + email);
+
     }
 }

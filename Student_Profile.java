@@ -18,6 +18,9 @@ public class Student_Profile extends Student_Dashboard_new {
     Student curr;
 
     public Student_Profile(){
+        profile.setBackground(new Color(0x13A89E));
+        profile.setForeground(Color.WHITE);
+
         curr = new Student((Student) Identify.account);
 
         detailsPanel = new JPanel();

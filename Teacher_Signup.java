@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 public class Teacher_Signup extends Template implements ActionListener {
     JPanel mainPanel;
     JButton submit;
-    JTextField nameField, fieldField, experienceField, ageField, qualificationField;
-    JLabel nameLabel, fieldLabel, experienceLabel, ageLabel, qualificationLabel, success;
+    JTextField nameField, fieldField, experienceField, ageField, qualificationField, emailField;
+    JLabel nameLabel, fieldLabel, experienceLabel, ageLabel, qualificationLabel, emailLabel, success ;
     public Teacher_Signup(){
         backButton.setEnabled(true);
         backButton.addActionListener(this);
@@ -31,7 +31,7 @@ public class Teacher_Signup extends Template implements ActionListener {
         mainPanel.add(nameField);
         nameField.setBounds(658, 58, 150, 20);
 
-        fieldLabel = new JLabel("Reg No:");
+        fieldLabel = new JLabel("Field:");
         mainPanel.add(fieldLabel);
         fieldLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
         fieldLabel.setBounds(574, 107, 65, 20);
@@ -40,7 +40,7 @@ public class Teacher_Signup extends Template implements ActionListener {
         mainPanel.add(fieldField);
         fieldField.setBounds(658, 107, 150, 20);
 
-        experienceLabel = new JLabel("Semester:");
+        experienceLabel = new JLabel("Experience:");
         mainPanel.add(experienceLabel);
         experienceLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
         experienceLabel.setBounds(562, 156, 75, 20);
@@ -58,7 +58,7 @@ public class Teacher_Signup extends Template implements ActionListener {
         mainPanel.add(ageField);
         ageField.setBounds(658, 207, 150, 20);
 
-        qualificationLabel = new JLabel("CGPA:");
+        qualificationLabel = new JLabel("Qualification:");
         mainPanel.add(qualificationLabel);
         qualificationLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
         qualificationLabel.setBounds(581, 255, 50, 20);
@@ -67,14 +67,14 @@ public class Teacher_Signup extends Template implements ActionListener {
         mainPanel.add(qualificationField);
         qualificationField.setBounds(658, 255, 150, 20);
 
-//        cityLabel = new JLabel("Home City:");
-//        mainPanel.add(cityLabel);
-//        cityLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
-//        cityLabel.setBounds(552, 303, 85, 20);
-//
-//        cityField = new JTextField();
-//        mainPanel.add(cityField);
-//        cityField.setBounds(658, 303, 150, 20);
+        emailLabel = new JLabel("Email:");
+        mainPanel.add(emailLabel);
+        emailLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
+        emailLabel.setBounds(552, 303, 85, 20);
+
+        emailField = new JTextField();
+        mainPanel.add(emailField);
+        emailField.setBounds(658, 303, 150, 20);
 //
 //        busLabel = new JLabel("Bus Facility:");
 //        mainPanel.add(busLabel);
@@ -117,10 +117,9 @@ public class Teacher_Signup extends Template implements ActionListener {
                 teacher.setExperience(experienceField.getText());
                 teacher.setAge(ageField.getText());
                 teacher.setQualification(qualificationField.getText());
-//                student.setHomeCity(cityField.getText());
-//                student.setBusFacility(busField.getText());
+                teacher.setEmail(emailField.getText());
                 Teacher.writeTeacherRecord(teacher);
-                new Teacher_Dashboard();
+                new Teacher_Dashboard_new();
                 mainFrame.dispose();
             }
         }

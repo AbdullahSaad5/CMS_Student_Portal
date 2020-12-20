@@ -36,6 +36,7 @@ public class Student_Dashboard_new implements ActionListener {
         dashboard.setVerticalTextPosition(JLabel.BOTTOM);
         dashboard.setHorizontalTextPosition(JLabel.CENTER);
         dashboard.setMargin(null);
+        dashboard.setBackground(Color.WHITE);
 
         // Adding registration card button
         regCard = new JButton("<html>Registration<br>Card</html>");
@@ -46,6 +47,7 @@ public class Student_Dashboard_new implements ActionListener {
         regCard.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/RegistrationCard.png")));
         regCard.setHorizontalTextPosition(JLabel.CENTER);
         regCard.setVerticalTextPosition(JLabel.BOTTOM);
+        regCard.setBackground(Color.WHITE);
 
         // Adding fee button
         fees = new JButton("Fees");
@@ -56,6 +58,7 @@ public class Student_Dashboard_new implements ActionListener {
         fees.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/feesIcon1.png")));
         fees.setHorizontalTextPosition(JLabel.CENTER);
         fees.setVerticalTextPosition(JLabel.BOTTOM);
+        fees.setBackground(Color.WHITE);
 
         // Adding result card button
         resultCard = new JButton("Result Card");
@@ -66,6 +69,7 @@ public class Student_Dashboard_new implements ActionListener {
         resultCard.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/resultCard.png")));
         resultCard.setHorizontalTextPosition(JLabel.CENTER);
         resultCard.setVerticalTextPosition(JLabel.BOTTOM);
+        resultCard.setBackground(Color.WHITE);
 
         // Adding profile button
         profile = new JButton("Profile");
@@ -77,6 +81,7 @@ public class Student_Dashboard_new implements ActionListener {
         profile.setHorizontalTextPosition(JLabel.CENTER);
         profile.setVerticalTextPosition(JLabel.BOTTOM);
         profile.addActionListener(this);
+        profile.setBackground(Color.WHITE);
 
         // Adding logout button
         logOut = new JButton("Logout");
@@ -88,6 +93,7 @@ public class Student_Dashboard_new implements ActionListener {
         logOut.setHorizontalTextPosition(JLabel.CENTER);
         logOut.setVerticalTextPosition(JLabel.BOTTOM);
         logOut.addActionListener(this);
+        logOut.setBackground(Color.WHITE);
 
         JLabel image = new JLabel();
         mainPanel.add(image);
@@ -105,6 +111,8 @@ public class Student_Dashboard_new implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == logOut){
+            logOut.setBackground(new Color(0x13A89E));
+            logOut.setForeground(Color.WHITE);
             new Login();
             mainFrame.dispose();
         }
