@@ -14,6 +14,7 @@ public class Student_Profile extends Student_Dashboard {
     JLabel homeLabel, home;
     JLabel busLabel, bus;
     JLabel emailLabel, email;
+    JLabel background;
 
     Student curr;
 
@@ -127,6 +128,8 @@ public class Student_Profile extends Student_Dashboard {
         detailsPanel.add(home);
         detailsPanel.add(bus);
         detailsPanel.add(email);
+
+
 
 
 

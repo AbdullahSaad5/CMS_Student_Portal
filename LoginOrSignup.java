@@ -18,22 +18,31 @@ public class LoginOrSignup extends Template implements ActionListener {
 
         identityLabel = new JLabel("Login or Signup");
         identityLabel.setFont(new Font("Roboto", Font.BOLD, 20));
-        identityLabel.setBounds(612, 124, 200, 25);
+        identityLabel.setBounds(612, 54, 200, 25);
         mainPanel.setLayout(null);
         mainPanel.add(identityLabel);
 
 
         loginButton = new JButton("Login");
         mainPanel.add(loginButton);
+        loginButton.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Additional Icons/Login2.png")));
         loginButton.setFocusable(false);
-        loginButton.setBounds(508, 184, 150, 30);
+        loginButton.setBounds(508, 124, 110, 110);
         loginButton.setFont(new Font("Roboto", Font.PLAIN, 16));
+        loginButton.setHorizontalTextPosition(JLabel.CENTER);
+        loginButton.setVerticalTextPosition(JLabel.BOTTOM);
+        loginButton.setBackground(new Color(0, 184, 15, 128));
 
         signupButton = new JButton("Signup");
         mainPanel.add(signupButton);
+        signupButton.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Additional Icons/Signup.png")));
         signupButton.setFocusable(false);
-        signupButton.setBounds(708, 184, 150, 30);
+        signupButton.setBounds(738, 124, 110, 110);
         signupButton.setFont(new Font("Roboto", Font.PLAIN, 16));
+        signupButton.setHorizontalTextPosition(JLabel.CENTER);
+        signupButton.setVerticalTextPosition(JLabel.BOTTOM);
+        signupButton.setBackground(new Color(184, 121, 1, 128));
+
 
         signupButton.addActionListener(this);
         loginButton.addActionListener(this);

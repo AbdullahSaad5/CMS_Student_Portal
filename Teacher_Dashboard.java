@@ -242,8 +242,8 @@ public class Teacher_Dashboard implements ActionListener {
 
         JLabel image = new JLabel();
         mainPanel.add(image);
-        image.setBounds(170, 42, 309, 93);
-        image.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/logo_with_text.png")));
+        image.setBounds(88, 61, 207, 39);
+        image.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Teacher Portal/cuOnline Logo.png")));
 
         mainFrame.setVisible(true);
     }

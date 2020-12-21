@@ -10,6 +10,7 @@ public class Student_Signup extends Template implements ActionListener {
     JButton submit;
     JTextField nameField, regNoField, semesterField, ageField, gpaField, cityField, busField, emailField;
     JLabel nameLabel, regNoLabel, semesterLabel, ageLabel, gpaLabel, cityLabel, busLabel, mainLabel, emailLabel, success;
+    JLabel nameError, regError, emailError, semError, ageError, gpaError, cityError, busError;
     public Student_Signup(){
         backButton.setEnabled(true);
         backButton.addActionListener(this);
@@ -52,7 +53,7 @@ public class Student_Signup extends Template implements ActionListener {
         semesterLabel = new JLabel("Semester:");
         mainPanel.add(semesterLabel);
         semesterLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
-        semesterLabel.setBounds(564, 180, 75, 20);
+        semesterLabel.setBounds(560, 180, 75, 20);
 
         semesterField = new JTextField();
         mainPanel.add(semesterField);
@@ -108,6 +109,55 @@ public class Student_Signup extends Template implements ActionListener {
         submit.setFont(new Font("Roboto", Font.PLAIN, 16));
         submit.addActionListener(this);
 
+
+        nameError = new JLabel();
+        nameError.setBounds(829, 58, 300, 20);
+        mainPanel.add(nameError);
+        nameError.setForeground(new Color(198, 2, 2));
+        nameError.setFont(new Font("Roboto", Font.PLAIN, 12));
+
+        regError = new JLabel();
+        regError.setBounds(829, 99, 300, 20);
+        mainPanel.add(regError);
+        regError.setForeground(new Color(198, 2, 2));
+        regError.setFont(new Font("Roboto", Font.PLAIN, 12));
+
+        emailError = new JLabel();
+        emailError.setBounds(829, 139, 300, 20);
+        mainPanel.add(emailError);
+        emailError.setForeground(new Color(198, 2, 2));
+        emailError.setFont(new Font("Roboto", Font.PLAIN, 12));
+
+        semError = new JLabel();
+        semError.setBounds(829, 180, 300, 20);
+        mainPanel.add(semError);
+        semError.setForeground(new Color(198, 2, 2));
+        semError.setFont(new Font("Roboto", Font.PLAIN, 12));
+
+        ageError = new JLabel();
+        ageError.setBounds(829, 220, 300, 20);
+        mainPanel.add(ageError);
+        ageError.setForeground(new Color(198, 2, 2));
+        ageError.setFont(new Font("Roboto", Font.PLAIN, 12));
+
+        gpaError = new JLabel();
+        gpaError.setBounds(829, 261, 300, 20);
+        mainPanel.add(gpaError);
+        gpaError.setForeground(new Color(198, 2, 2));
+        gpaError.setFont(new Font("Roboto", Font.PLAIN, 12));
+
+        cityError = new JLabel();
+        cityError.setBounds(829, 302, 300, 20);
+        mainPanel.add(cityError);
+        cityError.setForeground(new Color(198, 2, 2));
+        cityError.setFont(new Font("Roboto", Font.PLAIN, 12));
+
+        busError = new JLabel();
+        busError.setBounds(829, 343, 300, 20);
+        mainPanel.add(busError);
+        busError.setForeground(new Color(198, 2, 2));
+        busError.setFont(new Font("Roboto", Font.PLAIN, 12));
+
     }
 
     @Override
@@ -119,23 +169,76 @@ public class Student_Signup extends Template implements ActionListener {
                 success.setText("Please Enter All the Details.");
                 success.setForeground(new Color(255, 0, 0));
                 success.setBounds(590, 440, 190, 20);
-            } else {
-                Student student = (Student) Identify.account;
-                success.setText("Details Registered.");
-                success.setForeground(new Color(0, 255, 0));
-                success.setBounds(618, 440, 130, 20);
-                student.setName(nameField.getText());
-                student.setRegNo(regNoField.getText());
-                student.setSemester(semesterField.getText());
-                student.setAge(ageField.getText());
-                student.setCGPA(gpaField.getText());
-                student.setHomeCity(cityField.getText());
-                student.setBusFacility(busField.getText());
-                student.setEmail(emailField.getText());
-                Student.writeStudentRecord(student);
-                new Student_Dashboard();
-                mainFrame.dispose();
+                return;
             }
+            if(!Utilities.checkStringWithSpaces(nameField.getText())){
+                nameError.setText("Invalid Name (Must be letters only)");
+            }
+            else{
+                nameError.setText("");
+            }
+
+            if(!Utilities.checkRegistrationNumber(regNoField.getText())){
+                regError.setText("Invalid Registration Number Format");
+            }
+            else{
+                regError.setText("");
+            }
+            if(!Utilities.checkEmail(emailField.getText())){
+                emailError.setText("Invalid Email Format");
+            }
+            else{
+                emailError.setText("");
+            }
+            if(!Utilities.checkNumber(semesterField.getText())){
+                semError.setText("Invalid Semester (Must be Digits only)");
+            }
+            else {
+                semError.setText("");
+            }
+            if(!Utilities.checkNumber(ageField.getText())){
+                ageError.setText("Invalid Age (Must be Digits only)");
+            }
+            else{
+                ageError.setText("");
+            }
+            if(!Utilities.checkFloat(gpaField.getText())){
+                gpaError.setText("Invalid GPA (Must be Decimal Number only)");
+            }
+            else{
+                gpaError.setText("");
+            }
+            if(!Utilities.checkString(cityField.getText())){
+                cityError.setText("Invalid City (Must be letters only)");
+            }
+            else{
+                cityError.setText("");
+            }
+            if(!(busField.getText().equalsIgnoreCase("yes") ||
+                    busField.getText().equalsIgnoreCase("no"))){
+                busError.setText("Invalid Input (Must be YES / NO)");
+            }
+            else {
+                busError.setText("");
+            }
+
+//            else {
+//                Student student = (Student) Identify.account;
+//                success.setText("Details Registered.");
+//                success.setForeground(new Color(0, 255, 0));
+//                success.setBounds(618, 440, 130, 20);
+//                student.setName(nameField.getText());
+//                student.setRegNo(regNoField.getText());
+//                student.setSemester(semesterField.getText());
+//                student.setAge(ageField.getText());
+//                student.setCGPA(gpaField.getText());
+//                student.setHomeCity(cityField.getText());
+//                student.setBusFacility(busField.getText());
+//                student.setEmail(emailField.getText());
+//                Student.writeStudentRecord(student);
+//                new Student_Dashboard();
+//                mainFrame.dispose();
+//            }
         }
         else{
             new SignUp();

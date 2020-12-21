@@ -24,7 +24,7 @@ public class LoadingScreen implements ActionListener {
         loading = new JLabel();
         loading.setBounds(651, 312, 64, 64);
         mainFrame.add(loading);
-        loading.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Preloader_2.gif")));
+        loading.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/Preloader_2.gif")));
 
 
         text = new JLabel("Please Wait While We Load Your Profile.");

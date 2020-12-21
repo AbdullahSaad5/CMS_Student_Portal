@@ -3,7 +3,7 @@ package CMS_Student_Portal;
 import javax.swing.*;
 import java.awt.*;
 
-public class Template extends JFrame{
+public class Template{
     JFrame mainFrame;
     JLabel universityTitle, footerLabel;
     JPanel headerPanel, footerPanel;
@@ -33,7 +33,7 @@ public class Template extends JFrame{
         universityTitle.setBounds(500, -15, 380, 250);
         headerPanel.add(universityTitle);
 
-        ImageIcon back = new ImageIcon(getClass().getResource("/Additional Icons/previous.png"));
+        ImageIcon back = new ImageIcon(getClass().getResource("/CMS_Icons/Additional Icons/previous.png"));
         backButton = new JButton(back);
         backButton.setFocusable(false);
         backButton.setBorder(null);
