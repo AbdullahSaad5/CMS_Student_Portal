@@ -2,6 +2,7 @@ package CMS_Student_Portal;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 
 public class Student_Profile extends Student_Dashboard {
     JPanel detailsPanel;
@@ -130,9 +131,29 @@ public class Student_Profile extends Student_Dashboard {
         detailsPanel.add(email);
 
 
-
-
-
         mainFrame.setVisible(true);
+    }
+    
+    public void mouseExited(MouseEvent e) {
+        if(e.getSource() == dashboard){
+            dashboard.setBackground(Color.WHITE);
+            dashboard.setForeground(Color.black);
+        }
+        if(e.getSource() == regCard){
+            regCard.setBackground(Color.WHITE);
+            regCard.setForeground(Color.black);
+        }
+        if(e.getSource() == fees){
+            fees.setBackground(Color.WHITE);
+            fees.setForeground(Color.black);
+        }
+        if(e.getSource() == resultCard){
+            resultCard.setBackground(Color.WHITE);
+            resultCard.setForeground(Color.black);
+        }
+        if(e.getSource() == logOut){
+            logOut.setBackground(Color.WHITE);
+            logOut.setForeground(Color.black);
+        }
     }
 }
