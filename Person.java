@@ -3,64 +3,67 @@ package CMS_Student_Portal;
 import java.io.Serializable;
 
 public class Person implements Serializable {
-    private String username;
-    private String password;
-    private String name;
-    private String age;
-    private String email;
+	private String username;
+	private String password;
+	private String name;
+	private String age;
+	private String email;
 
-    public Person(){}
-    public Person(String username, String password, String name, String age, String email) {
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.age = age;
-        this.email = email;
-    }
+	public Person() {
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public Person(String username, String password, String name, String age, String email) {
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.age = age;
+		this.email = email;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getAge() {
-        return age;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setAge(String age) {
-        this.age = age;
-    }
+	public String getAge() {
+		return age;
+	}
 
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setAge(String age) {
+		this.age = age;
+	}
 
-    public void displayData(){
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Email: " + email);
+	public String getEmail() {
+		return email;
+	}
 
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void displayData() {
+		System.out.println("Name: " + name);
+		System.out.println("Age: " + age);
+		System.out.println("Email: " + email);
+
+	}
 }
