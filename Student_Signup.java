@@ -33,6 +33,15 @@ public class Student_Signup extends Template implements ActionListener {
 		nameField = new JTextField();
 		mainPanel.add(nameField);
 		nameField.setBounds(658, 58, 150, 20);
+		
+		emailLabel = new JLabel("Email:");
+		mainPanel.add(emailLabel);
+		emailLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
+		emailLabel.setBounds(586, 139, 50, 20);
+
+		emailField = new JTextField();
+		mainPanel.add(emailField);
+		emailField.setBounds(658, 139, 150, 20);
 
 		regNoLabel = new JLabel("Reg No:");
 		mainPanel.add(regNoLabel);
@@ -42,15 +51,6 @@ public class Student_Signup extends Template implements ActionListener {
 		regNoField = new JTextField();
 		mainPanel.add(regNoField);
 		regNoField.setBounds(658, 99, 150, 20);
-
-		emailLabel = new JLabel("Email:");
-		mainPanel.add(emailLabel);
-		emailLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
-		emailLabel.setBounds(586, 139, 50, 20);
-
-		emailField = new JTextField();
-		mainPanel.add(emailField);
-		emailField.setBounds(658, 139, 150, 20);
 
 		semesterLabel = new JLabel("Semester:");
 		mainPanel.add(semesterLabel);

@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
-public class Student_Profile extends Student_Dashboard {
+public class Student_Profile extends Student_Portal_Screen {
 	JPanel detailsPanel;
 	JLabel mainLabel;
 	JLabel nameLabel, name;
@@ -125,6 +125,11 @@ public class Student_Profile extends Student_Dashboard {
 		detailsPanel.add(home);
 		detailsPanel.add(bus);
 		detailsPanel.add(email);
+		
+		JLabel background = new JLabel();
+		background.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/background.jpg")));
+		background.setBounds(0, 0, 1366, 768);
+		mainPanel.add(background);
 
 		mainFrame.setVisible(true);
 	}

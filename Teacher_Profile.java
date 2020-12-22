@@ -30,7 +30,7 @@ public class Teacher_Profile extends Teacher_Dashboard {
 		name = new JLabel();
 		name.setFont(new Font("Roboto", Font.BOLD, 15));
 		name.setText(curr.getUsername());
-		name.setBounds(133, 66, 200, 20);
+		name.setBounds(133, 66, 300, 20);
 
 		emailLabel = new JLabel("Email:");
 		emailLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
@@ -39,7 +39,7 @@ public class Teacher_Profile extends Teacher_Dashboard {
 		email = new JLabel();
 		email.setFont(new Font("Roboto", Font.BOLD, 15));
 		email.setText(curr.getEmail());
-		email.setBounds(718, 206, 200, 20);
+		email.setBounds(133, 98, 300, 20);
 
 		fieldLabel = new JLabel("Field:");
 		fieldLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
@@ -47,8 +47,8 @@ public class Teacher_Profile extends Teacher_Dashboard {
 
 		field = new JLabel();
 		field.setFont(new Font("Roboto", Font.BOLD, 15));
-		field.setText(curr.getPassword());
-		field.setBounds(718, 80, 200, 20);
+		field.setText(curr.getField());
+		field.setBounds(133, 128, 300, 20);
 
 		experienceField = new JLabel("Experience:");
 		experienceField.setFont(new Font("Roboto", Font.PLAIN, 15));
@@ -57,7 +57,7 @@ public class Teacher_Profile extends Teacher_Dashboard {
 		experience = new JLabel();
 		experience.setFont(new Font("Roboto", Font.BOLD, 15));
 		experience.setText(curr.getExperience());
-		experience.setBounds(290, 160, 200, 20);
+		experience.setBounds(133, 160, 300, 20);
 
 		ageLabel = new JLabel("Age:");
 		ageLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
@@ -66,16 +66,16 @@ public class Teacher_Profile extends Teacher_Dashboard {
 		age = new JLabel();
 		age.setFont(new Font("Roboto", Font.BOLD, 15));
 		age.setText(curr.getAge());
-		age.setBounds(133, 194, 200, 20);
+		age.setBounds(133, 194, 300, 20);
 
-		qualificationLabel = new JLabel("CGPA:");
+		qualificationLabel = new JLabel("Qualification:");
 		qualificationLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
-		qualificationLabel.setBounds(13, 226, 50, 20);
+		qualificationLabel.setBounds(13, 226, 100, 20);
 
 		qualification = new JLabel();
 		qualification.setFont(new Font("Roboto", Font.BOLD, 15));
 		qualification.setText(curr.getQualification());
-		qualification.setBounds(113, 226, 200, 20);
+		qualification.setBounds(133, 226, 300, 20);
 
 		detailsPanel.add(nameLabel);
 		detailsPanel.add(fieldLabel);

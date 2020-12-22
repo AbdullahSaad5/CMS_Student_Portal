@@ -230,7 +230,7 @@ public class Teacher_Dashboard implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == bank) {
+		if (e.getSource() == logout) {
 			new Login();
 			mainFrame.dispose();
 		} else if (e.getSource() == notifications) {
