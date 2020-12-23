@@ -9,9 +9,9 @@ import java.awt.event.MouseListener;
 
 public class Student_Portal_Screen implements MouseListener {
 	JFrame mainFrame;
-	JPanel mainPanel, welcomePanel;
+	JPanel mainPanel, welcomePanel, footerPanel;
 	JButton dashboard, regCard, fees, resultCard, profile, logOut;
-	JLabel welcome;
+	JLabel welcome, footerText;
 
 	public Student_Portal_Screen() {
 		mainFrame = new JFrame();
@@ -32,13 +32,25 @@ public class Student_Portal_Screen implements MouseListener {
 		welcomePanel.setBounds(0, 0, 1366, 25);
 		welcomePanel.setLayout(null);
 		mainPanel.add(welcomePanel);
-		
-		Student curr = (Student)Identify.account;
-		welcome = new JLabel("Welcome: CIIT//" + curr.getRegNo() + "/ISB");
-		welcome.setBounds(157, 6, 250, 15);
-		welcome.setForeground(Color.WHITE);
-		welcome.setFont(new Font("Roboto", Font.BOLD, 15));
-		welcomePanel.add(welcome);
+
+//		Student curr = (Student)Identify.account;
+//		welcome = new JLabel("Welcome: CIIT//" + curr.getRegNo() + "/ISB");
+//		welcome.setBounds(157, 6, 250, 15);
+//		welcome.setForeground(Color.WHITE);
+//		welcome.setFont(new Font("Roboto", Font.BOLD, 15));
+//		welcomePanel.add(welcome);
+
+		footerPanel = new JPanel();
+		footerPanel.setBackground(new Color(0x1E1F4A));
+		footerPanel.setBounds(0, 704, 1366, 64);
+		footerPanel.setLayout(null);
+		mainPanel.add(footerPanel);
+
+		footerText = new JLabel("CUOnline , Principal Sear @ 2018-COMSATS ®");
+		footerText.setFont(new Font("Roboto", Font.BOLD, 13));
+		footerText.setForeground(Color.white);
+		footerText.setBounds(562, 18, 280, 15);
+		footerPanel.add(footerText);
 
 		// Adding dashboard button
 //        "<html><p style='style='text-align: left'>Dashboard</p></html>"
@@ -199,15 +211,24 @@ public class Student_Portal_Screen implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (e.getSource() == logOut) {
-			logOut.setBackground(new Color(0x13A89E));
-			logOut.setForeground(Color.WHITE);
 			new Login();
+			mainFrame.dispose();
+		} else if (e.getSource() == dashboard) {
+			new Student_Dashboard();
+			mainFrame.dispose();
+		} else if (e.getSource() == resultCard) {
+			new NotAvailable();
+			mainFrame.dispose();
+		} else if (e.getSource() == fees) {
+			new NotAvailable();
+			mainFrame.dispose();
+		} else if (e.getSource() == regCard) {
+			new NotAvailable();
 			mainFrame.dispose();
 		} else if (e.getSource() == profile) {
 			new Student_Profile();
 			mainFrame.dispose();
 		}
-
 	}
 
 	@Override

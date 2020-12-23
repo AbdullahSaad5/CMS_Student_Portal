@@ -36,7 +36,6 @@ public class Student_Dashboard extends Student_Portal_Screen {
 		tableHeader.setBackground(new Color(0x1F2C4F));
 		tableHeader.setLayout(null);
 		subsPanel.add(tableHeader);
-		
 
 		OOPSubject = new JPanel();
 		OOPSubject.setLayout(null);
@@ -46,94 +45,88 @@ public class Student_Dashboard extends Student_Portal_Screen {
 		OOPSubject.addMouseListener(this);
 
 		mainPanel.add(heading);
-		
+
 		courseNohead = new JLabel("Course No");
 		courseNohead.setFont(new Font("Roboto", Font.BOLD, 15));
 		courseNohead.setBounds(29, 8, 75, 15);
 		courseNohead.setForeground(Color.white);
 		tableHeader.add(courseNohead);
-		
+
 		courseNamehead = new JLabel("Course Name");
 		courseNamehead.setFont(new Font("Roboto", Font.BOLD, 15));
 		courseNamehead.setBounds(218, 8, 95, 15);
 		courseNamehead.setForeground(Color.white);
 		tableHeader.add(courseNamehead);
-		
+
 		creditshead = new JLabel("Credits");
 		creditshead.setFont(new Font("Roboto", Font.BOLD, 15));
 		creditshead.setBounds(417, 8, 62, 15);
 		creditshead.setForeground(Color.white);
 		tableHeader.add(creditshead);
-		
+
 		teacherhead = new JLabel("Teacher");
 		teacherhead.setFont(new Font("Roboto", Font.BOLD, 15));
 		teacherhead.setBounds(555, 8, 62, 15);
 		teacherhead.setForeground(Color.white);
 		tableHeader.add(teacherhead);
-		
+
 		classhead = new JLabel("Class");
 		classhead.setFont(new Font("Roboto", Font.BOLD, 15));
 		classhead.setBounds(736, 8, 62, 15);
 		classhead.setForeground(Color.white);
 		tableHeader.add(classhead);
-		
+
 		attendanceSummaryhead = new JLabel("Attendance Summary");
 		attendanceSummaryhead.setFont(new Font("Roboto", Font.BOLD, 15));
 		attendanceSummaryhead.setBounds(877, 8, 150, 15);
 		attendanceSummaryhead.setForeground(Color.white);
 		tableHeader.add(attendanceSummaryhead);
-		
-		
+
 		courseNo = new JLabel("CSC241");
 		courseNo.setFont(new Font("Roboto", Font.BOLD, 13));
 		courseNo.setBounds(38, 8, 55, 15);
 //		courseNo.setForeground(Color.white);
 		OOPSubject.add(courseNo);
-		
-		courseName= new JLabel("Object Oriented Programming");
+
+		courseName = new JLabel("Object Oriented Programming");
 		courseName.setFont(new Font("Roboto", Font.BOLD, 13));
 		courseName.setBounds(178, 8, 170, 15);
 //		courseName.setForeground(Color.white);
 		OOPSubject.add(courseName);
-		
-		credits= new JLabel("4");
+
+		credits = new JLabel("4");
 		credits.setFont(new Font("Roboto", Font.BOLD, 13));
 		credits.setBounds(438, 8, 10, 15);
 //		credits.setForeground(Color.white);
 		OOPSubject.add(credits);
-		
-		teacher= new JLabel("Teacher");
+
+		teacher = new JLabel("Saneeha Aamir");
 		teacher.setFont(new Font("Roboto", Font.BOLD, 13));
-		teacher.setBounds(555, 8, 50, 15);
+		teacher.setBounds(530, 8, 200, 15);
+		teacher.setHorizontalTextPosition(JLabel.CENTER);
 //		teacher.setForeground(Color.white);
 		OOPSubject.add(teacher);
-		
-		class_= new JLabel("BCS 3 BCS-3B B");
+
+		class_ = new JLabel("BCS 3 BCS-3B B");
 		class_.setFont(new Font("Roboto", Font.BOLD, 13));
 		class_.setBounds(710, 8, 100, 15);
 //		class_.setForeground(Color.white);
 		OOPSubject.add(class_);
-		
-		attendanceSummary= new JLabel("100%");
+
+		attendanceSummary = new JLabel("100%");
 		attendanceSummary.setFont(new Font("Roboto", Font.BOLD, 13));
 		attendanceSummary.setBounds(935, 8, 35, 15);
 		attendanceSummary.setForeground(new Color(0x43A047));
 		OOPSubject.add(attendanceSummary);
-		
+
 		JLabel background = new JLabel();
 		background.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/background.jpg")));
 		background.setBounds(0, 0, 1366, 768);
 		mainPanel.add(background);
-		
-		
-		
+
 	}
 
 	public void mouseEntered(MouseEvent e) {
-		if (e.getSource() == dashboard) {
-			dashboard.setBackground(new Color(0x13A89E));
-			dashboard.setForeground(Color.white);
-		}
 		if (e.getSource() == regCard) {
 			regCard.setBackground(new Color(0x13A89E));
 			regCard.setForeground(Color.white);
@@ -154,12 +147,11 @@ public class Student_Dashboard extends Student_Portal_Screen {
 			logOut.setBackground(new Color(0x13A89E));
 			logOut.setForeground(Color.white);
 		}
-		if(e.getSource() == OOPSubject) {
+		if (e.getSource() == OOPSubject) {
 			OOPSubject.setBackground(new Color(0xF5F5F5));
 		}
 	}
-	
-	
+
 	@Override
 	public void mouseExited(MouseEvent e) {
 		if (e.getSource() == dashboard) {
@@ -186,24 +178,9 @@ public class Student_Dashboard extends Student_Portal_Screen {
 			logOut.setBackground(Color.WHITE);
 			logOut.setForeground(Color.black);
 		}
-		if(e.getSource() == OOPSubject) {
+		if (e.getSource() == OOPSubject) {
 			OOPSubject.setBackground(Color.white);
 		}
 	}
-	
-	public void mouseClicked(MouseEvent e) {
-		if (e.getSource() == logOut) {
-			logOut.setBackground(new Color(0x13A89E));
-			logOut.setForeground(Color.WHITE);
-			new Login();
-			mainFrame.dispose();
-		} else if (e.getSource() == profile) {
-			new Student_Profile();
-			mainFrame.dispose();
-		} else if(e.getSource() == OOPSubject) {
-			new Student_Profile();
-			mainFrame.dispose();
-		}
 
-	}
 }

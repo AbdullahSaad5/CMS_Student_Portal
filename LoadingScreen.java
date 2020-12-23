@@ -31,7 +31,7 @@ public class LoadingScreen implements ActionListener {
 		mainFrame.add(text);
 		mainFrame.setVisible(true);
 
-		Timer t = new Timer(5000, this);
+		Timer t = new Timer(3000, this);
 		t.setRepeats(false);
 		t.start();
 

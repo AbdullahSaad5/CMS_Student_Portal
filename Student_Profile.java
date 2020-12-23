@@ -27,7 +27,7 @@ public class Student_Profile extends Student_Portal_Screen {
 
 		detailsPanel = new JPanel();
 		mainPanel.add(detailsPanel);
-		detailsPanel.setBackground(new Color(0xD1D2D9));
+		detailsPanel.setBackground(new Color(0xEAEAEA));
 		detailsPanel.setLayout(null);
 		detailsPanel.setBounds(157, 157, 1053, 375);
 
@@ -125,7 +125,7 @@ public class Student_Profile extends Student_Portal_Screen {
 		detailsPanel.add(home);
 		detailsPanel.add(bus);
 		detailsPanel.add(email);
-		
+
 		JLabel background = new JLabel();
 		background.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/background.jpg")));
 		background.setBounds(0, 0, 1366, 768);
@@ -156,4 +156,6 @@ public class Student_Profile extends Student_Portal_Screen {
 			logOut.setForeground(Color.black);
 		}
 	}
+
+
 }
