@@ -12,6 +12,7 @@ public class Student_Portal_Screen implements MouseListener {
 	JPanel mainPanel, welcomePanel, footerPanel;
 	JButton dashboard, regCard, fees, resultCard, profile, logOut;
 	JLabel welcome, footerText;
+	static boolean regBool, feesBool, resultBool;
 
 	public Student_Portal_Screen() {
 		mainFrame = new JFrame();
@@ -216,13 +217,20 @@ public class Student_Portal_Screen implements MouseListener {
 		} else if (e.getSource() == dashboard) {
 			new Student_Dashboard();
 			mainFrame.dispose();
-		} else if (e.getSource() == resultCard) {
-			new NotAvailable();
-			mainFrame.dispose();
-		} else if (e.getSource() == fees) {
-			new NotAvailable();
-			mainFrame.dispose();
-		} else if (e.getSource() == regCard) {
+		} else if (e.getSource() == resultCard || e.getSource() == fees || e.getSource() == regCard) {
+			if (e.getSource() == resultCard) {
+				regBool = false;
+				feesBool = false;
+				resultBool = true;
+			} else if (e.getSource() == fees) {
+				regBool = false;
+				feesBool = true;
+				resultBool = false;
+			} else if (e.getSource() == regCard) {
+				regBool = true;
+				feesBool = false;
+				resultBool = false;
+			}
 			new NotAvailable();
 			mainFrame.dispose();
 		} else if (e.getSource() == profile) {

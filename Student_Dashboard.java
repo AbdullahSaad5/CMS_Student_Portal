@@ -13,6 +13,10 @@ public class Student_Dashboard extends Student_Portal_Screen {
 	JLabel courseNohead, courseNamehead, creditshead, teacherhead, classhead, attendanceSummaryhead;
 
 	public Student_Dashboard() {
+
+		dashboard.setBackground(new Color(0x13A89E));
+		dashboard.setForeground(Color.WHITE);
+
 		heading = new JPanel();
 		heading.setBounds(157, 157, 1053, 59);
 		heading.setBackground(new Color(0x0898A0));
@@ -154,10 +158,6 @@ public class Student_Dashboard extends Student_Portal_Screen {
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		if (e.getSource() == dashboard) {
-			dashboard.setBackground(Color.WHITE);
-			dashboard.setForeground(Color.black);
-		}
 		if (e.getSource() == regCard) {
 			regCard.setBackground(Color.WHITE);
 			regCard.setForeground(Color.black);

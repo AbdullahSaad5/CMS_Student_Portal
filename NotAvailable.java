@@ -1,12 +1,25 @@
 package CMS_Student_Portal;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+
 import javax.swing.*;
 
 public class NotAvailable extends Student_Portal_Screen {
 	public NotAvailable() {
+		
+		if(Student_Portal_Screen.regBool) {
+			regCard.setBackground(new Color(0x13A89E));
+			regCard.setForeground(Color.WHITE);
+		}else if(Student_Portal_Screen.feesBool) {
+			fees.setBackground(new Color(0x13A89E));
+			fees.setForeground(Color.WHITE);
+		}else if(Student_Portal_Screen.resultBool) {
+			resultCard.setBackground(new Color(0x13A89E));
+			resultCard.setForeground(Color.WHITE);
+		}
 		JPanel detailsPanel = new JPanel();
-		detailsPanel.setBackground(new Color(0xEAEAEA));
+		detailsPanel.setBackground(Color.white);
 		detailsPanel.setLayout(null);
 		detailsPanel.setBounds(157, 157, 1053, 375);
 		
@@ -24,5 +37,32 @@ public class NotAvailable extends Student_Portal_Screen {
 		mainPanel.add(detailsPanel);
 		
 		mainFrame.setVisible(true);
+	}
+	
+	public void mouseExited(MouseEvent e) {
+		if (e.getSource() == dashboard) {
+			dashboard.setBackground(Color.WHITE);
+			dashboard.setForeground(Color.black);
+		}
+		if (e.getSource() == regCard && !Student_Portal_Screen.regBool) {
+			regCard.setBackground(Color.WHITE);
+			regCard.setForeground(Color.black);
+		}
+		if (e.getSource() == fees && !Student_Portal_Screen.feesBool) {
+			fees.setBackground(Color.WHITE);
+			fees.setForeground(Color.black);
+		}
+		if (e.getSource() == resultCard && !Student_Portal_Screen.resultBool) {
+			resultCard.setBackground(Color.WHITE);
+			resultCard.setForeground(Color.black);
+		}
+		if (e.getSource() == profile) {
+			profile.setBackground(Color.WHITE);
+			profile.setForeground(Color.black);
+		}
+		if (e.getSource() == logOut) {
+			logOut.setBackground(Color.WHITE);
+			logOut.setForeground(Color.black);
+		}
 	}
 }
