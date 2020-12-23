@@ -129,6 +129,13 @@ public class Student_Dashboard extends Student_Portal_Screen {
 		mainPanel.add(background);
 
 	}
+	public void mouseClicked(MouseEvent e) {
+		super.mouseClicked(e);
+		if(e.getSource() == OOPSubject) {
+			new Notifications();
+			mainFrame.dispose();
+		}
+	}
 
 	public void mouseEntered(MouseEvent e) {
 		if (e.getSource() == regCard) {

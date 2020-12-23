@@ -196,7 +196,7 @@ public class Teacher_Signup extends Template implements ActionListener {
 				teacher.setQualification(qualificationField.getText());
 				teacher.setEmail(emailField.getText());
 				Teacher.writeTeacherRecord(teacher);
-				new Teacher_Dashboard();
+				new Teacher_Portal_Screen();
 				mainFrame.dispose();
 			}
 		} 

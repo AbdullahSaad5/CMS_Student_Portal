@@ -33,8 +33,12 @@ public class NotAvailable extends Student_Portal_Screen {
 		error.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Additional Icons/Error.png")));
 		
 		detailsPanel.add(error);
-		
 		mainPanel.add(detailsPanel);
+		
+		JLabel background = new JLabel();
+		background.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/background.jpg")));
+		background.setBounds(0, 0, 1366, 768);
+		mainPanel.add(background);
 		
 		mainFrame.setVisible(true);
 	}

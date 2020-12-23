@@ -5,15 +5,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Teacher_Dashboard implements ActionListener {
+public class Teacher_Portal_Screen implements ActionListener {
 	JFrame mainFrame;
-	JPanel mainPanel, logoutPanel;
+	JPanel mainPanel, logoutPanel, infoPanel;
 	JButton home, myDocs, groups, reports, quizzes, bank, gradedDiscussion, moderateDiscussion, assignments,
 			notifications, logout;
 	JLabel homeLabel, docsLabel, groupsLabel, reportsLabel, quizzesLabel, bankLabel, gradedLabel, moderateLabel,
 			assignmentsLabel, notificationsLabel;
 
-	public Teacher_Dashboard() {
+	public Teacher_Portal_Screen() {
 		mainFrame = new JFrame();
 		mainFrame.setSize(1366, 768);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -219,6 +219,12 @@ public class Teacher_Dashboard implements ActionListener {
 		assignmentsLabel.setFont(new Font("Roboto", Font.PLAIN, 11));
 		assignmentsLabel.setForeground(new Color(0xBDBEC2));
 		mainPanel.add(assignmentsLabel);
+		
+		infoPanel = new JPanel();
+		infoPanel.setLayout(null);
+		infoPanel.setBackground(new Color(0x0898A0));
+		infoPanel.setBounds(0, 159, 1366, 105);
+		mainPanel.add(infoPanel);
 
 		JLabel image = new JLabel();
 		mainPanel.add(image);
