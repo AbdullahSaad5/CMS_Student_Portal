@@ -149,4 +149,25 @@ public class Student extends Person implements Serializable {
 		}
 		System.out.println("Not found");
 	}
+	
+	public static String displayAllStudents() {
+		String output = "";
+		ArrayList<Student> list = readStudentRecord();
+		int count = 1;
+		for (Student s : list) {
+			output += "Student No. " + count + "\n";
+			output += "\nName: \t" + s.getName();
+			output += "\nReg No: \t" + s.getRegNo();
+			output += "\nEmail: \t" + s.getEmail();
+			output += "\nSemester: \t" + s.getSemester();
+			output += "\nAge: \t" + s.getAge();
+			output += "\nCGPA: \t" + s.getCGPA();
+			output += "\nHome City: \t" + s.getHomeCity();
+			output += "\nBus Facility: \t" + s.getBusFacility();
+			
+			output += "\n\n\n";
+			count++;
+		}
+		return output;
+	}
 }

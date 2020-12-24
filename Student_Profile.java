@@ -133,4 +133,12 @@ public class Student_Profile extends Student_Portal_Screen {
 
 		mainFrame.setVisible(true);
 	}
+	
+	public void mouseExited(MouseEvent e) {
+		 if (e.getSource() == profile) {
+			//Do nothing
+		} else {
+			super.mouseExited(e);
+		}
+	}
 }

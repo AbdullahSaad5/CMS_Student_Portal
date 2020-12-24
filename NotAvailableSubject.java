@@ -10,31 +10,6 @@ public class NotAvailableSubject extends Subject_Window{
 	JLabel dataLabel;
 	public NotAvailableSubject() {
 		
-		if(Subject_Window.attBool) {
-			attendance.setBackground(new Color(0x13A89E));
-			attendance.setForeground(Color.WHITE);
-		}
-		if(Subject_Window.MDBBool) {
-			MDB.setBackground(new Color(0x13A89E));
-			MDB.setForeground(Color.WHITE);
-		}
-		if(Subject_Window.GDBBool) {
-			GDB.setBackground(new Color(0x13A89E));
-			GDB.setForeground(Color.WHITE);
-		}
-		if(Subject_Window.marksBool) {
-			marks.setBackground(new Color(0x13A89E));
-			marks.setForeground(Color.WHITE);
-		}
-		if(Subject_Window.lecBool) {
-			lectureContents.setBackground(new Color(0x13A89E));
-			lectureContents.setForeground(Color.WHITE);
-		}
-		if(Subject_Window.courseBool) {
-			courseInformation.setBackground(new Color(0x13A89E));
-			courseInformation.setForeground(Color.WHITE);
-		}
-		
 		dataLabel = new JLabel("No data available.");
 		supportPanel.add(dataLabel);
 		dataLabel.setForeground(new Color(0x474747));

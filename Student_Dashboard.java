@@ -13,8 +13,7 @@ public class Student_Dashboard extends Student_Portal_Screen {
 	JLabel courseNohead, courseNamehead, creditshead, teacherhead, classhead, attendanceSummaryhead;
 
 	public Student_Dashboard() {
-		dashBool = true;
-		
+
 		dashboard.setBackground(new Color(0x13A89E));
 		dashboard.setForeground(Color.WHITE);
 
@@ -127,16 +126,20 @@ public class Student_Dashboard extends Student_Portal_Screen {
 	}
 
 	public void mouseEntered(MouseEvent e) {
-		super.mouseEntered(e);
 		if (e.getSource() == OOPSubject) {
 			OOPSubject.setBackground(new Color(0xEEEEEE));
+		} else {
+			super.mouseEntered(e);
 		}
 	}
-	
+
 	public void mouseExited(MouseEvent e) {
-		super.mouseEntered(e);
-		if (e.getSource() == OOPSubject) {
+		if (e.getSource() == dashboard) {
+			//Do nothing
+		} else if (e.getSource() == OOPSubject) {
 			OOPSubject.setBackground(Color.white);
+		} else {
+			super.mouseExited(e);
 		}
 	}
 

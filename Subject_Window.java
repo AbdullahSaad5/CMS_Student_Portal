@@ -10,8 +10,6 @@ public class Subject_Window extends Student_Portal_Screen {
 	JLabel courseName, creditHours, teacherName, courseCode;
 	JButton notifications, attendance, marks, learning, assignments, MDB, GDB, quizzes, lectureContents,
 			courseInformation;
-	static Boolean notiBool = true, attBool = false, marksBool = false, learnBool = false, assignBool = false,
-			MDBBool = false, GDBBool = false, quizBool = false, lecBool = false, courseBool = false;
 
 	public Subject_Window() {
 
@@ -44,7 +42,7 @@ public class Subject_Window extends Student_Portal_Screen {
 
 		supportPanel = new JPanel();
 		mainPanel.add(supportPanel);
-		supportPanel.setBounds(157, 252, 1053, 225);
+		supportPanel.setBounds(157, 252, 1053, 300);
 		supportPanel.setBackground(Color.WHITE);
 		supportPanel.setLayout(null);
 
@@ -191,7 +189,7 @@ public class Subject_Window extends Student_Portal_Screen {
 		courseInformation.setBorder(null);
 		courseInformation.setMargin(null);
 		courseInformation.addMouseListener(this);
-		
+
 		JLabel background = new JLabel();
 		background.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/background.jpg")));
 		background.setBounds(0, 0, 1366, 768);
@@ -200,217 +198,95 @@ public class Subject_Window extends Student_Portal_Screen {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		super.mouseEntered(e);
+
 		if (e.getSource() == notifications) {
 			notifications.setBackground(new Color(0x13A89E));
-		}
-		if (e.getSource() == attendance) {
+		} else if (e.getSource() == attendance) {
 			attendance.setBackground(new Color(0x13A89E));
-		}
-		if (e.getSource() == marks) {
+		} else if (e.getSource() == marks) {
 			marks.setBackground(new Color(0x13A89E));
-		}
-		if (e.getSource() == learning) {
+		} else if (e.getSource() == learning) {
 			learning.setBackground(new Color(0x13A89E));
-		}
-		if (e.getSource() == assignments) {
+		} else if (e.getSource() == assignments) {
 			assignments.setBackground(new Color(0x13A89E));
-		}
-		if (e.getSource() == GDB) {
+		} else if (e.getSource() == GDB) {
 			GDB.setBackground(new Color(0x13A89E));
-		}
-		if (e.getSource() == MDB) {
+		} else if (e.getSource() == MDB) {
 			MDB.setBackground(new Color(0x13A89E));
-		}
-		if (e.getSource() == quizzes) {
+		} else if (e.getSource() == quizzes) {
 			quizzes.setBackground(new Color(0x13A89E));
-		}
-		if (e.getSource() == lectureContents) {
+		} else if (e.getSource() == lectureContents) {
 			lectureContents.setBackground(new Color(0x13A89E));
-		}
-		if (e.getSource() == courseInformation) {
+		} else if (e.getSource() == courseInformation) {
 			courseInformation.setBackground(new Color(0x13A89E));
+		} else {
+			super.mouseEntered(e);
 		}
 	}
 
-
 	public void mouseExited(MouseEvent e) {
-		super.mouseExited(e);
-		if (e.getSource() == notifications && !notiBool) {
+		if (e.getSource() == dashboard) {
+			// Do nothing
+		} else if (e.getSource() == notifications) {
 			notifications.setBackground(null);
-		}
-		if (e.getSource() == attendance && !attBool) {
+		} else if (e.getSource() == attendance) {
 			attendance.setBackground(null);
-		}
-		if (e.getSource() == marks && !marksBool) {
+		} else if (e.getSource() == marks) {
 			marks.setBackground(null);
-		}
-		if (e.getSource() == learning && !learnBool) {
+		} else if (e.getSource() == learning) {
 			learning.setBackground(null);
-		}
-		if (e.getSource() == assignments && !assignBool) {
+		} else if (e.getSource() == assignments) {
 			assignments.setBackground(null);
-		}
-		if (e.getSource() == GDB && !GDBBool) {
+		} else if (e.getSource() == GDB) {
 			GDB.setBackground(null);
-		}
-		if (e.getSource() == MDB && !MDBBool) {
+		} else if (e.getSource() == MDB) {
 			MDB.setBackground(null);
-		}
-		if (e.getSource() == quizzes && !quizBool) {
+		} else if (e.getSource() == quizzes) {
 			quizzes.setBackground(null);
-		}
-		if (e.getSource() == lectureContents && !lecBool) {
+		} else if (e.getSource() == lectureContents) {
 			lectureContents.setBackground(null);
-		}
-		if (e.getSource() == courseInformation && !courseBool) {
+		} else if (e.getSource() == courseInformation) {
 			courseInformation.setBackground(null);
+		} else {
+			super.mouseExited(e);
 		}
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		super.mouseClicked(e);
+
 		if (e.getSource() == notifications) {
-			notiBool = true;
-			attBool = false;
-			marksBool = false;
-			learnBool = false;
-			assignBool = false;
-			MDBBool = false;
-			GDBBool = false;
-			quizBool = false;
-			lecBool = false;
-			courseBool = false;
 			new Notifications();
 			mainFrame.dispose();
-		}
-		if (e.getSource() == attendance) {
-			notiBool = false;
-			attBool = true;
-			marksBool = false;
-			learnBool = false;
-			assignBool = false;
-			MDBBool = false;
-			GDBBool = false;
-			quizBool = false;
-			lecBool = false;
-			courseBool = false;
-			new Subject_Window();
+		} else if (e.getSource() == attendance) {
+			new StudentAttendance();
 			mainFrame.dispose();
-		}
-		if (e.getSource() == marks) {
-			notiBool = false;
-			attBool = false;
-			marksBool = true;
-			learnBool = false;
-			assignBool = false;
-			MDBBool = false;
-			GDBBool = false;
-			quizBool = false;
-			lecBool = false;
-			courseBool = false;
-			new Subject_Window();
+		} else if (e.getSource() == marks) {
+			new NotAvailableSubject();
 			mainFrame.dispose();
-		}
-		if (e.getSource() == learning) {
-			notiBool = false;
-			attBool = false;
-			marksBool = false;
-			learnBool = true;
-			assignBool = false;
-			MDBBool = false;
-			GDBBool = false;
-			quizBool = false;
-			lecBool = false;
-			courseBool = false;
-			new Subject_Window();
+		} else if (e.getSource() == learning) {
+			new NotAvailableSubject();
 			mainFrame.dispose();
-		}
-		if (e.getSource() == assignments) {
-			notiBool = false;
-			attBool = false;
-			marksBool = false;
-			learnBool = false;
-			assignBool = true;
-			MDBBool = false;
-			GDBBool = false;
-			quizBool = false;
-			lecBool = false;
-			courseBool = false;
-			new Subject_Window();
+		} else if (e.getSource() == assignments) {
+			new NotAvailableSubject();
 			mainFrame.dispose();
-		}
-		if (e.getSource() == GDB) {
-			notiBool = false;
-			attBool = false;
-			marksBool = false;
-			learnBool = false;
-			assignBool = false;
-			MDBBool = false;
-			GDBBool = true;
-			quizBool = false;
-			lecBool = false;
-			courseBool = false;
-			new Subject_Window();
+		} else if (e.getSource() == GDB) {
+			new NotAvailableSubject();
 			mainFrame.dispose();
-		}
-		if (e.getSource() == MDB) {
-			notiBool = false;
-			attBool = false;
-			marksBool = false;
-			learnBool = false;
-			assignBool = false;
-			MDBBool = true;
-			GDBBool = false;
-			quizBool = false;
-			lecBool = false;
-			courseBool = false;
-			new Subject_Window();
+		} else if (e.getSource() == MDB) {
+			new NotAvailableSubject();
 			mainFrame.dispose();
-		}
-		if (e.getSource() == quizzes) {
-			notiBool = false;
-			attBool = false;
-			marksBool = false;
-			learnBool = false;
-			assignBool = false;
-			MDBBool = false;
-			GDBBool = false;
-			quizBool = true;
-			lecBool = false;
-			courseBool = false;
-			new Subject_Window();
+		} else if (e.getSource() == quizzes) {
+			new NotAvailableSubject();
 			mainFrame.dispose();
-		}
-		if (e.getSource() == lectureContents) {
-			notiBool = false;
-			attBool = false;
-			marksBool = false;
-			learnBool = false;
-			assignBool = false;
-			MDBBool = false;
-			GDBBool = false;
-			quizBool = false;
-			lecBool = true;
-			courseBool = false;
-			new Subject_Window();
+		} else if (e.getSource() == lectureContents) {
+			new NotAvailableSubject();
 			mainFrame.dispose();
-		}
-		if (e.getSource() == courseInformation) {
-			notiBool = false;
-			attBool = false;
-			marksBool = false;
-			learnBool = false;
-			assignBool = false;
-			MDBBool = false;
-			GDBBool = false;
-			quizBool = false;
-			lecBool = false;
-			courseBool = true;
-			new Subject_Window();
+		} else if (e.getSource() == courseInformation) {
+			new CourseInformation();
 			mainFrame.dispose();
+		} else {
+			super.mouseClicked(e);
 		}
-
 	}
 
 }

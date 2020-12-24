@@ -77,6 +77,7 @@ public class Teacher_Portal_Screen implements ActionListener {
 		groups.setHorizontalTextPosition(JLabel.CENTER);
 		groups.setVerticalTextPosition(JLabel.BOTTOM);
 		groups.setBackground(Color.WHITE);
+		groups.addActionListener(this);
 
 		// Adding result card button
 		reports = new JButton();
@@ -239,8 +240,11 @@ public class Teacher_Portal_Screen implements ActionListener {
 		if (e.getSource() == logout) {
 			new Login();
 			mainFrame.dispose();
-		} else if (e.getSource() == notifications) {
+		} else if (e.getSource() == home) {
 			new Teacher_Profile();
+			mainFrame.dispose();
+		} else if(e.getSource() == groups) {
+			new viewAllStudents();
 			mainFrame.dispose();
 		}
 	}

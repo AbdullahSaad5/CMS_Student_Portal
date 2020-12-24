@@ -1,0 +1,229 @@
+CSC241 | Course Outline
+ 
+•       Motivation of object oriented programming, object and classes in real world
+•       cin and cout
+•       data member and member function in class, setter and getter functions
+•       constructor, destructor and overloaded functions
+•       constant objects, member functions, data members and argument to a function
+•       friend functions
+•       reference variable, this pointer, dynamic memory allocation
+•       static members in class
+•       container and proxy classes
+•       operator overloading: unary and binary, stream insertion and extraction
+•       data conversion: one argument constructor , conversion function
+•       explicit constructor and its use
+•       Inheritance: types, level and multiple inheritance, function overriding
+•       Aggregation and composition
+•       Default copy constructor
+•       Polymorphism, static and dynamic binding, virtual function
+•       Pure virtual functions and abstract class
+•       Virtual destructor
+•       Static member function of a class
+•       Copy initialization and assignment
+•       Dynamic type information using dynamic_cast and typeid operators
+•       Introduction to generic programming, function and class template
+•       Exception handling, try, catch and throw block. Exception with arguments
+•       File operations, character, binary and object I/O
+Course Outline
+
+
+CSC241 | COURSE OBJECTIVES
+ 
+·         To provide the understanding of object oriented concepts and stresses hands-on using C++ programming language.
+·         It aims to allow students to feel confident to formulate various real world problem into object oriented concept
+·         To give students experience and confidence in the use of a high level programming language to implement algorithms.
+Course Overview
+
+
+CSC241 | FAQ's
+ 
+Q.   I do not have any experience in programming can I learn it?
+A.  No, the prerequisite of this course in Introduction to computer and programing or Introduction to programming. You must pass one of these courses to attend this course.  
+ 
+Q.  Why I am not leaning java or C sharp in this course?
+A.  In this course you have a complete understanding and hands on of various concepts of object oriented programming. After this course you are able to learn such programming language by your own. You just have to know the syntax of particular language.
+ 
+Q.   Can I write a C++ program without main ( ) function?
+A.  No, you cannot write a C++ program without main ( ) function. You can make a C++ header and source files. Header file contains the prototype class definition (class definition having function prototype) and source file contains the definition of member functions of class. But this file cannot be executed. Only a C++ file that contains main function can be executed.
+ 
+Q.  Can I write a C++ program without writing a class?
+A.  Yes you can write a C++ program without writing any class. This is because C++ is not a pure object oriented programming language. In pure object oriented programming language like java it is compulsory to write a class even if you are writing a program to display hello world message on screen. 
+FAQs
+
+
+CSC241 | Glossary
+ 
+A
+Abstract class: A class whose object cannot be instantiated
+Aggregation: Objects that are made up of other objects
+Attribute: A characteristic of an object
+Access specifier: these are used to grant the level of access to the members of a class by that class objects
+ 
+B
+ 
+Base class: A class whose property are inherited by other classes
+ 
+C
+ 
+Class: It is a definition of object. A class defines constituent members which enable its instances to have state and behavior
+Class objects: An instance of class. Memory is allocated of it to store its values
+Class hierarchy: Relationship (e.g. inheritance) of classes develop a class  hierarchy
+Composition: it is a way of combining objects
+Constructor: A special type of function which is called upon the creation of objects. Its name is same as class name
+Copy constructor:
+ 
+D
+Default constructor: A constrcutor that is automatically generated in the absence of a constructor in class definition
+Destructor:a function that is called implicitly when an object is destroyed
+Dynamic binding: identification at run time that which member function of various classes is executed
+ 
+E
+Encapsulation: Combining the attributes and methods in a class with some public interfaces
+Exception handling: It is a process of handling with errors that occur during the execution of programs
+Early binding: it is the identification at compile time that which function will be execution as a result of a function call in a program
+ 
+F
+ 
+G
+Generic programming: it is a way programming in which algorithms are written in the form of to be specified later types
+ 
+H
+ 
+I
+Inheritance:  data members and functions of a class can be a part of another class. This is class inheritance. The first class is called base class and formal is called a child class 
+Instance: an object of a class
+ 
+J
+ 
+K
+ 
+L
+Late binding: Dynamic binding is also called late binding
+M
+Member accessibility: specified by the access specifier
+Multiple inheritance: When a class inherits the feature of more than one classes
+ 
+ 
+N
+Namespace: it is an environment to hold a group of identifier and symbols. The C++ library is define within namespace std
+ 
+O
+Overloading: operator having different implementation depending upon the type of its operands
+ 
+ 
+P
+Polymorphism: it is a feature that allows values of different data types to be handled using a uniform interface 
+Public, private, protected: are the ways of encapsulation in object oriented programming
+Pure virtual function: A function whose behavior can be overwritten in the inheriting class. This is an important concept of polymorphism
+ 
+R
+ 
+S
+Super class: it is a parent class that is also called a base class in inheritance. Other classes can be derived from super class
+ 
+ 
+Reference:
+www.wikipedia.org
+Glossary
+
+
+CSC241 | Web Links
+ 
+·         The C++ Resource Network http://www.cplusplus.com/
+           BloodShed Dev C++ Tool    http://www.bloodshed.net/dev/devcpp.html
+Web Links
+
+
+Books Information
+
+Book Type : Reference/Others
+Title : C++ How to program
+Author(s) : Deitel and Deitel
+Subject : Object Oriented Programming
+Classification No :
+Language : English
+Edition No :
+Publisher :
+
+Book Type : Recommended Textbook
+Title : Programming in C + +
+Author(s) : Robert Lafore
+Subject : Computer Science
+Classification No :
+Language : English
+Edition No : Fourth
+Publisher :
+
+Book Type : Reference/Others
+Title : C++ How to program
+Author(s) : Deitel and Deitel
+Subject : Computer Science
+Classification No :
+Language : English
+Edition No : Eighth
+Publisher :
+
+Book Type : Recommended Textbook
+Title : Programming in C++
+Author(s) : Robert Lafore
+Subject : Object Oriented Programming
+Classification No :
+Language : English
+Edition No :
+Publisher :
+
+Book Type : Recommended Textbook
+Title : C++ How to program
+Author(s) : Deitel and Deitel
+Subject : Object Oriented Programming
+Classification No :
+Language : English
+Edition No : 8th
+Publisher :
+
+Book Type : Recommended Textbook
+Title : Programming in C++
+Author(s) : Robert Lafore
+Subject : Object Oriented Programming
+Classification No :
+Language : English
+Edition No :
+Publisher :
+
+Book Type : Recommended Textbook
+Title : Programming in C + +
+Author(s) : By Robert Lafore
+Subject :
+Classification No :
+Language :
+Edition No :
+Publisher :
+
+Book Type : Recommended Textbook
+Title : C++ How to program
+Author(s) : Deitel and Deitel
+Subject :
+Classification No :
+Language :
+Edition No :
+Publisher :
+
+Book Type : Recommended Textbook
+Title : Programming in C + +
+Author(s) : By Robert Lafore
+Subject :
+Classification No :
+Language :
+Edition No :
+Publisher :
+
+Book Type : Recommended Textbook
+Title : C++ How to program
+Author(s) : Deitel and Deitel
+Subject :
+Classification No :
+Language :
+Edition No :
+Publisher :
+
+

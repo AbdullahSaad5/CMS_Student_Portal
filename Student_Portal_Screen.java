@@ -2,8 +2,6 @@ package CMS_Student_Portal;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -12,14 +10,9 @@ public class Student_Portal_Screen implements MouseListener {
 	JPanel mainPanel, welcomePanel, footerPanel;
 	JButton dashboard, regCard, fees, resultCard, profile, logOut;
 	JLabel welcome, footerText;
-	boolean dashBool, regBool, feesBool, resultBool, profileBool;
+	static boolean regBool, feesBool, resultBool;
 
 	public Student_Portal_Screen() {
-		dashBool = false;
-		regBool = false;
-		feesBool = false;
-		resultBool = false;
-		profileBool = false;
 		mainFrame = new JFrame();
 		mainFrame.setSize(1366, 768);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,7 +52,6 @@ public class Student_Portal_Screen implements MouseListener {
 		footerPanel.add(footerText);
 
 		// Adding dashboard button
-//        "<html><p style='style='text-align: left'>Dashboard</p></html>"
 		dashboard = new JButton("Dashboard");
 		mainPanel.add(dashboard);
 		dashboard.setBounds(607, 48, 64, 71);
@@ -150,7 +142,6 @@ public class Student_Portal_Screen implements MouseListener {
 		user.setBounds(1097, 27, 113, 113);
 		user.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/user.png")));
 
-// Takes over the profile menu and doesn't show anything
 //        JLabel background = new JLabel();
 //        background.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/background.jpg")));
 //        background.setBounds(0,0, 1366, 768);
@@ -164,23 +155,23 @@ public class Student_Portal_Screen implements MouseListener {
 			dashboard.setBackground(new Color(0x13A89E));
 			dashboard.setForeground(Color.white);
 		}
-		if (e.getSource() == regCard) {
+		else if (e.getSource() == regCard) {
 			regCard.setBackground(new Color(0x13A89E));
 			regCard.setForeground(Color.white);
 		}
-		if (e.getSource() == fees) {
+		else if (e.getSource() == fees) {
 			fees.setBackground(new Color(0x13A89E));
 			fees.setForeground(Color.white);
 		}
-		if (e.getSource() == resultCard) {
+		else if (e.getSource() == resultCard) {
 			resultCard.setBackground(new Color(0x13A89E));
 			resultCard.setForeground(Color.white);
 		}
-		if (e.getSource() == profile) {
+		else if (e.getSource() == profile) {
 			profile.setBackground(new Color(0x13A89E));
 			profile.setForeground(Color.white);
 		}
-		if (e.getSource() == logOut) {
+		else if (e.getSource() == logOut) {
 			logOut.setBackground(new Color(0x13A89E));
 			logOut.setForeground(Color.white);
 		}
@@ -188,27 +179,27 @@ public class Student_Portal_Screen implements MouseListener {
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		if (e.getSource() == dashboard && !dashBool) {
+		if (e.getSource() == dashboard) {
 			dashboard.setBackground(Color.WHITE);
 			dashboard.setForeground(Color.black);
 		}
-		if (e.getSource() == regCard && !regBool) {
+		else if (e.getSource() == regCard) {
 			regCard.setBackground(Color.WHITE);
 			regCard.setForeground(Color.black);
 		}
-		if (e.getSource() == fees && !feesBool) {
+		else if (e.getSource() == fees) {
 			fees.setBackground(Color.WHITE);
 			fees.setForeground(Color.black);
 		}
-		if (e.getSource() == resultCard && !resultBool) {
+		else if (e.getSource() == resultCard) {
 			resultCard.setBackground(Color.WHITE);
 			resultCard.setForeground(Color.black);
 		}
-		if (e.getSource() == profile && !profileBool) {
+		else if (e.getSource() == profile) {
 			profile.setBackground(Color.WHITE);
 			profile.setForeground(Color.black);
 		}
-		if (e.getSource() == logOut) {
+		else if (e.getSource() == logOut) {
 			logOut.setBackground(Color.WHITE);
 			logOut.setForeground(Color.black);
 		}
@@ -220,42 +211,28 @@ public class Student_Portal_Screen implements MouseListener {
 			new Login();
 			mainFrame.dispose();
 		} else if (e.getSource() == dashboard) {
-			dashBool = true;
-			regBool = false;
-			feesBool = false;
-			resultBool = false;
-			profileBool = false;
 			new Student_Dashboard();
 			mainFrame.dispose();
 		} else if (e.getSource() == resultCard || e.getSource() == fees || e.getSource() == regCard) {
 			if (e.getSource() == resultCard) {
-				dashBool = false;
 				regBool = false;
 				feesBool = false;
 				resultBool = true;
-				profileBool = false;
 			} else if (e.getSource() == fees) {
-				dashBool = false;
 				regBool = false;
 				feesBool = true;
 				resultBool = false;
-				profileBool = false;
 			} else if (e.getSource() == regCard) {
-				dashBool = false;
 				regBool = true;
 				feesBool = false;
 				resultBool = false;
-				profileBool = false;
 			}
 			new NotAvailable();
 			mainFrame.dispose();
 		} else if (e.getSource() == profile) {
-			dashBool = false;
 			regBool = false;
 			feesBool = false;
 			resultBool = false;
-			profileBool = true;
-			;
 			new Student_Profile();
 			mainFrame.dispose();
 		}

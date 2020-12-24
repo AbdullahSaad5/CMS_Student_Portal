@@ -132,12 +132,12 @@ public class Teacher_Signup extends Template implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		boolean correct = true;
-		name = nameField.getText();
-		field = fieldField.getText();
-		experience = experienceField.getText();
-		age = ageField.getText();
-		qualification = qualificationField.getText();
-		email = emailField.getText();
+		name = nameField.getText().strip();
+		field = fieldField.getText().strip();
+		experience = experienceField.getText().strip();
+		age = ageField.getText().strip();
+		qualification = qualificationField.getText().strip();
+		email = emailField.getText().strip();
 		if (e.getSource() == submit) {
 			if (name.isBlank() || field.isBlank() || experience.isBlank() || age.isBlank() || qualification.isBlank()
 					|| email.isBlank()) {
@@ -179,7 +179,7 @@ public class Teacher_Signup extends Template implements ActionListener {
 				ageError.setText("");
 			}
 			if (!(Utilities.checkStringWithSpaces(qualification) || Utilities.checkString(qualification))) {
-				qualificationError.setText("Invalid Qualification (Must be Decimal Number only)");
+				qualificationError.setText("Invalid Qualification (Must be Letters Number only)");
 				correct = false;
 			} else {
 				qualificationError.setText("");

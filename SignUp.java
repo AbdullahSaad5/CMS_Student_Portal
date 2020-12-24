@@ -71,7 +71,7 @@ public class SignUp extends Template implements ActionListener {
 	}
 
 	private void checkSignup() {
-		username = userField.getText();
+		username = userField.getText().strip();
 		pass1 = passField.getText();
 		pass2 = passField2.getText();
 		if (username.isBlank() || pass1.isBlank() || pass2.isBlank()) {

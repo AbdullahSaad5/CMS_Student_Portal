@@ -35,14 +35,6 @@ public class Student_Signup extends Template implements ActionListener {
 		mainPanel.add(nameField);
 		nameField.setBounds(658, 58, 150, 20);
 
-		emailLabel = new JLabel("Email:");
-		mainPanel.add(emailLabel);
-		emailLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
-		emailLabel.setBounds(586, 139, 50, 20);
-
-		emailField = new JTextField();
-		mainPanel.add(emailField);
-		emailField.setBounds(658, 139, 150, 20);
 
 		regNoLabel = new JLabel("Reg No:");
 		mainPanel.add(regNoLabel);
@@ -52,6 +44,15 @@ public class Student_Signup extends Template implements ActionListener {
 		regNoField = new JTextField();
 		mainPanel.add(regNoField);
 		regNoField.setBounds(658, 99, 150, 20);
+		
+		emailLabel = new JLabel("Email:");
+		mainPanel.add(emailLabel);
+		emailLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
+		emailLabel.setBounds(586, 139, 50, 20);
+
+		emailField = new JTextField();
+		mainPanel.add(emailField);
+		emailField.setBounds(658, 139, 150, 20);
 
 		semesterLabel = new JLabel("Semester:");
 		mainPanel.add(semesterLabel);
@@ -164,14 +165,14 @@ public class Student_Signup extends Template implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		boolean correct = true;
-		name = nameField.getText();
-		regNo = regNoField.getText();
-		semester = semesterField.getText();
-		age = ageField.getText();
-		gpa = gpaField.getText();
-		city = cityField.getText();
-		bus = busField.getText();
-		email = emailField.getText();
+		name = nameField.getText().strip();
+		regNo = regNoField.getText().strip();
+		semester = semesterField.getText().strip();
+		age = ageField.getText().strip();
+		gpa = gpaField.getText().strip();
+		city = cityField.getText().strip();
+		bus = busField.getText().strip();
+		email = emailField.getText().strip();
 
 		if (e.getSource() == submit) {
 			if (name.isBlank() || regNo.isBlank() || semester.isBlank() || age.isBlank() || gpa.isBlank()
@@ -183,7 +184,7 @@ public class Student_Signup extends Template implements ActionListener {
 				return;
 			}
 			// Checking Name
-			if (!(Utilities.checkStringWithSpaces(name) || Utilities.checkString(name) && (Integer.parseInt(semester) > 0 && Integer.parseInt(semester) <= 12))) {
+			if (!(Utilities.checkStringWithSpaces(name) || Utilities.checkString(name))) {
 				nameError.setText("Invalid Name (Must be letters only)");
 				correct = false;
 			} else {
@@ -202,13 +203,13 @@ public class Student_Signup extends Template implements ActionListener {
 			} else {
 				emailError.setText("");
 			}
-			if (!Utilities.checkNumber(semester)) {
+			if (!(Utilities.checkNumber(semester) && (Integer.parseInt(semester) > 0 && Integer.parseInt(semester) <= 12))) {
 				semError.setText("Invalid Semester (Must be Digits only)");
 				correct = false;
 			} else {
 				semError.setText("");
 			}
-			if (!Utilities.checkNumber(age)) {
+			if (!(Utilities.checkNumber(age)&& (Integer.parseInt(age) > 15 && Integer.parseInt(age) <= 60))) {
 				ageError.setText("Invalid Age (Must be Digits only)");
 				correct = false;
 			} else {
