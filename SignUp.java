@@ -12,6 +12,7 @@ public class SignUp extends Template implements ActionListener {
 	JPasswordField passField, passField2;
 	JLabel userLabel, passLabel, passLabel2,loginLabel, success;
 	JButton signUpButton;
+	String username, pass1, pass2;
 
 	public SignUp() {
 		mainPanel = new JPanel();
@@ -70,39 +71,42 @@ public class SignUp extends Template implements ActionListener {
 	}
 
 	private void checkSignup() {
-		if (userField.getText().isBlank() || passField.getText().isBlank() || passField2.getText().isBlank()) {
+		username = userField.getText();
+		pass1 = passField.getText();
+		pass2 = passField2.getText();
+		if (username.isBlank() || pass1.isBlank() || pass2.isBlank()) {
 			success.setText("Signup Failed!");
 			success.setForeground(new Color(255, 0, 0));
 			success.setBounds(636, 280, 150, 20);
 
-		} else if (checkUsername(userField.getText()) && usernameAvailability(userField.getText()) && checkPassword(passField.getText()) && matchPasswords(passField.getText(), passField2.getText())) {
+		} else if (Utilities.checkUsername(username) && Utilities.usernameAvailability(username) && Utilities.checkPassword(pass1) && Utilities.matchPasswords(pass1, pass2)) {
 			success.setText("Signup Successful!");
 			success.setForeground(new Color(0, 255, 0));
 			success.setBounds(622, 280, 150, 20);
 			if (Identify.isTeacher) {
 				Identify.account = new Teacher();
-				Identify.account.setUsername(userField.getText());
-				Identify.account.setPassword(passField.getText());
+				Identify.account.setUsername(username);
+				Identify.account.setPassword(pass1);
 				new Teacher_Signup();
 			} else {
 				Identify.account = new Student();
-				Identify.account.setUsername(userField.getText());
-				Identify.account.setPassword(passField.getText());
+				Identify.account.setUsername(username);
+				Identify.account.setPassword(pass1);
 				new Student_Signup();
 			}
 			mainFrame.dispose();
 
-		} else if (!checkUsername(userField.getText())) {
+		} else if (!Utilities.checkUsername(username)) {
 			success.setText("Invalid Username");
 			success.setForeground(new Color(255, 0, 0));
 			success.setBounds(622, 280, 150, 20);
 		}
-		else if(!usernameAvailability(userField.getText())) {
+		else if(!Utilities.usernameAvailability(username)) {
 			success.setText("Username Already Taken");
 			success.setForeground(new Color(255, 0, 0));
 			success.setBounds(610, 280, 200, 20);
 		}
-		else if(!checkPassword(passField.getText())) {
+		else if(!Utilities.checkPassword(pass1)) {
 			
 			success.setText(
 					"<html>" + "<body>" + "<p>" + "<ul>" + "Invalid Password<br><br>" + "Password must contain: <br>"
@@ -112,7 +116,7 @@ public class SignUp extends Template implements ActionListener {
 			success.setForeground(new Color(0x052EAA));
 			success.setBounds(560, 265, 350, 150);
 		} 
-		else if(!matchPasswords(passField.getText(), passField2.getText())){
+		else if(!Utilities.matchPasswords(pass1, pass2)){
 			success.setText("Passwords Don't Match");
 			success.setForeground(new Color(255, 0, 0));
 			success.setBounds(610, 280, 200, 20);
@@ -125,62 +129,6 @@ public class SignUp extends Template implements ActionListener {
 		}
 	}
 
-	private boolean checkUsername(String username) {
-		for (int i = 0; i < username.length(); i++) {
-			char curr = username.charAt(i);
-			if (!Character.isLetterOrDigit(curr)) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	private boolean usernameAvailability(String currUsername) {
-		if(Identify.isTeacher) {
-			ArrayList<Teacher> list = Teacher.readTeacherRecord();
-			for (Teacher teacher : list) {
-				if(teacher.getUsername().equals(currUsername))
-				{
-					return false;
-				}
-			}
-			return true;
-		}
-		else {
-			ArrayList<Student> list = Student.readStudentRecord();
-			for (Student student : list) {
-				if(student.getUsername().equals(currUsername)) {
-					return false;
-				}
-			}
-			return true;
-		}
-	}
-
-	private boolean checkPassword(String password) {
-		if (password.length() <= 6) {
-			return false;
-		}
-		if (password.toLowerCase().equals(password)) {
-			return false;
-		}
-		if (password.toUpperCase().equals(password)) {
-			return false;
-		}
-		for (int i = 0; i < password.length(); i++) {
-			char curr = password.charAt(i);
-			if (!Character.isLetterOrDigit(curr)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	private boolean matchPasswords(String password1, String password2) {
-		return (password1.equals(password2));
-	}
-
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == signUpButton) {
 			checkSignup();

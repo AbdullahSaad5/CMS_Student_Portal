@@ -12,6 +12,7 @@ public class Student_Signup extends Template implements ActionListener {
 	JLabel nameLabel, regNoLabel, semesterLabel, ageLabel, gpaLabel, cityLabel, busLabel, mainLabel, emailLabel,
 			success;
 	JLabel nameError, regError, emailError, semError, ageError, gpaError, cityError, busError;
+	String name, regNo, semester, age, gpa, city, bus, email;
 
 	public Student_Signup() {
 		backButton.setEnabled(true);
@@ -33,7 +34,7 @@ public class Student_Signup extends Template implements ActionListener {
 		nameField = new JTextField();
 		mainPanel.add(nameField);
 		nameField.setBounds(658, 58, 150, 20);
-		
+
 		emailLabel = new JLabel("Email:");
 		mainPanel.add(emailLabel);
 		emailLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
@@ -161,61 +162,71 @@ public class Student_Signup extends Template implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+
 		boolean correct = true;
+		name = nameField.getText();
+		regNo = regNoField.getText();
+		semester = semesterField.getText();
+		age = ageField.getText();
+		gpa = gpaField.getText();
+		city = cityField.getText();
+		bus = busField.getText();
+		email = emailField.getText();
+
 		if (e.getSource() == submit) {
-			if (nameField.getText().isBlank() || regNoField.getText().isBlank() || semesterField.getText().isBlank()
-					|| ageField.getText().isBlank() || gpaField.getText().isBlank() || cityField.getText().isBlank()
-					|| busField.getText().isBlank() || emailField.getText().isBlank()) {
+			if (name.isBlank() || regNo.isBlank() || semester.isBlank() || age.isBlank() || gpa.isBlank()
+					|| city.isBlank() || bus.isBlank() || email.isBlank()) {
 				success.setText("Please Enter All the Details.");
 				success.setForeground(new Color(255, 0, 0));
 				success.setBounds(590, 440, 190, 20);
 				correct = false;
 				return;
 			}
-			if (!Utilities.checkStringWithSpaces(nameField.getText())) {
+			// Checking Name
+			if (!(Utilities.checkStringWithSpaces(name) || Utilities.checkString(name) && (Integer.parseInt(semester) > 0 && Integer.parseInt(semester) <= 12))) {
 				nameError.setText("Invalid Name (Must be letters only)");
 				correct = false;
 			} else {
 				nameError.setText("");
 			}
 
-			if (!Utilities.checkRegistrationNumber(regNoField.getText())) {
+			if (!Utilities.checkRegistrationNumber(regNo)) {
 				regError.setText("Invalid Registration Number Format");
 				correct = false;
 			} else {
 				regError.setText("");
 			}
-			if (!Utilities.checkEmail(emailField.getText())) {
+			if (!Utilities.checkEmail(email)) {
 				emailError.setText("Invalid Email Format");
 				correct = false;
 			} else {
 				emailError.setText("");
 			}
-			if (!Utilities.checkNumber(semesterField.getText())) {
+			if (!Utilities.checkNumber(semester)) {
 				semError.setText("Invalid Semester (Must be Digits only)");
 				correct = false;
 			} else {
 				semError.setText("");
 			}
-			if (!Utilities.checkNumber(ageField.getText())) {
+			if (!Utilities.checkNumber(age)) {
 				ageError.setText("Invalid Age (Must be Digits only)");
 				correct = false;
 			} else {
 				ageError.setText("");
 			}
-			if (!Utilities.checkFloat(gpaField.getText())) {
+			if (!(Utilities.checkFloat(gpa) || Utilities.checkNumber(gpa))) {
 				gpaError.setText("Invalid GPA (Must be Decimal Number only)");
 				correct = false;
 			} else {
 				gpaError.setText("");
 			}
-			if (!Utilities.checkString(cityField.getText())) {
+			if (!(Utilities.checkString(city) || Utilities.checkStringWithSpaces(city))) {
 				cityError.setText("Invalid City (Must be letters only)");
 				correct = false;
 			} else {
 				cityError.setText("");
 			}
-			if (!(busField.getText().equalsIgnoreCase("yes") || busField.getText().equalsIgnoreCase("no"))) {
+			if (!(bus.equalsIgnoreCase("yes") || bus.equalsIgnoreCase("no"))) {
 				busError.setText("Invalid Input (Must be YES / NO)");
 				correct = false;
 			} else {
@@ -227,14 +238,14 @@ public class Student_Signup extends Template implements ActionListener {
 				success.setText("Details Registered.");
 				success.setForeground(new Color(0, 255, 0));
 				success.setBounds(618, 440, 130, 20);
-				student.setName(nameField.getText());
-				student.setRegNo(regNoField.getText());
-				student.setSemester(semesterField.getText());
-				student.setAge(ageField.getText());
-				student.setCGPA(gpaField.getText());
-				student.setHomeCity(cityField.getText());
-				student.setBusFacility(busField.getText());
-				student.setEmail(emailField.getText());
+				student.setName(name);
+				student.setRegNo(regNo);
+				student.setSemester(semester);
+				student.setAge(age);
+				student.setCGPA(gpa);
+				student.setHomeCity(city);
+				student.setBusFacility(bus);
+				student.setEmail(email);
 				Student.writeStudentRecord(student);
 				new Student_Dashboard();
 				mainFrame.dispose();

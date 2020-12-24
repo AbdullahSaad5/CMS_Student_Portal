@@ -42,31 +42,4 @@ public class NotAvailable extends Student_Portal_Screen {
 		
 		mainFrame.setVisible(true);
 	}
-	
-	public void mouseExited(MouseEvent e) {
-		if (e.getSource() == dashboard) {
-			dashboard.setBackground(Color.WHITE);
-			dashboard.setForeground(Color.black);
-		}
-		if (e.getSource() == regCard && !Student_Portal_Screen.regBool) {
-			regCard.setBackground(Color.WHITE);
-			regCard.setForeground(Color.black);
-		}
-		if (e.getSource() == fees && !Student_Portal_Screen.feesBool) {
-			fees.setBackground(Color.WHITE);
-			fees.setForeground(Color.black);
-		}
-		if (e.getSource() == resultCard && !Student_Portal_Screen.resultBool) {
-			resultCard.setBackground(Color.WHITE);
-			resultCard.setForeground(Color.black);
-		}
-		if (e.getSource() == profile) {
-			profile.setBackground(Color.WHITE);
-			profile.setForeground(Color.black);
-		}
-		if (e.getSource() == logOut) {
-			logOut.setBackground(Color.WHITE);
-			logOut.setForeground(Color.black);
-		}
-	}
 }

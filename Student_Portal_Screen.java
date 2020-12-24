@@ -12,9 +12,14 @@ public class Student_Portal_Screen implements MouseListener {
 	JPanel mainPanel, welcomePanel, footerPanel;
 	JButton dashboard, regCard, fees, resultCard, profile, logOut;
 	JLabel welcome, footerText;
-	static boolean regBool, feesBool, resultBool;
+	boolean dashBool, regBool, feesBool, resultBool, profileBool;
 
 	public Student_Portal_Screen() {
+		dashBool = false;
+		regBool = false;
+		feesBool = false;
+		resultBool = false;
+		profileBool = false;
 		mainFrame = new JFrame();
 		mainFrame.setSize(1366, 768);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,7 +52,7 @@ public class Student_Portal_Screen implements MouseListener {
 		footerPanel.setLayout(null);
 		mainPanel.add(footerPanel);
 
-		footerText = new JLabel("CUOnline , Principal Sear @ 2018-COMSATS ®");
+		footerText = new JLabel("CUOnline , Principal Seat @ 2018-COMSATS ®");
 		footerText.setFont(new Font("Roboto", Font.BOLD, 13));
 		footerText.setForeground(Color.white);
 		footerText.setBounds(562, 18, 280, 15);
@@ -183,23 +188,23 @@ public class Student_Portal_Screen implements MouseListener {
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		if (e.getSource() == dashboard) {
+		if (e.getSource() == dashboard && !dashBool) {
 			dashboard.setBackground(Color.WHITE);
 			dashboard.setForeground(Color.black);
 		}
-		if (e.getSource() == regCard) {
+		if (e.getSource() == regCard && !regBool) {
 			regCard.setBackground(Color.WHITE);
 			regCard.setForeground(Color.black);
 		}
-		if (e.getSource() == fees) {
+		if (e.getSource() == fees && !feesBool) {
 			fees.setBackground(Color.WHITE);
 			fees.setForeground(Color.black);
 		}
-		if (e.getSource() == resultCard) {
+		if (e.getSource() == resultCard && !resultBool) {
 			resultCard.setBackground(Color.WHITE);
 			resultCard.setForeground(Color.black);
 		}
-		if (e.getSource() == profile) {
+		if (e.getSource() == profile && !profileBool) {
 			profile.setBackground(Color.WHITE);
 			profile.setForeground(Color.black);
 		}
@@ -215,25 +220,42 @@ public class Student_Portal_Screen implements MouseListener {
 			new Login();
 			mainFrame.dispose();
 		} else if (e.getSource() == dashboard) {
+			dashBool = true;
+			regBool = false;
+			feesBool = false;
+			resultBool = false;
+			profileBool = false;
 			new Student_Dashboard();
 			mainFrame.dispose();
 		} else if (e.getSource() == resultCard || e.getSource() == fees || e.getSource() == regCard) {
 			if (e.getSource() == resultCard) {
+				dashBool = false;
 				regBool = false;
 				feesBool = false;
 				resultBool = true;
+				profileBool = false;
 			} else if (e.getSource() == fees) {
+				dashBool = false;
 				regBool = false;
 				feesBool = true;
 				resultBool = false;
+				profileBool = false;
 			} else if (e.getSource() == regCard) {
+				dashBool = false;
 				regBool = true;
 				feesBool = false;
 				resultBool = false;
+				profileBool = false;
 			}
 			new NotAvailable();
 			mainFrame.dispose();
 		} else if (e.getSource() == profile) {
+			dashBool = false;
+			regBool = false;
+			feesBool = false;
+			resultBool = false;
+			profileBool = true;
+			;
 			new Student_Profile();
 			mainFrame.dispose();
 		}

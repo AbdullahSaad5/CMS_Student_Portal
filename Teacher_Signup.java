@@ -11,6 +11,7 @@ public class Teacher_Signup extends Template implements ActionListener {
 	JTextField nameField, fieldField, experienceField, ageField, qualificationField, emailField;
 	JLabel nameLabel, fieldLabel, experienceLabel, ageLabel, qualificationLabel, emailLabel, success, mainLabel;
 	JLabel nameError, fieldError, expError, ageError, qualificationError, emailError;
+	String name, field, experience, age, qualification, email;
 
 	public Teacher_Signup() {
 		backButton.setEnabled(true);
@@ -32,7 +33,7 @@ public class Teacher_Signup extends Template implements ActionListener {
 		nameField = new JTextField();
 		mainPanel.add(nameField);
 		nameField.setBounds(658, 58, 150, 20);
-		
+
 		emailLabel = new JLabel("Email:");
 		mainPanel.add(emailLabel);
 		emailLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
@@ -41,7 +42,6 @@ public class Teacher_Signup extends Template implements ActionListener {
 		emailField = new JTextField();
 		mainPanel.add(emailField);
 		emailField.setBounds(658, 109, 150, 20);
-		
 
 		fieldLabel = new JLabel("Field:");
 		mainPanel.add(fieldLabel);
@@ -79,21 +79,19 @@ public class Teacher_Signup extends Template implements ActionListener {
 		mainPanel.add(qualificationField);
 		qualificationField.setBounds(658, 312, 150, 20);
 
-
 		submit = new JButton("Submit");
 		mainPanel.add(submit);
 		submit.setFocusable(false);
 		submit.setBounds(633, 400, 100, 20);
 		submit.setFont(new Font("Roboto", Font.PLAIN, 16));
 		submit.addActionListener(this);
-		
-		
+
 		nameError = new JLabel();
 		nameError.setBounds(829, 58, 300, 20);
 		mainPanel.add(nameError);
 		nameError.setForeground(new Color(198, 2, 2));
 		nameError.setFont(new Font("Roboto", Font.PLAIN, 12));
-		
+
 		emailError = new JLabel();
 		emailError.setBounds(829, 109, 300, 20);
 		mainPanel.add(emailError);
@@ -117,90 +115,91 @@ public class Teacher_Signup extends Template implements ActionListener {
 		mainPanel.add(ageError);
 		ageError.setForeground(new Color(198, 2, 2));
 		ageError.setFont(new Font("Roboto", Font.PLAIN, 12));
-		
-		
+
 		qualificationError = new JLabel();
 		qualificationError.setBounds(829, 312, 300, 20);
 		mainPanel.add(qualificationError);
 		qualificationError.setForeground(new Color(198, 2, 2));
 		qualificationError.setFont(new Font("Roboto", Font.PLAIN, 12));
-		
-		
+
 		mainLabel = new JLabel("Enter Your Details");
 		mainPanel.add(mainLabel);
 		mainLabel.setBounds(595, 20, 175, 20);
 		mainLabel.setFont(new Font("Roboto", Font.BOLD + Font.ITALIC, 20));
-
-
 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		boolean correct = true;
+		name = nameField.getText();
+		field = fieldField.getText();
+		experience = experienceField.getText();
+		age = ageField.getText();
+		qualification = qualificationField.getText();
+		email = emailField.getText();
 		if (e.getSource() == submit) {
-			if (nameField.getText().isBlank() || fieldField.getText().isBlank() || experienceField.getText().isBlank()
-					|| ageField.getText().isBlank() || qualificationField.getText().isBlank() || emailField.getText().isBlank()) {
+			if (name.isBlank() || field.isBlank() || experience.isBlank() || age.isBlank() || qualification.isBlank()
+					|| email.isBlank()) {
 				success.setText("Please Enter All the Details.");
 				success.setForeground(new Color(255, 0, 0));
 				success.setBounds(590, 440, 190, 20);
 				correct = false;
 				return;
 			}
-			if (!Utilities.checkStringWithSpaces(nameField.getText())) {
+			if (!Utilities.checkStringWithSpaces(name)) {
 				nameError.setText("Invalid Name (Must be letters only)");
 				correct = false;
 			} else {
 				nameError.setText("");
 			}
 
-			if (!Utilities.checkString(fieldField.getText())) {
+			if (!Utilities.checkString(field)) {
 				fieldError.setText("Invalid Registration Number Format");
 				correct = false;
 			} else {
 				fieldError.setText("");
 			}
-			if (!Utilities.checkEmail(emailField.getText())) {
+			if (!Utilities.checkEmail(email)) {
 				emailError.setText("Invalid Email Format");
 				correct = false;
 			} else {
 				emailError.setText("");
 			}
-			if (!Utilities.checkNumber(experienceField.getText())) {
+			if (!Utilities.checkNumber(experience)) {
 				expError.setText("Invalid Experence (Must be Digits only [Years])");
 				correct = false;
 			} else {
 				expError.setText("");
 			}
-			if (!Utilities.checkNumber(ageField.getText())) {
+			if (!Utilities.checkNumber(age)) {
 				ageError.setText("Invalid Age (Must be Digits only)");
 				correct = false;
 			} else {
 				ageError.setText("");
 			}
-			if (!Utilities.checkStringWithSpaces(qualificationField.getText())) {
-				qualificationError.setText("Invalid GPA (Must be Decimal Number only)");
+			if (!(Utilities.checkStringWithSpaces(qualification) || Utilities.checkString(qualification))) {
+				qualificationError.setText("Invalid Qualification (Must be Decimal Number only)");
 				correct = false;
 			} else {
 				qualificationError.setText("");
 			}
-			if(correct){
+			if (correct) {
 				Teacher teacher = (Teacher) Identify.account;
 				success.setText("Details Registered.");
 				success.setForeground(new Color(0, 255, 0));
 				success.setBounds(618, 440, 130, 20);
-				teacher.setName(nameField.getText());
-				teacher.setField(fieldField.getText());
-				teacher.setExperience(experienceField.getText());
-				teacher.setAge(ageField.getText());
-				teacher.setQualification(qualificationField.getText());
-				teacher.setEmail(emailField.getText());
+				teacher.setName(name);
+				teacher.setField(field);
+				teacher.setExperience(experience);
+				teacher.setAge(age);
+				teacher.setQualification(qualification);
+				teacher.setEmail(email);
 				Teacher.writeTeacherRecord(teacher);
 				new Teacher_Portal_Screen();
 				mainFrame.dispose();
 			}
-		} 
-		else {
+		} else {
 			new SignUp();
 			mainFrame.dispose();
 		}

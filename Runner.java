@@ -2,6 +2,6 @@ package CMS_Student_Portal;
 
 public class Runner {
 	public static void main(String[] args) {
-		new Teacher_Assignment_GUI();
+		new Student_Dashboard();
 	}
 }

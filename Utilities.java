@@ -1,5 +1,8 @@
 package CMS_Student_Portal;
 
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+
 public class Utilities {
 
 	public static boolean checkString(String message) {
@@ -123,5 +126,62 @@ public class Utilities {
 		}
 		return false;
 	}
+	
+	
+	public static boolean checkUsername(String username) {
+		for (int i = 0; i < username.length(); i++) {
+			char curr = username.charAt(i);
+			if (!Character.isLetterOrDigit(curr)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public static boolean usernameAvailability(String currUsername) {
+		if(Identify.isTeacher) {
+			ArrayList<Teacher> list = Teacher.readTeacherRecord();
+			for (Teacher teacher : list) {
+				if(teacher.getUsername().equals(currUsername))
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+		else {
+			ArrayList<Student> list = Student.readStudentRecord();
+			for (Student student : list) {
+				if(student.getUsername().equals(currUsername)) {
+					return false;
+				}
+			}
+			return true;
+		}
+	}
 
+	public static boolean checkPassword(String password) {
+		if (password.length() <= 6) {
+			return false;
+		}
+		if (password.toLowerCase().equals(password)) {
+			return false;
+		}
+		if (password.toUpperCase().equals(password)) {
+			return false;
+		}
+		for (int i = 0; i < password.length(); i++) {
+			char curr = password.charAt(i);
+			if (!Character.isLetterOrDigit(curr)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static boolean matchPasswords(String password1, String password2) {
+		return (password1.equals(password2));
+	}
 }
+
+

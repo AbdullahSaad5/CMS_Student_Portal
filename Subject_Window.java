@@ -2,19 +2,22 @@ package CMS_Student_Portal;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class Subject_Window extends Student_Portal_Screen {
 	JPanel supportPanel;
 	JLabel courseName, creditHours, teacherName, courseCode;
 	JButton notifications, attendance, marks, learning, assignments, MDB, GDB, quizzes, lectureContents,
 			courseInformation;
+	static Boolean notiBool = true, attBool = false, marksBool = false, learnBool = false, assignBool = false,
+			MDBBool = false, GDBBool = false, quizBool = false, lecBool = false, courseBool = false;
 
 	public Subject_Window() {
-		
+
 		dashboard.setBackground(new Color(0x13A89E));
 		dashboard.setForeground(Color.WHITE);
-		
-		
+
 		courseName = new JLabel("Object Oriented Programming");
 		courseName.setFont(new Font("Roboto", Font.BOLD, 22));
 		courseName.setBounds(157, 159, 300, 26);
@@ -58,6 +61,7 @@ public class Subject_Window extends Student_Portal_Screen {
 		notifications.setFocusable(false);
 		notifications.setBorder(null);
 		notifications.setMargin(null);
+		notifications.addMouseListener(this);
 
 		attendance = new JButton("<html><p style='text-align:center'>Attendance<br>   </p></html>");
 		attendance.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/Dashboard/Attendance.png")));
@@ -71,6 +75,7 @@ public class Subject_Window extends Student_Portal_Screen {
 		attendance.setFocusable(false);
 		attendance.setBorder(null);
 		attendance.setMargin(null);
+		attendance.addMouseListener(this);
 
 		marks = new JButton("<html><p style='text-align:center'>Marks<br>Summary</p></html>");
 		marks.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/Dashboard/Marks.png")));
@@ -84,6 +89,7 @@ public class Subject_Window extends Student_Portal_Screen {
 		marks.setFocusable(false);
 		marks.setBorder(null);
 		marks.setMargin(null);
+		marks.addMouseListener(this);
 
 		learning = new JButton("<html><p style='text-align:center'>Learning<br>Resources</p></html>");
 		learning.setIcon(
@@ -98,6 +104,7 @@ public class Subject_Window extends Student_Portal_Screen {
 		learning.setFocusable(false);
 		learning.setBorder(null);
 		learning.setMargin(null);
+		learning.addMouseListener(this);
 
 		assignments = new JButton("<html><p style='text-align:center'>Assignments<br>   </p></html>");
 		assignments
@@ -112,6 +119,7 @@ public class Subject_Window extends Student_Portal_Screen {
 		assignments.setFocusable(false);
 		assignments.setBorder(null);
 		assignments.setMargin(null);
+		assignments.addMouseListener(this);
 
 		MDB = new JButton("<html><p style='text-align:center'>MDB<br>   </p></html>");
 		MDB.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/Dashboard/MDB.png")));
@@ -125,6 +133,7 @@ public class Subject_Window extends Student_Portal_Screen {
 		MDB.setFocusable(false);
 		MDB.setBorder(null);
 		MDB.setMargin(null);
+		MDB.addMouseListener(this);
 
 		GDB = new JButton("<html><p style='text-align:center'>GDB<br>  </p></html>");
 		GDB.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/Dashboard/GDB.png")));
@@ -138,6 +147,7 @@ public class Subject_Window extends Student_Portal_Screen {
 		GDB.setFocusable(false);
 		GDB.setBorder(null);
 		GDB.setMargin(null);
+		GDB.addMouseListener(this);
 
 		quizzes = new JButton("<html><p style='text-align:center'>Quizzes<br>​​​​​  </p></html>");
 		quizzes.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/Dashboard/Quiz.png")));
@@ -151,6 +161,7 @@ public class Subject_Window extends Student_Portal_Screen {
 		quizzes.setFocusable(false);
 		quizzes.setBorder(null);
 		quizzes.setMargin(null);
+		quizzes.addMouseListener(this);
 
 		lectureContents = new JButton("<html><p style='text-align:center'>Lecture<br>Contents</p></html>");
 		lectureContents.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/Dashboard/GDB.png")));
@@ -164,6 +175,7 @@ public class Subject_Window extends Student_Portal_Screen {
 		lectureContents.setFocusable(false);
 		lectureContents.setBorder(null);
 		lectureContents.setMargin(null);
+		lectureContents.addMouseListener(this);
 
 		courseInformation = new JButton("<html><p style='text-align:center'>Course<br>Information</p></html>");
 		courseInformation
@@ -178,6 +190,227 @@ public class Subject_Window extends Student_Portal_Screen {
 		courseInformation.setFocusable(false);
 		courseInformation.setBorder(null);
 		courseInformation.setMargin(null);
+		courseInformation.addMouseListener(this);
 		
+		JLabel background = new JLabel();
+		background.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/background.jpg")));
+		background.setBounds(0, 0, 1366, 768);
+		mainPanel.add(background);
 	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		super.mouseEntered(e);
+		if (e.getSource() == notifications) {
+			notifications.setBackground(new Color(0x13A89E));
+		}
+		if (e.getSource() == attendance) {
+			attendance.setBackground(new Color(0x13A89E));
+		}
+		if (e.getSource() == marks) {
+			marks.setBackground(new Color(0x13A89E));
+		}
+		if (e.getSource() == learning) {
+			learning.setBackground(new Color(0x13A89E));
+		}
+		if (e.getSource() == assignments) {
+			assignments.setBackground(new Color(0x13A89E));
+		}
+		if (e.getSource() == GDB) {
+			GDB.setBackground(new Color(0x13A89E));
+		}
+		if (e.getSource() == MDB) {
+			MDB.setBackground(new Color(0x13A89E));
+		}
+		if (e.getSource() == quizzes) {
+			quizzes.setBackground(new Color(0x13A89E));
+		}
+		if (e.getSource() == lectureContents) {
+			lectureContents.setBackground(new Color(0x13A89E));
+		}
+		if (e.getSource() == courseInformation) {
+			courseInformation.setBackground(new Color(0x13A89E));
+		}
+	}
+
+
+	public void mouseExited(MouseEvent e) {
+		super.mouseExited(e);
+		if (e.getSource() == notifications && !notiBool) {
+			notifications.setBackground(null);
+		}
+		if (e.getSource() == attendance && !attBool) {
+			attendance.setBackground(null);
+		}
+		if (e.getSource() == marks && !marksBool) {
+			marks.setBackground(null);
+		}
+		if (e.getSource() == learning && !learnBool) {
+			learning.setBackground(null);
+		}
+		if (e.getSource() == assignments && !assignBool) {
+			assignments.setBackground(null);
+		}
+		if (e.getSource() == GDB && !GDBBool) {
+			GDB.setBackground(null);
+		}
+		if (e.getSource() == MDB && !MDBBool) {
+			MDB.setBackground(null);
+		}
+		if (e.getSource() == quizzes && !quizBool) {
+			quizzes.setBackground(null);
+		}
+		if (e.getSource() == lectureContents && !lecBool) {
+			lectureContents.setBackground(null);
+		}
+		if (e.getSource() == courseInformation && !courseBool) {
+			courseInformation.setBackground(null);
+		}
+	}
+
+	public void mouseClicked(MouseEvent e) {
+		super.mouseClicked(e);
+		if (e.getSource() == notifications) {
+			notiBool = true;
+			attBool = false;
+			marksBool = false;
+			learnBool = false;
+			assignBool = false;
+			MDBBool = false;
+			GDBBool = false;
+			quizBool = false;
+			lecBool = false;
+			courseBool = false;
+			new Notifications();
+			mainFrame.dispose();
+		}
+		if (e.getSource() == attendance) {
+			notiBool = false;
+			attBool = true;
+			marksBool = false;
+			learnBool = false;
+			assignBool = false;
+			MDBBool = false;
+			GDBBool = false;
+			quizBool = false;
+			lecBool = false;
+			courseBool = false;
+			new Subject_Window();
+			mainFrame.dispose();
+		}
+		if (e.getSource() == marks) {
+			notiBool = false;
+			attBool = false;
+			marksBool = true;
+			learnBool = false;
+			assignBool = false;
+			MDBBool = false;
+			GDBBool = false;
+			quizBool = false;
+			lecBool = false;
+			courseBool = false;
+			new Subject_Window();
+			mainFrame.dispose();
+		}
+		if (e.getSource() == learning) {
+			notiBool = false;
+			attBool = false;
+			marksBool = false;
+			learnBool = true;
+			assignBool = false;
+			MDBBool = false;
+			GDBBool = false;
+			quizBool = false;
+			lecBool = false;
+			courseBool = false;
+			new Subject_Window();
+			mainFrame.dispose();
+		}
+		if (e.getSource() == assignments) {
+			notiBool = false;
+			attBool = false;
+			marksBool = false;
+			learnBool = false;
+			assignBool = true;
+			MDBBool = false;
+			GDBBool = false;
+			quizBool = false;
+			lecBool = false;
+			courseBool = false;
+			new Subject_Window();
+			mainFrame.dispose();
+		}
+		if (e.getSource() == GDB) {
+			notiBool = false;
+			attBool = false;
+			marksBool = false;
+			learnBool = false;
+			assignBool = false;
+			MDBBool = false;
+			GDBBool = true;
+			quizBool = false;
+			lecBool = false;
+			courseBool = false;
+			new Subject_Window();
+			mainFrame.dispose();
+		}
+		if (e.getSource() == MDB) {
+			notiBool = false;
+			attBool = false;
+			marksBool = false;
+			learnBool = false;
+			assignBool = false;
+			MDBBool = true;
+			GDBBool = false;
+			quizBool = false;
+			lecBool = false;
+			courseBool = false;
+			new Subject_Window();
+			mainFrame.dispose();
+		}
+		if (e.getSource() == quizzes) {
+			notiBool = false;
+			attBool = false;
+			marksBool = false;
+			learnBool = false;
+			assignBool = false;
+			MDBBool = false;
+			GDBBool = false;
+			quizBool = true;
+			lecBool = false;
+			courseBool = false;
+			new Subject_Window();
+			mainFrame.dispose();
+		}
+		if (e.getSource() == lectureContents) {
+			notiBool = false;
+			attBool = false;
+			marksBool = false;
+			learnBool = false;
+			assignBool = false;
+			MDBBool = false;
+			GDBBool = false;
+			quizBool = false;
+			lecBool = true;
+			courseBool = false;
+			new Subject_Window();
+			mainFrame.dispose();
+		}
+		if (e.getSource() == courseInformation) {
+			notiBool = false;
+			attBool = false;
+			marksBool = false;
+			learnBool = false;
+			assignBool = false;
+			MDBBool = false;
+			GDBBool = false;
+			quizBool = false;
+			lecBool = false;
+			courseBool = true;
+			new Subject_Window();
+			mainFrame.dispose();
+		}
+
+	}
+
 }

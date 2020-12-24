@@ -13,7 +13,8 @@ public class Student_Dashboard extends Student_Portal_Screen {
 	JLabel courseNohead, courseNamehead, creditshead, teacherhead, classhead, attendanceSummaryhead;
 
 	public Student_Dashboard() {
-
+		dashBool = true;
+		
 		dashboard.setBackground(new Color(0x13A89E));
 		dashboard.setForeground(Color.WHITE);
 
@@ -89,32 +90,27 @@ public class Student_Dashboard extends Student_Portal_Screen {
 		courseNo = new JLabel("CSC241");
 		courseNo.setFont(new Font("Roboto", Font.BOLD, 13));
 		courseNo.setBounds(38, 8, 55, 15);
-//		courseNo.setForeground(Color.white);
 		OOPSubject.add(courseNo);
 
 		courseName = new JLabel("Object Oriented Programming");
 		courseName.setFont(new Font("Roboto", Font.BOLD, 13));
 		courseName.setBounds(178, 8, 170, 15);
-//		courseName.setForeground(Color.white);
 		OOPSubject.add(courseName);
 
 		credits = new JLabel("4");
 		credits.setFont(new Font("Roboto", Font.BOLD, 13));
 		credits.setBounds(438, 8, 10, 15);
-//		credits.setForeground(Color.white);
 		OOPSubject.add(credits);
 
 		teacher = new JLabel("Saneeha Aamir");
 		teacher.setFont(new Font("Roboto", Font.BOLD, 13));
 		teacher.setBounds(530, 8, 200, 15);
 		teacher.setHorizontalTextPosition(JLabel.CENTER);
-//		teacher.setForeground(Color.white);
 		OOPSubject.add(teacher);
 
 		class_ = new JLabel("BCS 3 BCS-3B B");
 		class_.setFont(new Font("Roboto", Font.BOLD, 13));
 		class_.setBounds(710, 8, 100, 15);
-//		class_.setForeground(Color.white);
 		OOPSubject.add(class_);
 
 		attendanceSummary = new JLabel("100%");
@@ -129,64 +125,26 @@ public class Student_Dashboard extends Student_Portal_Screen {
 		mainPanel.add(background);
 
 	}
-	public void mouseClicked(MouseEvent e) {
-		super.mouseClicked(e);
-		if(e.getSource() == OOPSubject) {
-			new Notifications();
-			mainFrame.dispose();
-		}
-	}
 
 	public void mouseEntered(MouseEvent e) {
-		if (e.getSource() == regCard) {
-			regCard.setBackground(new Color(0x13A89E));
-			regCard.setForeground(Color.white);
-		}
-		if (e.getSource() == fees) {
-			fees.setBackground(new Color(0x13A89E));
-			fees.setForeground(Color.white);
-		}
-		if (e.getSource() == resultCard) {
-			resultCard.setBackground(new Color(0x13A89E));
-			resultCard.setForeground(Color.white);
-		}
-		if (e.getSource() == profile) {
-			profile.setBackground(new Color(0x13A89E));
-			profile.setForeground(Color.white);
-		}
-		if (e.getSource() == logOut) {
-			logOut.setBackground(new Color(0x13A89E));
-			logOut.setForeground(Color.white);
-		}
+		super.mouseEntered(e);
 		if (e.getSource() == OOPSubject) {
-			OOPSubject.setBackground(new Color(0xF5F5F5));
+			OOPSubject.setBackground(new Color(0xEEEEEE));
+		}
+	}
+	
+	public void mouseExited(MouseEvent e) {
+		super.mouseEntered(e);
+		if (e.getSource() == OOPSubject) {
+			OOPSubject.setBackground(Color.white);
 		}
 	}
 
-	@Override
-	public void mouseExited(MouseEvent e) {
-		if (e.getSource() == regCard) {
-			regCard.setBackground(Color.WHITE);
-			regCard.setForeground(Color.black);
-		}
-		if (e.getSource() == fees) {
-			fees.setBackground(Color.WHITE);
-			fees.setForeground(Color.black);
-		}
-		if (e.getSource() == resultCard) {
-			resultCard.setBackground(Color.WHITE);
-			resultCard.setForeground(Color.black);
-		}
-		if (e.getSource() == profile) {
-			profile.setBackground(Color.WHITE);
-			profile.setForeground(Color.black);
-		}
-		if (e.getSource() == logOut) {
-			logOut.setBackground(Color.WHITE);
-			logOut.setForeground(Color.black);
-		}
+	public void mouseClicked(MouseEvent e) {
+		super.mouseClicked(e);
 		if (e.getSource() == OOPSubject) {
-			OOPSubject.setBackground(Color.white);
+			new Notifications();
+			mainFrame.dispose();
 		}
 	}
 
