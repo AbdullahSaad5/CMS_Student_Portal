@@ -35,7 +35,6 @@ public class Student_Signup extends Template implements ActionListener {
 		mainPanel.add(nameField);
 		nameField.setBounds(658, 58, 150, 20);
 
-
 		regNoLabel = new JLabel("Reg No:");
 		mainPanel.add(regNoLabel);
 		regNoLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
@@ -44,7 +43,7 @@ public class Student_Signup extends Template implements ActionListener {
 		regNoField = new JTextField();
 		mainPanel.add(regNoField);
 		regNoField.setBounds(658, 99, 150, 20);
-		
+
 		emailLabel = new JLabel("Email:");
 		mainPanel.add(emailLabel);
 		emailLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
@@ -165,14 +164,14 @@ public class Student_Signup extends Template implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		boolean correct = true;
-		name = nameField.getText().strip();
-		regNo = regNoField.getText().strip();
+		name = nameField.getText().strip().toUpperCase();
+		regNo = regNoField.getText().strip().toUpperCase();
 		semester = semesterField.getText().strip();
 		age = ageField.getText().strip();
 		gpa = gpaField.getText().strip();
-		city = cityField.getText().strip();
-		bus = busField.getText().strip();
-		email = emailField.getText().strip();
+		city = cityField.getText().strip().toUpperCase();
+		bus = busField.getText().strip().toUpperCase();
+		email = emailField.getText().strip().toLowerCase();
 
 		if (e.getSource() == submit) {
 			if (name.isBlank() || regNo.isBlank() || semester.isBlank() || age.isBlank() || gpa.isBlank()
@@ -203,19 +202,21 @@ public class Student_Signup extends Template implements ActionListener {
 			} else {
 				emailError.setText("");
 			}
-			if (!(Utilities.checkNumber(semester) && (Integer.parseInt(semester) > 0 && Integer.parseInt(semester) <= 12))) {
+			if (!(Utilities.checkNumber(semester)
+					&& (Integer.parseInt(semester) > 0 && Integer.parseInt(semester) <= 12))) {
 				semError.setText("Invalid Semester (Must be Digits only)");
 				correct = false;
 			} else {
 				semError.setText("");
 			}
-			if (!(Utilities.checkNumber(age)&& (Integer.parseInt(age) > 15 && Integer.parseInt(age) <= 60))) {
+			if (!(Utilities.checkNumber(age) && (Integer.parseInt(age) > 15 && Integer.parseInt(age) <= 60))) {
 				ageError.setText("Invalid Age (Must be Digits only)");
 				correct = false;
 			} else {
 				ageError.setText("");
 			}
-			if (!(Utilities.checkFloat(gpa) || Utilities.checkNumber(gpa))) {
+			if (!((Utilities.checkFloat(gpa) || Utilities.checkNumber(gpa))
+					&& (Double.parseDouble(gpa) >= 0 && Double.parseDouble(gpa) <= 4))) {
 				gpaError.setText("Invalid GPA (Must be Decimal Number only)");
 				correct = false;
 			} else {

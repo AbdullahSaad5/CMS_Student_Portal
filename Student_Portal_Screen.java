@@ -48,7 +48,7 @@ public class Student_Portal_Screen implements MouseListener {
 		footerText = new JLabel("CUOnline , Principal Seat @ 2018-COMSATS ®");
 		footerText.setFont(new Font("Roboto", Font.BOLD, 13));
 		footerText.setForeground(Color.white);
-		footerText.setBounds(562, 18, 280, 15);
+		footerText.setBounds(562, 10, 280, 15);
 		footerPanel.add(footerText);
 
 		// Adding dashboard button

@@ -6,7 +6,7 @@ import java.awt.event.MouseEvent;
 
 public class Student_Profile extends Student_Portal_Screen {
 	JPanel detailsPanel;
-	JLabel mainLabel;
+	JLabel mainLabel, mainLabel2;
 	JLabel nameLabel, name;
 	JLabel regLabel, regNo;
 	JLabel semLabel, sem;
@@ -18,12 +18,14 @@ public class Student_Profile extends Student_Portal_Screen {
 	JLabel background;
 
 	Student curr;
+	JButton profileUpdate, profileDelete;
 
 	public Student_Profile() {
 		profile.setBackground(new Color(0x13A89E));
 		profile.setForeground(Color.WHITE);
 
 		curr = new Student((Student) Identify.account);
+//		curr = new Student("A", "B", "C", "D", "E", "F", "G", "H", "I", "J");
 
 		detailsPanel = new JPanel();
 		mainPanel.add(detailsPanel);
@@ -35,6 +37,31 @@ public class Student_Profile extends Student_Portal_Screen {
 		mainLabel.setFont(new Font("Roboto", Font.BOLD, 25));
 		mainLabel.setBounds(13, 17, 180, 30);
 		detailsPanel.add(mainLabel);
+
+		mainLabel2 = new JLabel("Profile Update:");
+		mainLabel2.setFont(new Font("Roboto", Font.BOLD, 25));
+		mainLabel2.setBounds(800, 17, 200, 30);
+		detailsPanel.add(mainLabel2);
+
+		profileUpdate = new JButton("Profile Settings");
+		profileUpdate.setBounds(842, 106, 140, 30);
+		profileUpdate.setFont(new Font("Roboto", Font.BOLD, 20));
+		profileUpdate.setForeground(new Color(0xFFA726));
+		profileUpdate.setBackground(null);
+		profileUpdate.setFocusable(false);
+		profileUpdate.setBorder(null);
+		profileUpdate.addMouseListener(this);
+		detailsPanel.add(profileUpdate);
+
+		profileDelete = new JButton("Delete Profile");
+		profileDelete.setBounds(847, 205, 130, 30);
+		profileDelete.setFont(new Font("Roboto", Font.BOLD, 20));
+		profileDelete.setForeground(new Color(0xE64A19));
+		profileDelete.setBackground(null);
+		profileDelete.setFocusable(false);
+		profileDelete.setBorder(null);
+		profileDelete.addMouseListener(this);
+		detailsPanel.add(profileDelete);
 
 		nameLabel = new JLabel("Name:");
 		nameLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
@@ -130,13 +157,49 @@ public class Student_Profile extends Student_Portal_Screen {
 		background.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/background.jpg")));
 		background.setBounds(0, 0, 1366, 768);
 		mainPanel.add(background);
+		mainPanel.revalidate();
+		mainPanel.repaint();
 
 		mainFrame.setVisible(true);
 	}
-	
+
+	public void mouseClicked(MouseEvent e) {
+		if (e.getSource() == profileUpdate) {
+			new UpdateProfile();
+		} else if (e.getSource() == profileDelete) {
+			int choice = JOptionPane.showConfirmDialog(null, "Do You Want To Continue?", "Delete Confirm",
+					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+			if (choice == 0) {
+				ConfirmDeletion.closingFrame = mainFrame;
+				new ConfirmDeletion();
+			}
+		} else {
+			super.mouseClicked(e);
+		}
+	}
+
+	public void mouseEntered(MouseEvent e) {
+		if (e.getSource() == profileUpdate) {
+			profileUpdate.setBackground(new Color(0xFFA726));
+			profileUpdate.setForeground(Color.white);
+		} else if (e.getSource() == profileDelete) {
+			profileDelete.setForeground(Color.white);
+			profileDelete.setBackground(new Color(0xE64A19));
+		} else {
+			super.mouseEntered(e);
+		}
+	}
+
 	public void mouseExited(MouseEvent e) {
-		 if (e.getSource() == profile) {
-			//Do nothing
+
+		if (e.getSource() == profile) {
+			// Do nothing
+		} else if (e.getSource() == profileUpdate) {
+			profileUpdate.setBackground(null);
+			profileUpdate.setForeground(new Color(0xFFA726));
+		} else if (e.getSource() == profileDelete) {
+			profileDelete.setForeground(new Color(0xE64A19));
+			profileDelete.setBackground(null);
 		} else {
 			super.mouseExited(e);
 		}

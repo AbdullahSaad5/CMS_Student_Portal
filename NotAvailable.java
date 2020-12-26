@@ -42,4 +42,19 @@ public class NotAvailable extends Student_Portal_Screen {
 
 		mainFrame.setVisible(true);
 	}
+	
+	public void mouseExited(MouseEvent e) {
+		if(e.getSource() == regCard && regBool) {
+			//Do nothing
+		}
+		else if(e.getSource() == fees && feesBool) {
+			//Do nothing
+		}
+		else if(e.getSource() == resultCard && resultBool) {
+			// Do nothing
+		}
+		else {
+			super.mouseExited(e);
+		}
+	}
 }

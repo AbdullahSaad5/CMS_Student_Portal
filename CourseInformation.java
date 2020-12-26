@@ -29,7 +29,6 @@ public class CourseInformation extends Subject_Window{
 		} catch (Exception e) {
 			System.out.println("File Not Found");
 		}
-		System.out.println(message);
 		students.setText(message);
 		
 		JScrollPane mainWindow = new JScrollPane(students, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);

@@ -132,24 +132,34 @@ public class Student extends Person implements Serializable {
 		System.out.println("Not found");
 	}
 
-	public static void Update(String newSem, String name) {
+	public static void Update(String name, String message, int choice) {
 		ArrayList<Student> S = readStudentRecord();
 
 		for (int i = 0; i < S.size(); i++) {
-			if (S.get(i).getName().equalsIgnoreCase(name)) {
-				S.get(i).setSemester(newSem);
-				try (ObjectOutputStream outStream = new ObjectOutputStream(
-						new FileOutputStream("Student Record", false))) {
-					outStream.writeObject(S);
-				} catch (Exception e) {
-					System.out.println("File Error");
+			if (S.get(i).getUsername().equals(name)) {
+				if (choice == 1) {
+					S.get(i).setUsername(message);
+				} else if (choice == 2) {
+					S.get(i).setPassword(message);
+				} else if (choice == 3) {
+					S.get(i).setEmail(message);
+				} else if (choice == 4) {
+					S.get(i).setHomeCity(message);
+				} else if (choice == 5) {
+					S.get(i).setBusFacility(message);
 				}
-				return;
+				break;
 			}
 		}
-		System.out.println("Not found");
+
+		try {
+			ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream("Student Record"));
+			outStream.writeObject(S);
+		} catch (Exception e) {
+			System.out.println("File Error");
+		}
 	}
-	
+
 	public static String displayAllStudents() {
 		String output = "";
 		ArrayList<Student> list = readStudentRecord();
@@ -164,7 +174,7 @@ public class Student extends Person implements Serializable {
 			output += "\nCGPA: \t" + s.getCGPA();
 			output += "\nHome City: \t" + s.getHomeCity();
 			output += "\nBus Facility: \t" + s.getBusFacility();
-			
+
 			output += "\n\n\n";
 			count++;
 		}
