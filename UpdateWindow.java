@@ -15,6 +15,7 @@ public class UpdateWindow implements ActionListener {
 
 	public UpdateWindow() {
 		updateFrame = new JFrame();
+		updateFrame.setTitle("Update Information");
 		updateFrame.setResizable(false);
 		updateFrame.setSize(400, 200);
 		updateFrame.setLocationRelativeTo(null);
@@ -30,14 +31,13 @@ public class UpdateWindow implements ActionListener {
 
 		text = new JTextField();
 		updateFrame.add(text);
-		
+
 		text2 = new JPasswordField();
 		updateFrame.add(text2);
-		
-		if(UpdateProfile.code == 2) {
+
+		if (UpdateProfile.code == 2) {
 			text2.setBounds(125, 80, 150, 20);
-		}
-		else {
+		} else {
 			text.setBounds(125, 80, 150, 20);
 		}
 		submit = new JButton("Submit");
@@ -55,7 +55,7 @@ public class UpdateWindow implements ActionListener {
 		String entered = text.getText();
 		String password = text2.getText();
 		String username = Identify.account.getUsername();
-		
+
 		if (!entered.isBlank() || !password.isBlank()) {
 			if (UpdateProfile.code == 1 && Utilities.checkUsername(entered)) {
 				Student.Update(username, entered, 1);
@@ -63,11 +63,14 @@ public class UpdateWindow implements ActionListener {
 				Student.Update(username, password, 2);
 			} else if (UpdateProfile.code == 3 && Utilities.checkEmail(entered)) {
 				Student.Update(username, entered, 3);
+				Student_Profile.email.setText(entered);
 			} else if (UpdateProfile.code == 4
 					&& (Utilities.checkString(entered) || Utilities.checkStringWithSpaces(entered))) {
 				Student.Update(username, entered, 4);
+				Student_Profile.home.setText(entered.toUpperCase());
 			} else if (UpdateProfile.code == 5 && (entered.equalsIgnoreCase("yes") || entered.equalsIgnoreCase("no"))) {
 				Student.Update(username, entered, 5);
+				Student_Profile.bus.setText(entered.toUpperCase());
 			} else {
 				JOptionPane.showMessageDialog(null, "Invalid Data Entered. Try Again!");
 			}

@@ -40,7 +40,7 @@ public class LoadingScreen implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (Identify.isTeacher) {
-			new Teacher_Portal_Screen();
+			new Teacher_Profile();
 		} else {
 			new Student_Dashboard();
 		}

@@ -14,15 +14,15 @@ public class CourseInformation extends Subject_Window{
 	public CourseInformation() {
 		courseInformation.setBackground(new Color(0x13A89E));
 		courseInformation.setForeground(Color.WHITE);
-		
+		///home/abdullah/Documents/CourseInfo.txt
 		JTextArea students = new JTextArea();
 		students.setEditable(false);
-		students.setFont(new Font("Casadia Code",Font.PLAIN, 12));
+		students.setFont(new Font("Roboto",Font.PLAIN, 12));
 		String message = "";
 		try {
-			Scanner input = new Scanner(new File("/home/abdullah/Documents/CourseInfo.txt"));
+			Scanner input = new Scanner(new File("CourseInfo.txt"));
 			while(input.hasNext()) {
-				message += input.nextLine();
+				message += "          " + input.nextLine();
 				message += "\n";
 			}
 			
@@ -40,6 +40,7 @@ public class CourseInformation extends Subject_Window{
 		
 		supportPanel.setVisible(false);
 		mainPanel.repaint();
+		mainPanel.revalidate();
 	}
 	
 	public void mouseExited(MouseEvent e) {

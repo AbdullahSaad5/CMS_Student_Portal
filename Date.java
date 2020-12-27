@@ -11,23 +11,15 @@ public class Date implements Serializable {
 	}
 
 	public Date(Date obj) {
-		if (verifyDate(obj.day, obj.month, obj.year)) {
-			this.day = obj.day;
-			this.month = obj.month;
-			this.year = obj.year;
-		} else {
-			System.out.println("Invalid Date Format");
-		}
+		this.day = obj.day;
+		this.month = obj.month;
+		this.year = obj.year;
 	}
 
 	public Date(int day, int month, int year) {
-		if (verifyDate(day, month, year)) {
-			this.day = day;
-			this.month = month;
-			this.year = year;
-		} else {
-			System.out.println("Invalid Date Format");
-		}
+		this.day = day;
+		this.month = month;
+		this.year = year;
 	}
 
 	public int getDay() {
@@ -54,7 +46,10 @@ public class Date implements Serializable {
 		this.year = year;
 	}
 
-	private boolean verifyDate(int day, int month, int year) {
+	public static boolean verifyDate(Date obj) {
+		int day = obj.getDay();
+		int month = obj.getMonth();
+		int year = obj.getYear();
 		int[] months30 = { 4, 6, 9, 11 };
 		if (day > 31 || day < 1) {
 			return false;
@@ -82,7 +77,7 @@ public class Date implements Serializable {
 		return true;
 	}
 
-	private boolean checkLeapYear(int number) {
+	private static boolean checkLeapYear(int number) {
 		if (number % 400 == 0)
 			return true;
 
@@ -93,6 +88,15 @@ public class Date implements Serializable {
 			return true;
 
 		return false;
+	}
+	
+	public static boolean laterIsGreater(Date obj1, Date obj2) {
+		if(obj1.getDay() <= obj2.getDay() && obj1.getMonth() <= obj2.getMonth() && obj1.getYear() <= obj2.getYear()) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 }

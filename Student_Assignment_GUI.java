@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class Student_Assignment_GUI extends Subject_Window {
 	JPanel headingPanel;
-	JLabel number, title, startDate, endDate, fileSize, fileType, action, teacherComment;
+	JLabel number, title, startDate, endDate, fileSize, fileType, action, teacherComment, dataLabel;
 
 	public Student_Assignment_GUI() {
 		
@@ -65,8 +65,15 @@ public class Student_Assignment_GUI extends Subject_Window {
 		teacherComment.setFont(new Font("Roboto", Font.BOLD, 12));
 		headingPanel.add(teacherComment);
 		
+		dataLabel = new JLabel("No data available.");
+		supportPanel.add(dataLabel);
+		dataLabel.setForeground(new Color(0x474747));
+		dataLabel.setFont(new Font("Roboto", Font.PLAIN, 13));
+		dataLabel.setBounds(470, 140, 190, 15);
+		
 		supportPanel.add(headingPanel);
 		mainPanel.repaint();
+		
 		
 		mainFrame.setVisible(true);
 	}

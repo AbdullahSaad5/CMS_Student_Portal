@@ -11,17 +11,24 @@ public class Teacher_Profile extends Teacher_Portal_Screen {
 	JLabel ageLabel, age;
 	JLabel qualificationLabel, qualification;
 	JLabel emailLabel, email;
+	JLabel mainLabel;
 	Teacher curr;
 
 	public Teacher_Profile() {
 
 		curr = new Teacher((Teacher) Identify.account);
-
+		
+		mainLabel = new JLabel("View Profile");
+		mainLabel.setBounds(87 , 16, 240, 34);
+		mainLabel.setFont(new Font("Roboto", Font.BOLD + Font.ITALIC, 30));
+		mainLabel.setForeground(Color.white);
+		infoPanel.add(mainLabel);
+		
 		detailsPanel = new JPanel();
 		mainPanel.add(detailsPanel);
-		detailsPanel.setBackground(new Color(0xD1D2D9));
+		detailsPanel.setBackground(Color.white);
 		detailsPanel.setLayout(null);
-		detailsPanel.setBounds(157, 157, 1053, 375);
+		detailsPanel.setBounds(157, 275, 1053, 400);
 
 		nameLabel = new JLabel("Name:");
 		nameLabel.setFont(new Font("Roboto", Font.PLAIN, 15));
@@ -90,7 +97,13 @@ public class Teacher_Profile extends Teacher_Portal_Screen {
 		detailsPanel.add(age);
 		detailsPanel.add(qualification);
 		detailsPanel.add(email);
-
+		
+		JLabel background = new JLabel();
+		background.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/background.jpg")));
+		background.setBounds(0, 0, 1366, 768);
+		mainPanel.add(background);
+		
+		detailsPanel.repaint();
 		mainFrame.setVisible(true);
 	}
 }

@@ -154,8 +154,8 @@ public class Teacher_Signup extends Template implements ActionListener {
 				nameError.setText("");
 			}
 
-			if (!Utilities.checkString(field)) {
-				fieldError.setText("Invalid Registration Number Format");
+			if (!(Utilities.checkString(field) || Utilities.checkStringWithSpaces(field))) {
+				fieldError.setText("Invalid Field (Must be letters only)");
 				correct = false;
 			} else {
 				fieldError.setText("");

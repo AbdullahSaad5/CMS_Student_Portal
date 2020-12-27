@@ -16,6 +16,7 @@ public class UpdateProfile implements MouseListener {
 
 	public UpdateProfile() {
 		mainFrame = new JFrame();
+		mainFrame.setTitle("Choose option to continue");
 		mainFrame.setResizable(false);
 		mainFrame.setSize(432, 650);
 		mainFrame.setLocationRelativeTo(null);

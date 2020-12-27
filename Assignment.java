@@ -9,22 +9,24 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Assignment implements Serializable{
+	private int serialNo;
 	private Date startDate = new Date(22, 10, 2020);
 	private Date lastDate = new Date(22, 10, 2020);
 	private String title;
-	private float fileSize;
+	private float fileSize;;
 	private String fileType;
 	private String teacherComment;
+	private static int assignmentNumber = 0;
 	
 	public Assignment() {}
 
-	public Assignment(Date startDate, Date lastDate, String title, float fileSize, String fileType,
+	public Assignment(Date startDate, Date lastDate, String title, String fileType,
 		String teacherComment) {
-		super();
+		serialNo = ++assignmentNumber;
 		this.startDate = startDate;
 		this.lastDate = lastDate;
 		this.title = title;
-		this.fileSize = fileSize;
+		this.fileSize = 2048;
 		this.fileType = fileType;
 		this.teacherComment = teacherComment;
 	}
@@ -122,6 +124,7 @@ public class Assignment implements Serializable{
 	}
 
 	public static void Delete(String name) {
+		assignmentNumber--;
 		ArrayList<Assignment> S = readAssignmentRecord();
 		for (Assignment s : S) {
 			if (s.getTitle().equalsIgnoreCase(name)) {

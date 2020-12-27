@@ -4,15 +4,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-public class Login extends Template implements ActionListener {
+public class Login extends Template implements ActionListener, MouseListener {
 	JPanel mainPanel;
 	JTextField userField;
 	JPasswordField passField;
 	JLabel userLabel, passLabel, loginLabel, success;
 	JButton loginButton;
-
+	JButton seePassword;
+	private char defaultChar;
 	public Login() {
 		mainPanel = new JPanel();
 		mainPanel.setPreferredSize(new Dimension(200, 200));
@@ -51,6 +56,15 @@ public class Login extends Template implements ActionListener {
 		mainPanel.add(loginButton);
 		loginButton.addActionListener(this);
 
+		seePassword = new JButton(new ImageIcon(getClass().getResource("/CMS_Icons/Additional Icons/show-password.png")));
+		seePassword.setBounds(840, 132, 32, 32);
+		seePassword.setBorder(null);
+		seePassword.setFocusable(false);
+		mainPanel.add(seePassword);
+		seePassword.setBackground(new Color(238, 238, 238));
+		seePassword.addMouseListener(this);
+		
+		mainPanel.repaint();
 		mainFrame.setVisible(true);
 	}
 
@@ -76,13 +90,19 @@ public class Login extends Template implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == loginButton && Identify.isTeacher) {
+		if (e.getSource() == seePassword) {
+
+		} else if (e.getSource() == loginButton && Identify.isTeacher) {
 			Teacher curr = getAccountT();
 			if (curr != null) {
 				Identify.account = curr;
 				new LoadingScreen();
 				mainFrame.dispose();
 
+			} else {
+				success.setText("Invalid Login Credentials");
+				success.setForeground(new Color(255, 0, 0));
+				success.setBounds(596, 254, 200, 20);
 			}
 		} else if (e.getSource() == loginButton && !Identify.isTeacher) {
 			Student curr = getAccountS();
@@ -101,5 +121,36 @@ public class Login extends Template implements ActionListener {
 			new LoginOrSignup();
 			mainFrame.dispose();
 		}
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		defaultChar = passField.getEchoChar();
+			passField.setEchoChar((char) 0);
+
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+			passField.setEchoChar(defaultChar);
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+
 	}
 }

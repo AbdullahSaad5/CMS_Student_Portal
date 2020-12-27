@@ -8,6 +8,10 @@ import java.awt.event.MouseListener;
 public class Teacher_Assignment_GUI extends Teacher_Portal_Screen implements MouseListener{
 	JButton addAssignment, viewAssignment, seeSubmissions;
 	JLabel addLabel, viewLabel, submissionLabel, mainLabel;
+	JPanel mainWindow, assignmentHeading;
+	JLabel number, title, startDate, endDate, fileSize, fileType, action, teacherComment, dataLabel;
+	JTextField numberField, titleField, startDateField, endDateField, fileSizeField, fileTypeField, teacherCommentField;
+	private static boolean addBool = true, viewBool= false, seeBool = false;
 	
 	public Teacher_Assignment_GUI() {
 		
@@ -63,6 +67,17 @@ public class Teacher_Assignment_GUI extends Teacher_Portal_Screen implements Mou
 		mainLabel.setForeground(Color.white);
 		infoPanel.add(mainLabel);
 		
+		mainWindow = new JPanel();
+		mainWindow.setLayout(null);
+		mainWindow.setBounds(157, 308, 1053, 367);
+		mainWindow.setBackground(Color.white);
+		mainPanel.add(mainWindow);
+		
+		mainWindow.repaint();
+		JLabel background = new JLabel();
+		background.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Student Portal/background.jpg")));
+		background.setBounds(0, 0, 1366, 768);
+		mainPanel.add(background);
 		
 		infoPanel.repaint();
 		mainFrame.setVisible(true);
@@ -71,7 +86,31 @@ public class Teacher_Assignment_GUI extends Teacher_Portal_Screen implements Mou
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if(e.getSource() == addAssignment) {
+			addBool = true;
+			viewBool = false;
+			seeBool = false;
+			new AddAssignment();
+			viewAssignment.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Teacher Portal/Silver/WhiteEye.png")));
+			seeSubmissions.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Teacher Portal/Silver/WhiteEye.png")));
+
+		}
+		else if(e.getSource() == viewAssignment) {
+			addBool = false;
+			viewBool = true;
+			seeBool = false;
+			addAssignment.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Teacher Portal/Silver/WhitePen.png")));
+			seeSubmissions.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Teacher Portal/Silver/WhiteEye.png")));
+
+		}
+		else if(e.getSource() == seeSubmissions) {
+			addBool = false;
+			viewBool = false;
+			seeBool = true;
+			addAssignment.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Teacher Portal/Silver/WhitePen.png")));
+			viewAssignment.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Teacher Portal/Silver/WhiteEye.png")));
+
+		}
 		
 	}
 
@@ -104,13 +143,13 @@ public class Teacher_Assignment_GUI extends Teacher_Portal_Screen implements Mou
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource() == addAssignment) {
+		if(e.getSource() == addAssignment && !addBool) {
 			addAssignment.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Teacher Portal/Silver/WhitePen.png")));
 		}
-		if(e.getSource() == viewAssignment) {
+		if(e.getSource() == viewAssignment && !viewBool) {
 			viewAssignment.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Teacher Portal/Silver/WhiteEye.png")));
 		}
-		if(e.getSource() == seeSubmissions) {
+		if(e.getSource() == seeSubmissions && !seeBool) {
 			seeSubmissions.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Teacher Portal/Silver/WhiteEye.png")));
 		}
 	}

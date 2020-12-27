@@ -94,6 +94,7 @@ public class Student extends Person implements Serializable {
 			System.out.println("File Not Found");
 		} catch (Exception e) {
 			System.out.println("File Error");
+			e.printStackTrace();
 		}
 		return list;
 	}
@@ -105,14 +106,80 @@ public class Student extends Person implements Serializable {
 		}
 	}
 
-	public static boolean search(String name) {
+	public static ArrayList<Student> search(String name) {
 		ArrayList<Student> list = readStudentRecord();
+		ArrayList<Student> output = new ArrayList<Student>(10);
 		for (Student s : list) {
 			if (s.getName().equalsIgnoreCase(name)) {
-				return true;
+				output.add(s);
 			}
 		}
-		return false;
+		return output;
+	}
+
+	public static ArrayList<Student> searchAdvanced(String name) {
+		ArrayList<Student> list = readStudentRecord();
+		ArrayList<Student> output = new ArrayList<Student>(10);
+		for (Student s : list) {
+			String studentName = s.getName();
+			if(studentName.equalsIgnoreCase(name)) {
+				output.add(s);
+				continue;
+			}
+			//-----------
+			String[] names = studentName.split(" ");
+			for (String part : names) {
+				if (part.equalsIgnoreCase(name)) {
+					output.add(s);
+					break;
+				}
+			}
+
+		}
+		return output;
+	}
+	
+	public static String searchAdvancedString(String name) {
+		ArrayList<Student> list = readStudentRecord();
+		ArrayList<Student> output = new ArrayList<Student>(10);
+		for (Student s : list) {
+			String studentName = s.getName();
+			if(studentName.equalsIgnoreCase(name)) {
+				output.add(s);
+				continue;
+			}
+			//-----------
+			String[] names = studentName.split(" ");
+			for (String part : names) {
+				if (part.equalsIgnoreCase(name)) {
+					output.add(s);
+					break;
+				}
+			}
+		}
+		String outputString = "";
+		outputString += "\n\n";
+		int count = 1;
+		if(output.size() == 0) {
+			return "\n\n\tNo Search Record Found";
+		}
+		for (Student s : output) {
+
+			outputString += "\tStudent No. " + count + "\n";
+			outputString += "\n\tName: \t" + s.getName();
+			outputString += "\n\tReg No: \t" + s.getRegNo();
+			outputString += "\n\tEmail: \t" + s.getEmail();
+			outputString += "\n\tSemester: \t" + s.getSemester();
+			outputString += "\n\tAge: \t" + s.getAge();
+			outputString += "\n\tCGPA: \t" + s.getCGPA();
+			outputString += "\n\tHome City: \t" + s.getHomeCity();
+			outputString += "\n\tBus Facility: \t" + s.getBusFacility();
+
+			outputString += "\n\n\n";
+			count++;
+		}
+		return outputString;
+		
 	}
 
 	public static void Delete(String name) {
@@ -162,18 +229,20 @@ public class Student extends Person implements Serializable {
 
 	public static String displayAllStudents() {
 		String output = "";
+		output += "\n\n";
 		ArrayList<Student> list = readStudentRecord();
 		int count = 1;
 		for (Student s : list) {
-			output += "Student No. " + count + "\n";
-			output += "\nName: \t" + s.getName();
-			output += "\nReg No: \t" + s.getRegNo();
-			output += "\nEmail: \t" + s.getEmail();
-			output += "\nSemester: \t" + s.getSemester();
-			output += "\nAge: \t" + s.getAge();
-			output += "\nCGPA: \t" + s.getCGPA();
-			output += "\nHome City: \t" + s.getHomeCity();
-			output += "\nBus Facility: \t" + s.getBusFacility();
+
+			output += "\tStudent No. " + count + "\n";
+			output += "\n\tName: \t" + s.getName();
+			output += "\n\tReg No: \t" + s.getRegNo();
+			output += "\n\tEmail: \t" + s.getEmail();
+			output += "\n\tSemester: \t" + s.getSemester();
+			output += "\n\tAge: \t" + s.getAge();
+			output += "\n\tCGPA: \t" + s.getCGPA();
+			output += "\n\tHome City: \t" + s.getHomeCity();
+			output += "\n\tBus Facility: \t" + s.getBusFacility();
 
 			output += "\n\n\n";
 			count++;

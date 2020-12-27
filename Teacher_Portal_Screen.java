@@ -34,7 +34,7 @@ public class Teacher_Portal_Screen implements ActionListener {
 		mainPanel.add(logoutPanel);
 
 		logout = new JButton("Logout");
-		logout.setFont(new Font("Roboto", Font.PLAIN, 15));
+		logout.setFont(new Font("Roboto", Font.BOLD, 15));
 		logout.setForeground(Color.WHITE);
 		logout.setIcon(new ImageIcon(getClass().getResource("/CMS_Icons/Teacher Portal/logoutTeacher.png")));
 		logout.setBounds(1169, 0, 130, 35);
@@ -43,7 +43,16 @@ public class Teacher_Portal_Screen implements ActionListener {
 		logout.setBackground(null);
 		logout.setHorizontalTextPosition(JLabel.LEFT);
 		logout.setVerticalTextPosition(JLabel.CENTER);
+		logout.addActionListener(this);
 		logoutPanel.add(logout);
+
+//		Teacher curr = (Teacher)Identify.account;
+//		JLabel welcome = new JLabel("Welcome: " + curr.getName() + "(Campus-ISB)");
+//		welcome.setBounds(753, 10, 400, 15);
+//		welcome.setHorizontalAlignment(JLabel.TRAILING);
+//		welcome.setForeground(Color.WHITE);
+//		welcome.setFont(new Font("Roboto", Font.BOLD, 15));
+//		logoutPanel.add(welcome);
 
 		// Adding dashboard button
 		home = new JButton();
@@ -55,6 +64,7 @@ public class Teacher_Portal_Screen implements ActionListener {
 		home.setHorizontalTextPosition(JLabel.CENTER);
 		home.setMargin(null);
 		home.setBackground(Color.WHITE);
+		home.addActionListener(this);
 
 		// Adding registration card button
 		myDocs = new JButton();
@@ -66,6 +76,7 @@ public class Teacher_Portal_Screen implements ActionListener {
 		myDocs.setHorizontalTextPosition(JLabel.CENTER);
 		myDocs.setVerticalTextPosition(JLabel.BOTTOM);
 		myDocs.setBackground(Color.WHITE);
+		myDocs.addActionListener(this);
 
 		// Adding fee button
 		groups = new JButton();
@@ -89,6 +100,7 @@ public class Teacher_Portal_Screen implements ActionListener {
 		reports.setHorizontalTextPosition(JLabel.CENTER);
 		reports.setVerticalTextPosition(JLabel.BOTTOM);
 		reports.setBackground(Color.WHITE);
+		reports.addActionListener(this);
 
 		// Adding profile button
 		quizzes = new JButton();
@@ -220,7 +232,7 @@ public class Teacher_Portal_Screen implements ActionListener {
 		assignmentsLabel.setFont(new Font("Roboto", Font.PLAIN, 11));
 		assignmentsLabel.setForeground(new Color(0xBDBEC2));
 		mainPanel.add(assignmentsLabel);
-		
+
 		infoPanel = new JPanel();
 		infoPanel.setLayout(null);
 		infoPanel.setBackground(new Color(0x0898A0));
@@ -243,8 +255,32 @@ public class Teacher_Portal_Screen implements ActionListener {
 		} else if (e.getSource() == home) {
 			new Teacher_Profile();
 			mainFrame.dispose();
-		} else if(e.getSource() == groups) {
+		} else if (e.getSource() == groups) {
 			new viewAllStudents();
+			mainFrame.dispose();
+		} else if (e.getSource() == assignments) {
+			new Teacher_Assignment_GUI();
+			mainFrame.dispose();
+		} else if (e.getSource() == myDocs) {
+			new NotAvailableTeacher();
+			mainFrame.dispose();
+		} else if (e.getSource() == reports) {
+			new NotAvailableTeacher();
+			mainFrame.dispose();
+		} else if (e.getSource() == quizzes) {
+			new NotAvailableTeacher();
+			mainFrame.dispose();
+		} else if (e.getSource() == bank) {
+			new NotAvailableTeacher();
+			mainFrame.dispose();
+		} else if (e.getSource() == gradedDiscussion) {
+			new NotAvailableTeacher();
+			mainFrame.dispose();
+		} else if (e.getSource() == moderateDiscussion) {
+			new NotAvailableTeacher();
+			mainFrame.dispose();
+		} else if (e.getSource() == notifications) {
+			new NotAvailableTeacher();
 			mainFrame.dispose();
 		}
 	}

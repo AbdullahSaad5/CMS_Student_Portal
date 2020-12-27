@@ -14,7 +14,7 @@ public class NotAvailableSubject extends Subject_Window{
 		supportPanel.add(dataLabel);
 		dataLabel.setForeground(new Color(0x474747));
 		dataLabel.setFont(new Font("Roboto", Font.PLAIN, 13));
-		dataLabel.setBounds(470, 105, 190, 15);
+		dataLabel.setBounds(470, 140, 190, 15);
 		
 
 		JLabel background = new JLabel();

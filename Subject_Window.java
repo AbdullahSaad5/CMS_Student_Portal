@@ -267,7 +267,7 @@ public class Subject_Window extends Student_Portal_Screen {
 			new NotAvailableSubject();
 			mainFrame.dispose();
 		} else if (e.getSource() == assignments) {
-			new NotAvailableSubject();
+			new Student_Assignment_GUI();
 			mainFrame.dispose();
 		} else if (e.getSource() == GDB) {
 			new NotAvailableSubject();

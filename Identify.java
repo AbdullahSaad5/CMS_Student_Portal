@@ -12,7 +12,7 @@ public class Identify extends Template implements ActionListener {
 	static Person account;
 	static boolean isTeacher = false;
 
-	public Identify() {
+	public Identify(){
 		mainPanel = new JPanel();
 		mainPanel.setPreferredSize(new Dimension(200, 200));
 		mainFrame.add(mainPanel, BorderLayout.CENTER);

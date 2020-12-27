@@ -12,9 +12,9 @@ public class Student_Profile extends Student_Portal_Screen {
 	JLabel semLabel, sem;
 	JLabel ageLabel, age;
 	JLabel gpaLabel, gpa;
-	JLabel homeLabel, home;
-	JLabel busLabel, bus;
-	JLabel emailLabel, email;
+	static JLabel homeLabel, home;
+	static JLabel busLabel, bus;
+	static JLabel emailLabel, email;
 	JLabel background;
 
 	Student curr;
@@ -29,7 +29,7 @@ public class Student_Profile extends Student_Portal_Screen {
 
 		detailsPanel = new JPanel();
 		mainPanel.add(detailsPanel);
-		detailsPanel.setBackground(new Color(0xEAEAEA));
+		detailsPanel.setBackground(Color.white);
 		detailsPanel.setLayout(null);
 		detailsPanel.setBounds(157, 157, 1053, 375);
 
