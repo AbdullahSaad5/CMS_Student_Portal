@@ -259,7 +259,7 @@ public class Teacher_Portal_Screen implements ActionListener {
 			new viewAllStudents();
 			mainFrame.dispose();
 		} else if (e.getSource() == assignments) {
-			new Teacher_Assignment_GUI();
+			new SeeSubmissions();
 			mainFrame.dispose();
 		} else if (e.getSource() == myDocs) {
 			new NotAvailableTeacher();

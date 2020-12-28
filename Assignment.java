@@ -8,17 +8,26 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Assignment implements Serializable{
+public class Assignment implements Serializable {
 	private Date startDate = new Date(22, 10, 2020);
 	private Date lastDate = new Date(22, 10, 2020);
 	private String title;
 	private float fileSize;
 	private String fileType;
 	private String teacherComment;
-	public Assignment() {}
 
-	public Assignment(Date startDate, Date lastDate, String title, String fileType,
-		String teacherComment) {
+	public Assignment() {
+	}
+	public Assignment(Assignment obj) {
+		this.startDate = obj.startDate;
+		this.lastDate = obj.lastDate;
+		this.title = obj.title;
+		this.fileSize = 2048;
+		this.fileType = obj.fileType;
+		this.teacherComment = obj.teacherComment;
+	}
+
+	public Assignment(Date startDate, Date lastDate, String title, String fileType, String teacherComment) {
 		this.startDate = startDate;
 		this.lastDate = lastDate;
 		this.title = title;
@@ -74,8 +83,7 @@ public class Assignment implements Serializable{
 	public void setTeacherComment(String teacherComment) {
 		this.teacherComment = teacherComment;
 	}
-	
-	
+
 	public static void issueAssignment(Assignment obj) {
 		ArrayList<Assignment> list = readAssignmentRecord();
 		list.add(obj);
@@ -87,7 +95,6 @@ public class Assignment implements Serializable{
 			System.out.println("File Error");
 		}
 	}
-	
 
 	public static ArrayList<Assignment> readAssignmentRecord() {
 		ArrayList<Assignment> list = new ArrayList<Assignment>();
@@ -111,24 +118,17 @@ public class Assignment implements Serializable{
 		}
 	}
 
-	public static void Update(String name, Date newDate) {
-		ArrayList<Assignment> S = readAssignmentRecord();
-
-		for (int i = 0; i < S.size(); i++) {
-			if (S.get(i).getTitle().equalsIgnoreCase(name)) {
-				S.get(i).setLastDate(newDate);
-				try (ObjectOutputStream outStream = new ObjectOutputStream(
-						new FileOutputStream("Assignment Record", false))) {
-					outStream.writeObject(S);
-				} catch (Exception e) {
-					System.out.println("File Error");
-				}
-				return;
-			}
+	public static void Update(Date newDate) {
+		ArrayList<Assignment> list = readAssignmentRecord();
+		list.get(0).setLastDate(newDate);
+		try (ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream("Assignment Record", false))) {
+			outStream.writeObject(list);
+		} catch (Exception e) {
+			System.out.println("File Error");
 		}
-		System.out.println("Not found");
+		return;
 	}
-	
+
 	public static void removeAssignments() {
 		ArrayList<Assignment> list = new ArrayList<Assignment>();
 		try {
@@ -139,5 +139,5 @@ public class Assignment implements Serializable{
 			System.out.println("File Error");
 		}
 	}
-	
+
 }

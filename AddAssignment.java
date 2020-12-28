@@ -189,7 +189,9 @@ public class AddAssignment implements MouseListener {
 //			}
 			else {
 				Assignment curr = new Assignment(startDate, endDate, title, fileType, teacherComment);
+				Teacher_Assignment_GUI.currAssignment = new Assignment(curr);
 				Assignment.issueAssignment(curr);
+				JOptionPane.showMessageDialog(null, "Assignment Issued Successfully!");
 				frame.dispose();
 			}
 		} else if (e.getSource() == pdf) {

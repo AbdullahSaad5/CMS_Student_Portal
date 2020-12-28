@@ -89,11 +89,13 @@ public class Student_Assignment_GUI extends Subject_Window implements MouseListe
 		} else {
 			curr = list.get(0);
 			numberLabel = new JLabel("1");
+			numberLabel.setFont(new Font("Roboto", Font.BOLD, 12));
 			numberLabel.setHorizontalAlignment(JLabel.CENTER);
 			numberLabel.setBounds(0, 35, 25, 25);
 			supportPanel.add(numberLabel);
 
 			titleLabel = new JLabel(curr.getTitle());
+			titleLabel.setFont(new Font("Roboto", Font.BOLD, 12));
 			titleLabel.setHorizontalAlignment(JLabel.CENTER);
 			titleLabel.setBounds(26, 35, 132, 25);
 			supportPanel.add(titleLabel);
@@ -101,35 +103,38 @@ public class Student_Assignment_GUI extends Subject_Window implements MouseListe
 			startDateLabel = new JLabel(curr.getStartDate().getDay() + "/" + curr.getStartDate().getMonth() + "/"
 					+ curr.getStartDate().getYear());
 			startDateLabel.setHorizontalAlignment(JLabel.CENTER);
+			startDateLabel.setFont(new Font("Roboto", Font.BOLD, 12));
 			startDateLabel.setBounds(159, 35, 144, 25);
 			supportPanel.add(startDateLabel);
 
 			endDateLabel = new JLabel(curr.getLastDate().getDay() + "/" + curr.getLastDate().getMonth() + "/"
 					+ curr.getLastDate().getYear());
 			endDateLabel.setHorizontalAlignment(JLabel.CENTER);
+			endDateLabel.setFont(new Font("Roboto", Font.BOLD, 12));
 			endDateLabel.setBounds(304, 35, 151, 25);
 			supportPanel.add(endDateLabel);
 
 			fileSizeLabel = new JLabel(curr.getFileSize() + "KBs");
+			fileSizeLabel.setFont(new Font("Roboto", Font.BOLD, 12));
 			fileSizeLabel.setHorizontalAlignment(JLabel.CENTER);
 			fileSizeLabel.setBounds(456, 35, 73, 25);
 			supportPanel.add(fileSizeLabel);
 
 			String fileType = curr.getFileType();
 			if (fileType.equalsIgnoreCase("word")) {
-				fileTypeLabel = new JLabel(new ImageIcon(getClass().getResource("/CMS_Icons/Additional Icons/word.png")));
-			}
-			else if(fileType.equalsIgnoreCase("ppt")) {
-				fileTypeLabel = new JLabel(new ImageIcon(getClass().getResource("/CMS_Icons/Additional Icons/powerpoint.png")));
-			}
-			else {
-				fileTypeLabel = new JLabel(new ImageIcon(getClass().getResource("/CMS_Icons/Additional Icons/pdf.png")));
+				fileTypeLabel = new JLabel(
+						new ImageIcon(getClass().getResource("/CMS_Icons/Additional Icons/word.png")));
+			} else if (fileType.equalsIgnoreCase("ppt")) {
+				fileTypeLabel = new JLabel(
+						new ImageIcon(getClass().getResource("/CMS_Icons/Additional Icons/powerpoint.png")));
+			} else {
+				fileTypeLabel = new JLabel(
+						new ImageIcon(getClass().getResource("/CMS_Icons/Additional Icons/pdf.png")));
 			}
 			fileTypeLabel.setHorizontalAlignment(JLabel.CENTER);
 			fileTypeLabel.setBounds(530, 35, 89, 32);
 			supportPanel.add(fileTypeLabel);
 
-			
 			download = new JButton(new ImageIcon(getClass().getResource("/CMS_Icons/Additional Icons/download.png")));
 			download.setText("Download");
 			download.setFont(new Font("Roboto", Font.BOLD, 12));
@@ -139,8 +144,7 @@ public class Student_Assignment_GUI extends Subject_Window implements MouseListe
 			download.setBorder(null);
 			download.addMouseListener(this);
 			supportPanel.add(download);
-			
-			
+
 			upload = new JButton(new ImageIcon(getClass().getResource("/CMS_Icons/Additional Icons/upload.png")));
 			upload.setText("Upload");
 			upload.setFont(new Font("Roboto", Font.BOLD, 12));
@@ -150,7 +154,6 @@ public class Student_Assignment_GUI extends Subject_Window implements MouseListe
 			upload.setBorder(null);
 			upload.addMouseListener(this);
 			supportPanel.add(upload);
-			
 
 			showComment = new JButton();
 			showComment.setText("Show Comment");
@@ -177,7 +180,10 @@ public class Student_Assignment_GUI extends Subject_Window implements MouseListe
 			Submissions.writeSubmissionRecord(currStudent.getRegNo());
 			upload.setText("Submitted");
 			upload.setForeground(new Color(0x357720));
-			upload.removeMouseListener(this);;
+			upload.removeMouseListener(this);
+			;
+		} else if (e.getSource() == download) {
+			JOptionPane.showMessageDialog(null, "Downlaod Not Allowed Right Now. Privacy Issues!");
 		} else {
 			super.mouseClicked(e);
 		}

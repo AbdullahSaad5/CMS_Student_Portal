@@ -66,4 +66,20 @@ public class Submissions implements Serializable {
 			System.out.println("File Error");
 		}
 	}
+	
+	public static String submissionData() {
+		String output1 = "\n\n\tStudents that have submitted the assignment are: \n";
+		String output2 = "\tStudents that have not submitted the assignment are: \n";
+		ArrayList<Student> list = Student.readStudentRecord();
+		for (Student s: list) {
+			if(checkSubmission(s.getRegNo())) {
+				output1 += "\t" + s.getRegNo() + "\n"; 
+			}
+			else {
+				output2 += "\t" + s.getRegNo() + "\n";
+ 			}
+		}
+		
+		return output1 + "\n" + output2; 
+	}
 }
