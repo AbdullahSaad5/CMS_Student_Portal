@@ -170,13 +170,27 @@ public class AddAssignment implements MouseListener {
 			String title = titleField.getText().strip();
 			String fileType = file;
 			String teacherComment = teacherCommentField.getText().strip();
-			if(Date.verifyDate(startDate) && Date.verifyDate(endDate) && Date.laterIsGreater(startDate, endDate)) {
+			if (!Date.verifyDate(startDate)) {
+				JOptionPane.showMessageDialog(null, "Invalid Start Date Entered. Try Again.");
+			} else if (!Date.verifyDate(endDate)) {
+				JOptionPane.showMessageDialog(null, "Invalid End Date Entered. Try Again.");
+
+			} else if (!Date.laterIsGreater(startDate, endDate)) {
+				JOptionPane.showMessageDialog(null, "Last Date should be greater than previous date");
+
+			} else if (title.isBlank()) {
+				JOptionPane.showMessageDialog(null, "Title cannot be blank. Try Again.");
+
+			}
+//			if(Date.verifyDate(startDate) && Date.verifyDate(endDate) && Date.laterIsGreater(startDate, endDate)) {
+//				Assignment curr = new Assignment(startDate, endDate, title, fileType, teacherComment);
+//				Assignment.issueAssignment(curr);
+//				frame.dispose();
+//			}
+			else {
 				Assignment curr = new Assignment(startDate, endDate, title, fileType, teacherComment);
 				Assignment.issueAssignment(curr);
 				frame.dispose();
-			}
-			else {
-				JOptionPane.showMessageDialog(null, "Invalid Assignment Data Entered. Try Again BITTCHHH!!!");
 			}
 		} else if (e.getSource() == pdf) {
 			pdf.setBackground(new Color(0xBDBDBD));

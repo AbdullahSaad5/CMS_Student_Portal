@@ -9,20 +9,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Assignment implements Serializable{
-	private int serialNo;
 	private Date startDate = new Date(22, 10, 2020);
 	private Date lastDate = new Date(22, 10, 2020);
 	private String title;
-	private float fileSize;;
+	private float fileSize;
 	private String fileType;
 	private String teacherComment;
-	private static int assignmentNumber = 0;
-	
 	public Assignment() {}
 
 	public Assignment(Date startDate, Date lastDate, String title, String fileType,
 		String teacherComment) {
-		serialNo = ++assignmentNumber;
 		this.startDate = startDate;
 		this.lastDate = lastDate;
 		this.title = title;
@@ -91,6 +87,7 @@ public class Assignment implements Serializable{
 			System.out.println("File Error");
 		}
 	}
+	
 
 	public static ArrayList<Assignment> readAssignmentRecord() {
 		ArrayList<Assignment> list = new ArrayList<Assignment>();
@@ -98,6 +95,7 @@ public class Assignment implements Serializable{
 		try {
 			ObjectInputStream input = new ObjectInputStream(new FileInputStream("Assignment Record"));
 			list = (ArrayList<Assignment>) input.readObject();
+			input.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("File Not Found");
 		} catch (Exception e) {
@@ -111,34 +109,6 @@ public class Assignment implements Serializable{
 		for (Assignment Assignment : list) {
 			System.out.println(Assignment.getTitle());
 		}
-	}
-
-	public static boolean search(String name) {
-		ArrayList<Assignment> list = readAssignmentRecord();
-		for (Assignment s : list) {
-			if (s.getTitle().equalsIgnoreCase(name)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public static void Delete(String name) {
-		assignmentNumber--;
-		ArrayList<Assignment> S = readAssignmentRecord();
-		for (Assignment s : S) {
-			if (s.getTitle().equalsIgnoreCase(name)) {
-				S.remove(s);
-				try (ObjectOutputStream outStream = new ObjectOutputStream(
-						new FileOutputStream("Assignment Record", false))) {
-					outStream.writeObject(S);
-				} catch (Exception e) {
-					System.out.println("File Error");
-				}
-				return;
-			}
-		}
-		System.out.println("Not found");
 	}
 
 	public static void Update(String name, Date newDate) {
@@ -157,6 +127,17 @@ public class Assignment implements Serializable{
 			}
 		}
 		System.out.println("Not found");
+	}
+	
+	public static void removeAssignments() {
+		ArrayList<Assignment> list = new ArrayList<Assignment>();
+		try {
+			ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("Assignment Record"));
+			output.writeObject(list);
+			output.close();
+		} catch (Exception e) {
+			System.out.println("File Error");
+		}
 	}
 	
 }

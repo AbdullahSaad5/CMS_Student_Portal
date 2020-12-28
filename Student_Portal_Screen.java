@@ -11,6 +11,7 @@ public class Student_Portal_Screen implements MouseListener {
 	JButton dashboard, regCard, fees, resultCard, profile, logOut;
 	JLabel welcome, footerText;
 	static boolean regBool, feesBool, resultBool;
+	Student currStudent;
 
 	public Student_Portal_Screen() {
 		mainFrame = new JFrame();
@@ -32,12 +33,12 @@ public class Student_Portal_Screen implements MouseListener {
 		welcomePanel.setLayout(null);
 		mainPanel.add(welcomePanel);
 
-//		Student curr = (Student)Identify.account;
-//		welcome = new JLabel("Welcome: CIIT//" + curr.getRegNo() + "/ISB");
-//		welcome.setBounds(157, 6, 250, 15);
-//		welcome.setForeground(Color.WHITE);
-//		welcome.setFont(new Font("Roboto", Font.BOLD, 15));
-//		welcomePanel.add(welcome);
+		currStudent = (Student)Identify.account;
+		welcome = new JLabel("Welcome: CIIT//" + currStudent.getRegNo() + "/ISB");
+		welcome.setBounds(157, 6, 250, 15);
+		welcome.setForeground(Color.WHITE);
+		welcome.setFont(new Font("Roboto", Font.BOLD, 15));
+		welcomePanel.add(welcome);
 
 		footerPanel = new JPanel();
 		footerPanel.setBackground(new Color(0x1E1F4A));

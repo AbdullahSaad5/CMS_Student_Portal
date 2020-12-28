@@ -95,7 +95,7 @@ public class Login extends Template implements ActionListener, MouseListener {
 		} else if (e.getSource() == loginButton && Identify.isTeacher) {
 			Teacher curr = getAccountT();
 			if (curr != null) {
-				Identify.account = curr;
+				Identify.account = new Teacher(curr);
 				new LoadingScreen();
 				mainFrame.dispose();
 
@@ -107,7 +107,7 @@ public class Login extends Template implements ActionListener, MouseListener {
 		} else if (e.getSource() == loginButton && !Identify.isTeacher) {
 			Student curr = getAccountS();
 			if (curr != null) {
-				Identify.account = curr;
+				Identify.account = new Student(curr);
 				new LoadingScreen();
 				mainFrame.dispose();
 			}

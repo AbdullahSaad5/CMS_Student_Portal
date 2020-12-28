@@ -38,12 +38,12 @@ public class Student_Profile extends Student_Portal_Screen {
 		mainLabel.setBounds(13, 17, 180, 30);
 		detailsPanel.add(mainLabel);
 
-		mainLabel2 = new JLabel("Profile Update:");
+		mainLabel2 = new JLabel("Profile Settings:");
 		mainLabel2.setFont(new Font("Roboto", Font.BOLD, 25));
 		mainLabel2.setBounds(800, 17, 200, 30);
 		detailsPanel.add(mainLabel2);
 
-		profileUpdate = new JButton("Profile Settings");
+		profileUpdate = new JButton("Profile Update");
 		profileUpdate.setBounds(842, 106, 140, 30);
 		profileUpdate.setFont(new Font("Roboto", Font.BOLD, 20));
 		profileUpdate.setForeground(new Color(0xFFA726));

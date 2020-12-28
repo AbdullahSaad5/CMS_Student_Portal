@@ -3,7 +3,7 @@ package CMS_Student_Portal;
 
 public class Runner {
 	public static void main(String[] args) {
-		new Teacher_Portal_Screen();
+		new Identify();
 
 	}
 }

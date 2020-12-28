@@ -122,11 +122,11 @@ public class Student extends Person implements Serializable {
 		ArrayList<Student> output = new ArrayList<Student>(10);
 		for (Student s : list) {
 			String studentName = s.getName();
-			if(studentName.equalsIgnoreCase(name)) {
+			if (studentName.equalsIgnoreCase(name)) {
 				output.add(s);
 				continue;
 			}
-			//-----------
+			// -----------
 			String[] names = studentName.split(" ");
 			for (String part : names) {
 				if (part.equalsIgnoreCase(name)) {
@@ -138,17 +138,17 @@ public class Student extends Person implements Serializable {
 		}
 		return output;
 	}
-	
+
 	public static String searchAdvancedString(String name) {
 		ArrayList<Student> list = readStudentRecord();
 		ArrayList<Student> output = new ArrayList<Student>(10);
 		for (Student s : list) {
 			String studentName = s.getName();
-			if(studentName.equalsIgnoreCase(name)) {
+			if (studentName.equalsIgnoreCase(name)) {
 				output.add(s);
 				continue;
 			}
-			//-----------
+			// -----------
 			String[] names = studentName.split(" ");
 			for (String part : names) {
 				if (part.equalsIgnoreCase(name)) {
@@ -160,7 +160,7 @@ public class Student extends Person implements Serializable {
 		String outputString = "";
 		outputString += "\n\n";
 		int count = 1;
-		if(output.size() == 0) {
+		if (output.size() == 0) {
 			return "\n\n\tNo Search Record Found";
 		}
 		for (Student s : output) {
@@ -179,7 +179,7 @@ public class Student extends Person implements Serializable {
 			count++;
 		}
 		return outputString;
-		
+
 	}
 
 	public static void Delete(String name) {
