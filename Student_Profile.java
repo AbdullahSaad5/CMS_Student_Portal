@@ -21,7 +21,7 @@ public class Student_Profile extends Student_Portal_Screen {
 	JButton profileUpdate, profileDelete;
 
 	public Student_Profile() {
-		profile.setBackground(new Color(0x13A89E));
+		profile.setBackground(Color.white);
 		profile.setForeground(Color.WHITE);
 
 		curr = new Student((Student) Identify.account);

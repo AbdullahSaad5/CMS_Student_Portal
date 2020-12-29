@@ -109,4 +109,32 @@ public class Teacher extends Person implements Serializable {
 		}
 		System.out.println("Not found");
 	}
+	
+	public static void Update(String name, String message, int choice) {
+		ArrayList<Teacher> S = readTeacherRecord();
+
+		for (int i = 0; i < S.size(); i++) {
+			if (S.get(i).getUsername().equals(name)) {
+				if (choice == 1) {
+					S.get(i).setUsername(message);
+				} else if (choice == 2) {
+					S.get(i).setPassword(message);
+				} else if (choice == 3) {
+					S.get(i).setEmail(message);
+				} else if (choice == 4) {
+					S.get(i).setQualification(message);
+				} else if (choice == 5) {
+					S.get(i).setExperience(message);
+				}
+				break;
+			}
+		}
+
+		try {
+			ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream("Teacher Record"));
+			outStream.writeObject(S);
+		} catch (Exception e) {
+			System.out.println("File Error");
+		}
+	}
 }

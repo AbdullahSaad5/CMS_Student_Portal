@@ -132,11 +132,11 @@ public class Teacher_Signup extends Template implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		boolean correct = true;
-		name = nameField.getText().strip();
-		field = fieldField.getText().strip();
-		experience = experienceField.getText().strip();
-		age = ageField.getText().strip();
-		qualification = qualificationField.getText().strip();
+		name = nameField.getText().strip().toUpperCase();
+		field = fieldField.getText().strip().toUpperCase();
+		experience = experienceField.getText().strip().toUpperCase();
+		age = ageField.getText().strip().toUpperCase();
+		qualification = qualificationField.getText().strip().toUpperCase();
 		email = emailField.getText().strip();
 		if (e.getSource() == submit) {
 			if (name.isBlank() || field.isBlank() || experience.isBlank() || age.isBlank() || qualification.isBlank()

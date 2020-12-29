@@ -18,6 +18,7 @@ public class Assignment implements Serializable {
 
 	public Assignment() {
 	}
+
 	public Assignment(Assignment obj) {
 		this.startDate = obj.startDate;
 		this.lastDate = obj.lastDate;
@@ -111,10 +112,20 @@ public class Assignment implements Serializable {
 		return list;
 	}
 
-	public static void display() {
+	public static String display() {
 		ArrayList<Assignment> list = readAssignmentRecord();
-		for (Assignment Assignment : list) {
-			System.out.println(Assignment.getTitle());
+		String output = "";
+		if (list.size() != 0) {
+			output += "\n\n\tTitle: " + list.get(0).getTitle() + "\n";
+			output += "\tFile Type: " + list.get(0).getFileType() + "\n";
+			output += "\tTeacher Comment: " + list.get(0).getTeacherComment() + "\n";
+			output += "\tStart Date: " + list.get(0).getStartDate().getDay() + ", "
+					+ list.get(0).getStartDate().getMonth() + ", " + list.get(0).getStartDate().getYear() + "\n";
+			output += "\tLast Date: " + list.get(0).getLastDate().getDay() + ", " + list.get(0).getLastDate().getMonth()
+					+ ", " + list.get(0).getLastDate().getYear();
+			return output;
+		} else {
+			return "\n\n\t No Assignment Assigned";
 		}
 	}
 

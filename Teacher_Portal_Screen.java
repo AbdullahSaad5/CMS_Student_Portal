@@ -46,13 +46,13 @@ public class Teacher_Portal_Screen implements ActionListener {
 		logout.addActionListener(this);
 		logoutPanel.add(logout);
 
-//		Teacher curr = (Teacher)Identify.account;
-//		JLabel welcome = new JLabel("Welcome: " + curr.getName() + "(Campus-ISB)");
-//		welcome.setBounds(753, 10, 400, 15);
-//		welcome.setHorizontalAlignment(JLabel.TRAILING);
-//		welcome.setForeground(Color.WHITE);
-//		welcome.setFont(new Font("Roboto", Font.BOLD, 15));
-//		logoutPanel.add(welcome);
+		Teacher curr = (Teacher)Identify.account;
+		JLabel welcome = new JLabel("Welcome: " + curr.getName() + "(Campus-ISB)");
+		welcome.setBounds(753, 10, 400, 15);
+		welcome.setHorizontalAlignment(JLabel.TRAILING);
+		welcome.setForeground(Color.WHITE);
+		welcome.setFont(new Font("Roboto", Font.BOLD, 15));
+		logoutPanel.add(welcome);
 
 		// Adding dashboard button
 		home = new JButton();

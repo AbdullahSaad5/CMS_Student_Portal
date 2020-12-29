@@ -18,7 +18,9 @@ public class SeeSubmissions extends Teacher_Assignment_GUI {
 		subs.setEditable(false);
 		subs.setAutoscrolls(true);
 		subs.setFont(new Font("Roboto", Font.ITALIC, 15));
-		subs.setText(Submissions.submissionData());
+		String output1 = Assignment.display();
+		String output2 = Submissions.submissionData();
+		subs.setText(output1 + "\n\n" + output2);
 		System.out.println(Submissions.submissionData());
 
 		sc = new JScrollPane(subs, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,

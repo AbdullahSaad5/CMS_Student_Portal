@@ -110,7 +110,7 @@ public class Teacher_Assignment_GUI extends Teacher_Portal_Screen implements Mou
 			}
 		}
 		else if(e.getSource() == modifyAssignment) {
-			new ModifyAssignment();
+			new ModifyAssignment(); 
 		}
 
 	}
