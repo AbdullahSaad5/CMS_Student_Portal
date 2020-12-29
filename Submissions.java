@@ -27,6 +27,7 @@ public class Submissions implements Serializable {
 		try {
 			ObjectInputStream input = new ObjectInputStream(new FileInputStream("Submission Record"));
 			list = (ArrayList<String>) input.readObject();
+			input.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("File Not Found");
 		} catch (Exception e) {

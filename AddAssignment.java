@@ -1,6 +1,5 @@
 package CMS_Student_Portal;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
@@ -182,11 +181,6 @@ public class AddAssignment implements MouseListener {
 				JOptionPane.showMessageDialog(null, "Title cannot be blank. Try Again.");
 
 			}
-//			if(Date.verifyDate(startDate) && Date.verifyDate(endDate) && Date.laterIsGreater(startDate, endDate)) {
-//				Assignment curr = new Assignment(startDate, endDate, title, fileType, teacherComment);
-//				Assignment.issueAssignment(curr);
-//				frame.dispose();
-//			}
 			else {
 				Assignment curr = new Assignment(startDate, endDate, title, fileType, teacherComment);
 				Teacher_Assignment_GUI.currAssignment = new Assignment(curr);

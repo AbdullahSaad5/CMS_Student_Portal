@@ -68,6 +68,7 @@ public class Teacher extends Person implements Serializable {
 		try {
 			ObjectInputStream input = new ObjectInputStream(new FileInputStream("Teacher Record"));
 			list2 = (ArrayList<Teacher>) input.readObject();
+			input.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("File Not Found");
 		} catch (Exception e) {
@@ -133,6 +134,7 @@ public class Teacher extends Person implements Serializable {
 		try {
 			ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream("Teacher Record"));
 			outStream.writeObject(S);
+			outStream.close();
 		} catch (Exception e) {
 			System.out.println("File Error");
 		}

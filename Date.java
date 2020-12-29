@@ -94,10 +94,10 @@ public class Date implements Serializable {
 		if(obj1.getDay() <= obj2.getDay() && obj1.getMonth() <= obj2.getMonth() && obj1.getYear() <= obj2.getYear()) {
 			return true;
 		}
-		else if(obj1.getMonth() <= obj2.getMonth() && obj1.getYear() <= obj2.getYear()) {
+		else if(obj1.getMonth() < obj2.getMonth() && obj1.getYear() <= obj2.getYear()) {
 			return true;
 		}
-		else if(obj1.getYear() <= obj2.getYear()){
+		else if(obj1.getYear() < obj2.getYear()){
 			return true;
 		}
 		else {
