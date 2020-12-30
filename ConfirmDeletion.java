@@ -21,6 +21,8 @@ public class ConfirmDeletion implements ActionListener {
 		confirmFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		confirmFrame.setLayout(null);
 		confirmFrame.getContentPane().setBackground(new Color(0xEF5350));
+		confirmFrame.setIconImage(new ImageIcon(getClass().getResource("/CMS_Student_Portal/WindowIcon.png")).getImage());
+
 
 		warning = new JLabel("Enter Your Password To Continue: ");
 		warning.setFont(new Font("Roboto", Font.BOLD, 17));

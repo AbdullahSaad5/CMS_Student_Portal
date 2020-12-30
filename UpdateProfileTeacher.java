@@ -23,6 +23,8 @@ public class UpdateProfileTeacher implements MouseListener {
 		mainFrame.setDefaultCloseOperation(mainFrame.DISPOSE_ON_CLOSE);
 		mainFrame.setLayout(null);
 		mainFrame.getContentPane().setBackground(new Color(0x4CAF50));
+		mainFrame.setIconImage(new ImageIcon(getClass().getResource("/CMS_Student_Portal/WindowIcon.png")).getImage());
+
 
 		mainLabel = new JLabel("Profile Update Menu");
 		mainLabel.setBounds(78, 39, 277, 35);

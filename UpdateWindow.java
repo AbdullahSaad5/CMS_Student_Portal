@@ -22,6 +22,8 @@ public class UpdateWindow implements ActionListener {
 		updateFrame.setDefaultCloseOperation(updateFrame.DISPOSE_ON_CLOSE);
 		updateFrame.setLayout(null);
 		updateFrame.getContentPane().setBackground(new Color(0x4CAF50));
+		updateFrame.setIconImage(new ImageIcon(getClass().getResource("/CMS_Student_Portal/WindowIcon.png")).getImage());
+
 
 		message = new JLabel("Enter New Information To Continue: ");
 		message.setFont(new Font("Roboto", Font.BOLD, 17));

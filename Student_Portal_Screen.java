@@ -21,6 +21,8 @@ public class Student_Portal_Screen implements MouseListener {
 		mainFrame.setTitle("CUOnline Portal Desktop Version");
 		mainFrame.setLayout(new BorderLayout());
 		mainFrame.setLocationRelativeTo(null);
+		mainFrame.setIconImage(new ImageIcon(getClass().getResource("/CMS_Student_Portal/WindowIcon.png")).getImage());
+
 
 		mainPanel = new JPanel();
 		mainPanel.setBackground(new Color(0x1F2C4F));
@@ -34,6 +36,8 @@ public class Student_Portal_Screen implements MouseListener {
 		mainPanel.add(welcomePanel);
 
 		currStudent = (Student)Identify.account;
+		
+		
 		welcome = new JLabel("Welcome: CIIT//" + currStudent.getRegNo() + "/ISB");
 		welcome.setBounds(157, 6, 250, 15);
 		welcome.setForeground(Color.WHITE);

@@ -1,8 +1,6 @@
 package CMS_Student_Portal;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -21,6 +19,8 @@ public class SearchStudent {
 		frame.setDefaultCloseOperation(frame.DISPOSE_ON_CLOSE);
 		frame.setLayout(null);
 		frame.getContentPane().setBackground(Color.white);
+		frame.setIconImage(new ImageIcon(getClass().getResource("/CMS_Student_Portal/WindowIcon.png")).getImage());
+
 		
 		label = new JLabel(new ImageIcon(getClass().getResource("/CMS_Icons/Additional Icons/search.png")));
 		label.setText("Search Results");

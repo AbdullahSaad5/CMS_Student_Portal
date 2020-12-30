@@ -27,7 +27,7 @@ public class AddAssignment implements MouseListener {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(frame.DISPOSE_ON_CLOSE);
 		frame.setLayout(null);
-//		frame.getContentPane().setBackground(new Color(0x4CAF50));
+		frame.setIconImage(new ImageIcon(getClass().getResource("/CMS_Student_Portal/WindowIcon.png")).getImage());
 
 		success = new JLabel("");
 		frame.add(success);
@@ -85,9 +85,6 @@ public class AddAssignment implements MouseListener {
 		fileTypeLabel.setFont(new Font("Roboto", Font.BOLD, 15));
 		fileTypeLabel.setBounds(70, 310, 100, 20);
 
-//		fileTypeField = new JTextField();
-//		frame.add(fileTypeField);
-//		fileTypeField.setBounds(200, 250, 150, 20);
 		ButtonGroup group = new ButtonGroup();
 		ppt = new JRadioButton(new ImageIcon(getClass().getResource("/CMS_Icons/Additional Icons/powerpoint.png")));
 		ppt.setText("PPT");
@@ -180,12 +177,12 @@ public class AddAssignment implements MouseListener {
 			} else if (title.isBlank()) {
 				JOptionPane.showMessageDialog(null, "Title cannot be blank. Try Again.");
 
-			}
-			else {
+			} else {
 				Assignment curr = new Assignment(startDate, endDate, title, fileType, teacherComment);
 				Teacher_Assignment_GUI.currAssignment = new Assignment(curr);
 				Assignment.issueAssignment(curr);
 				JOptionPane.showMessageDialog(null, "Assignment Issued Successfully!");
+				Teacher_Assignment_GUI.assigned = true;
 				frame.dispose();
 			}
 		} else if (e.getSource() == pdf) {

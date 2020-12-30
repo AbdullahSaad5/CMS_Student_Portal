@@ -19,6 +19,8 @@ public class LoadingScreen implements ActionListener {
 		mainFrame.setTitle("CUOnline Portal Desktop Version");
 		mainFrame.getContentPane().setBackground(Color.WHITE);
 		mainFrame.setLayout(null);
+		mainFrame.setIconImage(new ImageIcon(getClass().getResource("/CMS_Student_Portal/WindowIcon.png")).getImage());
+
 
 		loading = new JLabel();
 		loading.setBounds(651, 312, 64, 64);

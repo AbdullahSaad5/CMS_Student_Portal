@@ -22,6 +22,7 @@ public class Template {
 		mainFrame.setTitle("CUOnline Portal Desktop Version");
 		mainFrame.setLayout(new BorderLayout());
 		mainFrame.setLocationRelativeTo(null);
+		mainFrame.setIconImage(new ImageIcon(getClass().getResource("/CMS_Student_Portal/WindowIcon.png")).getImage());
 
 		// Setting GUI
 		mainFrame.add(headerPanel, BorderLayout.NORTH);

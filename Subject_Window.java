@@ -3,7 +3,6 @@ package CMS_Student_Portal;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 public class Subject_Window extends Student_Portal_Screen {
 	JPanel supportPanel;
@@ -276,7 +275,7 @@ public class Subject_Window extends Student_Portal_Screen {
 			new NotAvailableSubject();
 			mainFrame.dispose();
 		} else if (e.getSource() == quizzes) {
-			new NotAvailableSubject();
+			new Student_Quiz_GUI();
 			mainFrame.dispose();
 		} else if (e.getSource() == lectureContents) {
 			new NotAvailableSubject();

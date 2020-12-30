@@ -12,12 +12,12 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-public class ModifyAssignment implements ActionListener{
+public class ModifyQuiz implements ActionListener{
 	JFrame updateFrame;
 	JLabel message;
 	JTextField text1, text2, text3;
 	JButton submit;
-	public ModifyAssignment() {
+	public ModifyQuiz() {
 		updateFrame = new JFrame();
 		updateFrame.setTitle("Update Information");
 		updateFrame.setResizable(false);
@@ -29,7 +29,7 @@ public class ModifyAssignment implements ActionListener{
 		updateFrame.setIconImage(new ImageIcon(getClass().getResource("/CMS_Student_Portal/WindowIcon.png")).getImage());
 
 
-		message = new JLabel("Enter New End Date To Continue: ");
+		message = new JLabel("Enter New End Time To Continue: ");
 		message.setFont(new Font("Roboto", Font.BOLD, 17));
 		message.setBounds(70, 39, 300, 21);
 		message.setForeground(Color.white);
@@ -58,17 +58,17 @@ public class ModifyAssignment implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(!Teacher_Assignment_GUI.assigned) {
-			JOptionPane.showMessageDialog(null, "No Assignment found to modify.");
+		if(!Teacher_Quiz_GUI.assigned) {
+			JOptionPane.showMessageDialog(null, "No Quiz found to modify.");
 		}
 		else {
-			Date endDate = new Date(Integer.parseInt(text1.getText()), Integer.parseInt(text2.getText()), Integer.parseInt(text3.getText()));
-			if(!Date.verifyDate(endDate)) {
-				JOptionPane.showMessageDialog(null, "Invalid Date Format Entered.");
+			Time endTime = new Time(Integer.parseInt(text1.getText()), Integer.parseInt(text2.getText()), Integer.parseInt(text3.getText()));
+			if(!Time.verifyTime(endTime)) {
+				JOptionPane.showMessageDialog(null, "Invalid Time Format Entered.");
 			}
 			else {
-				Assignment.Update(endDate);
-				JOptionPane.showMessageDialog(null, "Assignment End Date Modified.");
+				Quiz.update(endTime);
+				JOptionPane.showMessageDialog(null, "Quiz End Time Modified.");
 				updateFrame.dispose();
 			}
 		}

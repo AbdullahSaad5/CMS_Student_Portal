@@ -5,11 +5,11 @@ import java.awt.Font;
 
 import javax.swing.*;
 
-public class SeeSubmissions extends Teacher_Assignment_GUI {
+public class SeeSubmissionsAssignment extends Teacher_Assignment_GUI {
 	JTextArea subs;
 	JScrollPane sc;
 
-	public SeeSubmissions() {
+	public SeeSubmissionsAssignment() {
 		mainLabel.setText("See Submissions");
 
 		infoPanel.add(mainLabel);
@@ -19,9 +19,8 @@ public class SeeSubmissions extends Teacher_Assignment_GUI {
 		subs.setAutoscrolls(true);
 		subs.setFont(new Font("Roboto", Font.ITALIC, 15));
 		String output1 = Assignment.display();
-		String output2 = Submissions.submissionData();
+		String output2 = Assignment_Submissions.submissionData();
 		subs.setText(output1 + "\n\n" + output2);
-		System.out.println(Submissions.submissionData());
 
 		sc = new JScrollPane(subs, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);

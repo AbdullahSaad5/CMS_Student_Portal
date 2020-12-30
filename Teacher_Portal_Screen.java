@@ -21,6 +21,8 @@ public class Teacher_Portal_Screen implements ActionListener {
 		mainFrame.setTitle("CUOnline Portal Desktop Version");
 		mainFrame.setLayout(new BorderLayout());
 		mainFrame.setLocationRelativeTo(null);
+		mainFrame.setIconImage(new ImageIcon(getClass().getResource("/CMS_Student_Portal/WindowIcon.png")).getImage());
+
 
 		mainPanel = new JPanel();
 		mainPanel.setBackground(new Color(0x1E214A));
@@ -259,7 +261,7 @@ public class Teacher_Portal_Screen implements ActionListener {
 			new viewAllStudents();
 			mainFrame.dispose();
 		} else if (e.getSource() == assignments) {
-			new SeeSubmissions();
+			new SeeSubmissionsAssignment();
 			mainFrame.dispose();
 		} else if (e.getSource() == myDocs) {
 			new NotAvailableTeacher();
@@ -268,7 +270,7 @@ public class Teacher_Portal_Screen implements ActionListener {
 			new NotAvailableTeacher();
 			mainFrame.dispose();
 		} else if (e.getSource() == quizzes) {
-			new NotAvailableTeacher();
+			new SeeSubmissionsQuiz();
 			mainFrame.dispose();
 		} else if (e.getSource() == bank) {
 			new NotAvailableTeacher();

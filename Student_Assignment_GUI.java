@@ -80,7 +80,7 @@ public class Student_Assignment_GUI extends Subject_Window implements MouseListe
 		headingPanel.add(teacherComment);
 
 		ArrayList<Assignment> list = Assignment.readAssignmentRecord();
-		if (list.size() == 0 || Submissions.checkSubmission(currStudent.getRegNo())) {
+		if (list.size() == 0 || Assignment_Submissions.checkSubmission(currStudent.getRegNo())) {
 			dataLabel = new JLabel("No data available.");
 			supportPanel.add(dataLabel);
 			dataLabel.setForeground(new Color(0x474747));
@@ -177,7 +177,7 @@ public class Student_Assignment_GUI extends Subject_Window implements MouseListe
 			JOptionPane.showMessageDialog(null, curr.getTeacherComment());
 		} else if (e.getSource() == upload) {
 			JOptionPane.showMessageDialog(null, "Assignment Uploaded Successfully");
-			Submissions.writeSubmissionRecord(currStudent.getRegNo());
+			Assignment_Submissions.writeSubmissionRecord(currStudent.getRegNo());
 			upload.setText("Submitted");
 			upload.setForeground(new Color(0x357720));
 			upload.removeMouseListener(this);
