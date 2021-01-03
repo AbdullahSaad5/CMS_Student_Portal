@@ -49,15 +49,18 @@ public class ConfirmDeletion implements ActionListener {
 		if (Identify.isTeacher) {
 			if (passField.getText().equals(Identify.account.getPassword())) {
 				Teacher.Delete(Identify.account.getName());
-				System.out.println("Deleted");
+				Teacher_Assignment_GUI.assigned = false;
+				Assignment_Submissions.removeAllSubmissions();
+				Quiz_Submissions.removeAllSubmissions();
 				closingFrame.dispose();
+				Quiz.removeQuizzes();
+				Assignment.removeAssignments();
 				new Login();
 			}
 			confirmFrame.dispose();
 		} else {
 			if (passField.getText().equals(Identify.account.getPassword())) {
 				Student.Delete(Identify.account.getName());
-				System.out.println("Deleted");
 				closingFrame.dispose();
 				new Login();
 			}
